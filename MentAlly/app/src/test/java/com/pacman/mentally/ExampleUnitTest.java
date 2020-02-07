@@ -1,4 +1,4 @@
-package com.pacman.mentally;
+package com.pacman.MentAlly;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.pacman.mentally;
+package com.pacman.MentAlly;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.pacman.mentally", appContext.getPackageName());
+        assertEquals("com.pacman.MentAlly", appContext.getPackageName());
     }
 }
