@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1055750495058",
+    "firebase_url": "https://pacman-31459.firebaseio.com",
+    "project_id": "pacman-31459",
+    "storage_bucket": "pacman-31459.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055750495058:android:77d1590f9a52714c86b88b",
+        "android_client_info": {
+          "package_name": "com.pacman.MentAlly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055750495058-ic198ilh445viotk3ct31hn0as6rcfb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pacman.MentAlly",
+            "certificate_hash": "378156bc176cb0a1e85f9d3b58908c617843ae30"
+          }
+        },
+        {
+          "client_id": "1055750495058-tijbbs7t8r72pqe77d12fnl17tp07ng4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClSu4lQy7WfvAvVMQM89TVM8A8ts8mSx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055750495058-tijbbs7t8r72pqe77d12fnl17tp07ng4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
