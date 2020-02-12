@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/Viju/project-pacman/MentAlly/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/Viju/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/res/values-small-v4/values-small-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,128,198,270",
+                        "endColumns": "72,69,71,69",
+                        "endOffsets": "123,193,265,335"
+                    }
+                }
+            ]
+        }
+    ]
+}
