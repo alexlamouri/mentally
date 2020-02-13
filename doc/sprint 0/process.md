@@ -1,0 +1,7 @@
+#### **Process.md**
+
+Our team consists of seven members. We made a group on Facebook Messenger to communicate with each other. The first step was deciding on a time where everyone could meet. We used an online tool called *When2Meet* (https://www.when2meet.com/) where everyone inputs all the times they are available and the tool shows a time where everyone is available. Using the tool, we decided to meet every Thursday from 3pm-4pm in person. Specifically, for sprint 0, we met once a week for three weeks. The outlier being we met twice last week before the deadline to review and finalize our documents for sprint 0. We used Google Documents to take meeting minutes and communicate ideas. We are going to use Github for our project. 
+
+Additionally, we will be using Jira to keep track of our project progress. In terms of the decision making, a team member would come up with an idea. If we all liked and agreed with it, we would go and finalize it. However, if a team member disagreed with the idea, we would discuss for a few minutes and try to come up with an agreement. If that didn't work, we would take a vote and go with the majority. During the assignment of votes and priority of user stories, we all followed the decision making process described above. 
+
+For the next phase, we will improve our focus on the project as there were times where we would get distracted and talk about things other than the project. Additionally, we will be better organized as none of us booked a room for one of the meetings and we had difficulty finding a place to work.
