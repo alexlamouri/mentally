@@ -34,13 +34,13 @@ User stories:
 Spikes: Look into Firebase database usage to store user information
 
 Team Capacities:
-  Kavya: 7 hours
+  Kavya: 10 hours
   Fareeha:
-	Jasmine: 11.5 hourse
-	Malaika:
-	Viju:
-	Navya: 18.5 hours
-	Alex:
+  Jasmine: 11.5 hours
+  Malaika:
+  Viju:
+  Navya: 18.5 hours
+  Alex:
 
 Participants: Kavya, Fareeha, Jasmine, Malaika, Viju, Navya, Alex
 Everyone has participated: Yes
