@@ -2,7 +2,9 @@ package com.pacman.MentAlly.ui.register;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,28 +25,38 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RegisterViewModel registerViewModel;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private EditText usernameEditText;
+    private EditText passwordEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        registerViewModel = ViewModelProviders.of(this, new RegisterViewModelFactory())
+        registerViewModel = new ViewModelProvider(this, new RegisterViewModelFactory())
                 .get(RegisterViewModel.class);
 
-        //initialize cloud firestore database
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        //initialize cloud firestore database and authentication
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         final EditText nameEditText = findViewById(R.id.name);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
 
         final EditText DOBEditText = findViewById(R.id.DOB);
         final EditText countryEditText = findViewById(R.id.country);
@@ -77,25 +90,25 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        registerViewModel.getRegisterResult().observe(this, new Observer<RegisterResult>() {
-            @Override
-            public void onChanged(@Nullable RegisterResult registerResult) {
-                if (registerResult == null) {
-                    return;
-                }
-                loadingProgressBar.setVisibility(View.GONE);
-                if (registerResult.getError() != null) {
-                    showRegisterFailed(registerResult.getError());
-                }
-                if (registerResult.getSuccess() != null) {
-                    updateUiWithUser(registerResult.getSuccess());
-                }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy result activity once successful
-                finish();
-            }
-        });
+//        registerViewModel.getRegisterResult().observe(this, new Observer<RegisterResult>() {
+//            @Override
+//            public void onChanged(@Nullable RegisterResult registerResult) {
+//                if (registerResult == null) {
+//                    return;
+//                }
+//                loadingProgressBar.setVisibility(View.GONE);
+//                if (registerResult.getError() != null) {
+//                    showRegisterFailed(registerResult.getError());
+//                }
+//                if (registerResult.getSuccess() != null) {
+//                    updateUIWithUser(registerResult.getSuccess());
+//                }
+//                setResult(Activity.RESULT_OK);
+//
+//                //Complete and destroy result activity once successful
+//                finish();
+//            }
+//        });
 
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
@@ -129,20 +142,51 @@ public class RegisterActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                registerViewModel.register(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                        DOBEditText.getText().toString(), countryEditText.getText().toString());
-            }
-        });
+        registerButton.setOnClickListener(this);
+//        registerButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                loadingProgressBar.setVisibility(View.VISIBLE);
+//                registerViewModel.register(usernameEditText.getText().toString(),
+//                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+//                        DOBEditText.getText().toString(), countryEditText.getText().toString());
+//            }
+//        });
     }
 
-    private void updateUiWithUser(RegisteredUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
+    public void createAccount(String email, String password) {
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            return;
+        }
+        // START create_user_with_email
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUIWithUser(user);
+                } else {
+                    Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_SHORT).show();
+                    updateUIWithUser(null);
+                }
+            }
+        });
+        // END create_user_with_email
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.register) {
+            createAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString());
+        }
+    }
+
+    private void updateUIWithUser(FirebaseUser user) {
+        if (user == null) {
+            return;
+        }
+        String welcome = getString(R.string.welcome) + user.getEmail();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }

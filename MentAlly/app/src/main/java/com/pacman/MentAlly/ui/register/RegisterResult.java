@@ -26,6 +26,6 @@ class RegisterResult {
 
     @Nullable
     Integer getError() {
-        return error;
+        return this.error;
     }
 }

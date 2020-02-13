@@ -6,220 +6,220 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="28"
-8-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml
+8-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml
+9-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:5:5-67
-11-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:5:22-64
+11-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:5:22-64
 12
 13    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
 14    <!-- <uses-sdk android:minSdkVersion="14" /> -->
 15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-15-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:13:5-79
-15-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:13:22-76
+15-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:13:5-79
+15-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:13:22-76
 16    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-16-->[com.google.android.gms:play-services-measurement-api:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:24:5-68
-16-->[com.google.android.gms:play-services-measurement-api:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:24:22-65
+16-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\3d8bed9a53529358f2c71b6407804b7b\play-services-measurement-api-17.2.2\AndroidManifest.xml:24:5-68
+16-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\3d8bed9a53529358f2c71b6407804b7b\play-services-measurement-api-17.2.2\AndroidManifest.xml:24:22-65
 17    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-17-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:26:5-82
-17-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:26:22-79
+17-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:26:5-82
+17-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:26:22-79
 18    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-18-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:26:5-110
-18-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:26:22-107
+18-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:26:5-110
+18-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:26:22-107
 19
 20    <application
-20-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:7:5-27:19
+20-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:7:5-27:19
 21        android:allowBackup="true"
-21-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:8:9-35
+21-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:8:9-35
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.1.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/331630a23dfa1f0594bcf54d5352aa36/core-1.1.0/AndroidManifest.xml:24:18-86
+22-->[androidx.core:core:1.1.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\331630a23dfa1f0594bcf54d5352aa36\core-1.1.0\AndroidManifest.xml:24:18-86
 23        android:debuggable="true"
 24        android:icon="@mipmap/ic_launcher"
-24-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:9:9-43
+24-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:9:9-43
 25        android:label="@string/app_name"
-25-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:10:9-41
+25-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:10:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:11:9-54
+26-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
-27-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:12:9-35
+27-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:12:9-35
 28        android:testOnly="true"
 29        android:theme="@style/AppTheme" >
-29-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:13:9-40
+29-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:13:9-40
 30        <activity
-30-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:14:9-22:20
+30-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:14:9-22:20
 31            android:name="com.pacman.MentAlly.ui.register.RegisterActivity"
-31-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:15:13-57
+31-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:15:13-57
 32            android:label="Mentally" >
-32-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:16:13-37
+32-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:16:13-37
 33            <intent-filter>
-33-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:17:13-21:29
+33-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:17:13-21:29
 34                <action android:name="android.intent.action.MAIN" />
-34-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:18:17-69
-34-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:18:25-66
+34-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:18:17-69
+34-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:18:25-66
 35
 36                <category android:name="android.intent.category.LAUNCHER" />
-36-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:20:17-77
-36-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:20:27-74
+36-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:20:17-77
+36-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:20:27-74
 37            </intent-filter>
 38        </activity>
 39        <activity
-39-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:23:9-26:20
+39-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:23:9-26:20
 40            android:name="com.pacman.MentAlly.ui.login.LoginActivity"
-40-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:24:13-51
+40-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:24:13-51
 41            android:label="@string/app_name" >
-41-->/Users/Viju/project-pacman/MentAlly/app/src/main/AndroidManifest.xml:25:13-45
+41-->C:\Users\Fareeha\Desktop\School\Semester 2\CSC301\project-pacman\MentAlly\app\src\main\AndroidManifest.xml:25:13-45
 42        </activity>
 43
 44        <service
-44-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:17:9-23:19
+44-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:17:9-23:19
 45            android:name="com.google.firebase.components.ComponentDiscoveryService"
-45-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:18:13-84
+45-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:18:13-84
 46            android:directBootAware="true"
-46-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+46-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
 47            android:exported="false" >
-47-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:19:13-37
+47-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:19:13-37
 48            <meta-data
-48-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:20:13-22:85
+48-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:20:13-22:85
 49                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-49-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:21:17-111
+49-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:21:17-111
 50                android:value="com.google.firebase.components.ComponentRegistrar" />
-50-->[com.google.firebase:firebase-firestore:21.4.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/2c12d08a4eced38da1363c09d588ac1d/jetified-firebase-firestore-21.4.0/AndroidManifest.xml:22:17-82
+50-->[com.google.firebase:firebase-firestore:21.4.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\55984588fb2d6b10f69ecc9be7f8f326\jetified-firebase-firestore-21.4.0\AndroidManifest.xml:22:17-82
 51            <meta-data
-51-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:36:13-38:85
+51-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:36:13-38:85
 52                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-52-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:37:17-109
+52-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:37:17-109
 53                android:value="com.google.firebase.components.ComponentRegistrar" />
-53-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:38:17-82
+53-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:38:17-82
 54            <meta-data
-54-->[com.google.android.gms:play-services-measurement-api:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:30:13-32:85
+54-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\3d8bed9a53529358f2c71b6407804b7b\play-services-measurement-api-17.2.2\AndroidManifest.xml:30:13-32:85
 55                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-55-->[com.google.android.gms:play-services-measurement-api:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:31:17-139
+55-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\3d8bed9a53529358f2c71b6407804b7b\play-services-measurement-api-17.2.2\AndroidManifest.xml:31:17-139
 56                android:value="com.google.firebase.components.ComponentRegistrar" />
-56-->[com.google.android.gms:play-services-measurement-api:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/3d8bed9a53529358f2c71b6407804b7b/play-services-measurement-api-17.2.2/AndroidManifest.xml:32:17-82
+56-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\3d8bed9a53529358f2c71b6407804b7b\play-services-measurement-api-17.2.2\AndroidManifest.xml:32:17-82
 57            <meta-data
-57-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:32:13-34:85
+57-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:32:13-34:85
 58                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-58-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:33:17-96
+58-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:33:17-96
 59                android:value="com.google.firebase.components.ComponentRegistrar" />
-59-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:34:17-82
+59-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:34:17-82
 60        </service>
 61
 62        <activity
-62-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:24:9-31:50
+62-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:24:9-31:50
 63            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-63-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:25:13-85
+63-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:25:13-85
 64            android:excludeFromRecents="true"
-64-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:26:13-46
+64-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:26:13-46
 65            android:exported="true"
-65-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:27:13-36
+65-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:27:13-36
 66            android:launchMode="singleTask"
-66-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:28:13-44
+66-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:28:13-44
 67            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-67-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:29:13-102
+67-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:29:13-102
 68            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-68-->[com.google.firebase:firebase-auth:19.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/1569b356ae21c59997606b87853bf436/firebase-auth-19.2.0/AndroidManifest.xml:30:13-72
+68-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\1569b356ae21c59997606b87853bf436\firebase-auth-19.2.0\AndroidManifest.xml:30:13-72
 69
 70        <receiver
-70-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:37:9-44:20
+70-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
 71            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-71-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:38:13-78
+71-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
 72            android:exported="true"
-72-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:39:13-36
+72-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
 73            android:permission="com.google.android.c2dm.permission.SEND" >
-73-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:40:13-73
+73-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
 74            <intent-filter>
-74-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:41:13-43:29
+74-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
 75                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-75-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:42:17-81
-75-->[com.google.firebase:firebase-iid:20.0.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:42:25-78
+75-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
+75-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\946a39d7756c6b05aa38a853bdffc128\firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
 76            </intent-filter>
 77        </receiver>
 78
 79        <activity
-79-->[com.google.android.gms:play-services-base:17.1.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+79-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\6d206c10dfcd7e4d261b33c292c090cb\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
 80            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-80-->[com.google.android.gms:play-services-base:17.1.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+80-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\6d206c10dfcd7e4d261b33c292c090cb\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
 81            android:exported="false"
-81-->[com.google.android.gms:play-services-base:17.1.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+81-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\6d206c10dfcd7e4d261b33c292c090cb\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
 82            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-82-->[com.google.android.gms:play-services-base:17.1.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/6d206c10dfcd7e4d261b33c292c090cb/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+82-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\6d206c10dfcd7e4d261b33c292c090cb\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
 83
 84        <receiver
-84-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:29:9-33:20
+84-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:29:9-33:20
 85            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-85-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:30:13-85
+85-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:30:13-85
 86            android:enabled="true"
-86-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:31:13-35
+86-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:31:13-35
 87            android:exported="false" >
-87-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:32:13-37
+87-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:32:13-37
 88        </receiver>
 89        <receiver
-89-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:34:9-42:20
+89-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:34:9-42:20
 90            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-90-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:35:13-100
+90-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:35:13-100
 91            android:enabled="true"
-91-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:36:13-35
+91-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:36:13-35
 92            android:exported="true"
-92-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:37:13-36
+92-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:37:13-36
 93            android:permission="android.permission.INSTALL_PACKAGES" >
-93-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:38:13-69
+93-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:38:13-69
 94            <intent-filter>
-94-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:39:13-41:29
+94-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:39:13-41:29
 95                <action android:name="com.android.vending.INSTALL_REFERRER" />
-95-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:40:17-79
-95-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:40:25-76
+95-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:40:17-79
+95-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:40:25-76
 96            </intent-filter>
 97        </receiver>
 98
 99        <service
-99-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:44:9-47:40
+99-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:44:9-47:40
 100            android:name="com.google.android.gms.measurement.AppMeasurementService"
-100-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:45:13-84
+100-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:45:13-84
 101            android:enabled="true"
-101-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:46:13-35
+101-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:46:13-35
 102            android:exported="false" />
-102-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:47:13-37
+102-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:47:13-37
 103        <service
-103-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:48:9-52:72
+103-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:48:9-52:72
 104            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-104-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:49:13-87
+104-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:49:13-87
 105            android:enabled="true"
-105-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:50:13-35
+105-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:50:13-35
 106            android:exported="false"
-106-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:51:13-37
+106-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:51:13-37
 107            android:permission="android.permission.BIND_JOB_SERVICE" />
-107-->[com.google.android.gms:play-services-measurement:17.2.2] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ac2605da77983b497481f9e2091aefdd/play-services-measurement-17.2.2/AndroidManifest.xml:52:13-69
+107-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\ac2605da77983b497481f9e2091aefdd\play-services-measurement-17.2.2\AndroidManifest.xml:52:13-69
 108
 109        <provider
-109-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+109-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
 110            android:name="com.google.firebase.provider.FirebaseInitProvider"
-110-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+110-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
 111            android:authorities="com.pacman.MentAlly.firebaseinitprovider"
-111-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+111-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
 112            android:exported="false"
-112-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+112-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
 113            android:initOrder="100" />
-113-->[com.google.firebase:firebase-common:19.3.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/144edaacccf875af5264269f37f072d1/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+113-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\40b2a8d4df37e9839420471855a8dec0\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
 114
 115        <meta-data
-115-->[com.google.android.gms:play-services-basement:17.0.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ff79a17d715991fcc964f7e76e52b841/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+115-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\67fe99dd6bc9c6b0ebe73c2fe70ca162\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 116            android:name="com.google.android.gms.version"
-116-->[com.google.android.gms:play-services-basement:17.0.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ff79a17d715991fcc964f7e76e52b841/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+116-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\67fe99dd6bc9c6b0ebe73c2fe70ca162\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
 117            android:value="@integer/google_play_services_version" />
-117-->[com.google.android.gms:play-services-basement:17.0.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/ff79a17d715991fcc964f7e76e52b841/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+117-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\67fe99dd6bc9c6b0ebe73c2fe70ca162\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
 118
 119        <provider
-119-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+119-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\538e1bf036d9e31df32f9331477cf520\lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
 120            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-120-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+120-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\538e1bf036d9e31df32f9331477cf520\lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
 121            android:authorities="com.pacman.MentAlly.lifecycle-process"
-121-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+121-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\538e1bf036d9e31df32f9331477cf520\lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
 122            android:exported="false"
-122-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+122-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\538e1bf036d9e31df32f9331477cf520\lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
 123            android:multiprocess="true" />
-123-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/Viju/.gradle/caches/transforms-2/files-2.1/538e1bf036d9e31df32f9331477cf520/lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+123-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Fareeha\.gradle\caches\transforms-2\files-2.1\538e1bf036d9e31df32f9331477cf520\lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
 124    </application>
 125
 126</manifest>
