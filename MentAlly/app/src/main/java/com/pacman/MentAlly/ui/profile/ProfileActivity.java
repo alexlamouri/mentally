@@ -1,28 +1,34 @@
 package com.pacman.MentAlly.ui.profile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
 
 public class ProfileActivity extends AppCompatActivity {
-    Button profile_btn;
-    Button first_name_btn;
-    Button last_name_btn;
-    Button email_btn;
-    Button dob_btn;
-    Button country_btn;
-    Button password_btn;
+    private Button profile_btn;
+    private Button first_name_btn;
+    private Button last_name_btn;
+    private Button email_btn;
+    private Button dob_btn;
+    private Button country_btn;
+    private Button password_btn;
 
-    TextView first_name_txt;
-    TextView last_name_txt;
-    TextView email_txt;
-    TextView country_txt;
-    TextView dob_txt;
-    TextView password_txt;
+    private TextView first_name_txt;
+    private TextView last_name_txt;
+    private TextView email_txt;
+    private TextView country_txt;
+    private TextView dob_txt;
+    private TextView password_txt;
+
+    private FirebaseFirestore myDatabase;
 
 
 
@@ -61,6 +67,15 @@ public class ProfileActivity extends AppCompatActivity {
         password_txt = findViewById(R.id.password_textview);
         password_txt.getBackground().setAlpha(75);
 
-        first_name_txt.setText("Kavya");
+//        first_name_txt.setText("Kavya");
+
+        myDatabase = FirebaseFirestore.getInstance();
+
+        myDatabase.collection( s: "users").document( s: "KRqVZg5IUrhVmbiyvi0A0YYUUjA3").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>({
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
+            }
+        });
     }
 }
