@@ -25,6 +25,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -54,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText passwordEditText;
     private EditText DOBEditText;
     private EditText countryEditText;
+    private Spinner gender;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        // Setup dropdown list for gender
+        gender = findViewById(R.id.gender);
+        String[] genderList = new String[]{"Male", "Female", "Other", "Prefer not to specify"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, genderList);
+        gender.setAdapter(adapter);
+
+        // Get access to all user input components on UI
         nameEditText = findViewById(R.id.name);
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
@@ -113,12 +125,35 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void afterTextChanged(Editable s) {
                 registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                        DOBEditText.getText().toString(), countryEditText.getText().toString());
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
             }
         };
+
+        // Setup listeners for input field changes
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
+        DOBEditText.addTextChangedListener(afterTextChangedListener);
         registerButton.setOnClickListener(this);
+
+        gender.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
+            }
+
+        });
     }
 
     @Override

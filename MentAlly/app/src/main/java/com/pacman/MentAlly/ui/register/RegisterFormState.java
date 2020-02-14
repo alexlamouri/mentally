@@ -15,17 +15,20 @@ class RegisterFormState {
     @Nullable
     private Integer DOBError;
     @Nullable
+    private Integer genderError;
+    @Nullable
     private Integer countryError;
     private boolean isDataValid;
 
     RegisterFormState(@Nullable Integer usernameError, @Nullable Integer passwordError,
                       @Nullable Integer nameError, @Nullable Integer DOBError,
-                      @Nullable Integer countryError) {
+                      @Nullable Integer genderError, @Nullable Integer countryError) {
         this.usernameError = usernameError;
         this.passwordError = passwordError;
         this.nameError = nameError;
         this.countryError = countryError;
         this.DOBError = DOBError;
+        this.genderError = genderError;
         this.isDataValid = false;
     }
 
@@ -35,6 +38,7 @@ class RegisterFormState {
         this.nameError = null;
         this.countryError = null;
         this.DOBError = null;
+        this.genderError = null;
         this.isDataValid = isDataValid;
     }
 
@@ -61,6 +65,11 @@ class RegisterFormState {
     @Nullable
     Integer getCountryError() {
         return countryError;
+    }
+
+    @Nullable
+    Integer getGenderError() {
+        return genderError;
     }
 
     boolean isDataValid() {
