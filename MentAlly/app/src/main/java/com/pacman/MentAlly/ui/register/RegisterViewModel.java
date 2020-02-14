@@ -6,39 +6,19 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import com.pacman.MentAlly.data.RegisterRepository;
-import com.pacman.MentAlly.data.Result;
-import com.pacman.MentAlly.data.model.RegisteredUser;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 
 public class RegisterViewModel extends ViewModel {
 
     private MutableLiveData<RegisterFormState> registerFormState = new MutableLiveData<>();
-    private MutableLiveData<RegisterResult> registerResult = new MutableLiveData<>();
-    private RegisterRepository registerRepository;
 
-    RegisterViewModel(RegisterRepository registerRepository) {
-        this.registerRepository = registerRepository;
+    RegisterViewModel() {
     }
 
     LiveData<RegisterFormState> getRegisterFormState() {
         return registerFormState;
-    }
-
-    LiveData<RegisterResult> getRegisterResult() {
-        return registerResult;
-    }
-
-    public void register(String username, String password, String name, String DOB, String country) {
-        // can be launched in a separate asynchronous job
-        Result<RegisteredUser> result = registerRepository.register(username, password, name, DOB, country);
-
-        if (result instanceof Result.Success) {
-            RegisteredUser data = ((Result.Success<RegisteredUser>) result).getData();
-            registerResult.setValue(new RegisterResult(new RegisteredUserView(data.getDisplayName())));
-        } else {
-            registerResult.setValue(new RegisterResult(R.string.registration_failed));
-        }
     }
 
     public void registerDataChanged(String username, String password, String name,

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -26,43 +27,50 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.opencensus.tags.Tag;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RegisterViewModel registerViewModel;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private EditText nameEditText;
     private EditText usernameEditText;
     private EditText passwordEditText;
+    private EditText DOBEditText;
+    private EditText countryEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        registerViewModel = new ViewModelProvider(this, new RegisterViewModelFactory())
-                .get(RegisterViewModel.class);
+        registerViewModel = new ViewModelProvider(this, new RegisterViewModelFactory()).get(RegisterViewModel.class);
 
         //initialize cloud firestore database and authentication
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        final EditText nameEditText = findViewById(R.id.name);
-
+        nameEditText = findViewById(R.id.name);
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
-
-        final EditText DOBEditText = findViewById(R.id.DOB);
-        final EditText countryEditText = findViewById(R.id.country);
-
+        DOBEditText = findViewById(R.id.DOB);
+        countryEditText = findViewById(R.id.country);
         final Button registerButton = findViewById(R.id.register);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         registerViewModel.getRegisterFormState().observe(this, new Observer<RegisterFormState>() {
             @Override
@@ -130,48 +138,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         };
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    registerViewModel.register(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                            DOBEditText.getText().toString(), countryEditText.getText().toString());
-                }
-                return false;
-            }
-        });
         registerButton.setOnClickListener(this);
-//        registerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loadingProgressBar.setVisibility(View.VISIBLE);
-//                registerViewModel.register(usernameEditText.getText().toString(),
-//                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
-//                        DOBEditText.getText().toString(), countryEditText.getText().toString());
-//            }
-//        });
     }
 
-    public void createAccount(String email, String password) {
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-            return;
-        }
-        // START create_user_with_email
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    updateUIWithUser(user);
-                } else {
-                    Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_SHORT).show();
-                    updateUIWithUser(null);
-                }
-            }
-        });
-        // END create_user_with_email
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUIWithUser(currentUser);
     }
 
     @Override
@@ -180,10 +154,40 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (i == R.id.register) {
             createAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString());
         }
+        if (mAuth.getCurrentUser() != null) {
+            addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString());
+        }
+    }
+
+    public void addUserData(String UID, String name, String dob, String country) {
+        Map<String,String> user = new HashMap<>();
+        //user.put("UID", UID);
+        user.put("Name", name);
+        user.put("DOB", dob);
+        user.put("Country", country);
+
+        db.collection("users").document(UID).set(user);
+    }
+
+    public void createAccount(String email, String password) {
+        // START create_user_with_email
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUIWithUser(user);
+                } else {
+                    updateUIWithUser(null);
+                }
+            }
+        });
+        // END create_user_with_email
     }
 
     private void updateUIWithUser(FirebaseUser user) {
         if (user == null) {
+            Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_SHORT).show();
             return;
         }
         String welcome = getString(R.string.welcome) + user.getEmail();
