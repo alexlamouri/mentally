@@ -1,29 +1,20 @@
 package com.pacman.MentAlly.ui.register;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -37,16 +28,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.firestore.DocumentReference;
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import io.opencensus.tags.Tag;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -157,20 +144,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUIWithUser(currentUser);
-    }
-
-    @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.register) {
             createAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString());
-        }
-        if (mAuth.getCurrentUser() != null) {
-            addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString(), gender.getSelectedItem().toString());
         }
     }
 
@@ -181,7 +158,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         user.put("Country", country);
         user.put("Gender", gender);
 
-        db.collection("users").document(UID).set(user);
+        db.collection("users").document(UID).set(user).addOnSuccessListener(this, new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.w("SUCCESS","DocumentSnapshot added with ID:");
+            }
+        }).addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("Registration Failed", "Error adding document", e);
+            }
+        });
     }
 
     public void createAccount(String email, String password) {
@@ -191,6 +178,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
+                    addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString(), gender.getSelectedItem().toString());
                     updateUIWithUser(user);
                 } else {
                     updateUIWithUser(null);
@@ -205,8 +193,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_SHORT).show();
             return;
         }
-        String welcome = getString(R.string.welcome) + user.getEmail();
-        // TODO : initiate successful logged in experience
+        String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
