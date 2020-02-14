@@ -39,9 +39,9 @@ public class RegisterRepository {
     }
 
     public Result<RegisteredUser> register(String username, String password,
-                                           String name, String DOB, String country) {
+                                           String name, String DOB, String gender, String country) {
         // handle register
-        Result<RegisteredUser> result = dataSource.register(username, password, name, DOB, country);
+        Result<RegisteredUser> result = dataSource.register(username, password, name, DOB, gender, country);
         if (result instanceof Result.Success) {
             setRegisteredUser(((Result.Success<RegisteredUser>) result).getData());
         }

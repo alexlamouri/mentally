@@ -10,7 +10,7 @@ import java.io.IOException;
 public class RegisterDataSource {
 
     public Result<RegisteredUser> register(String username, String password, String name,
-                                           String DOB, String country) {
+                                           String DOB, String gender, String country) {
 
         try {
             // TODO: handle loggedInUser authentication

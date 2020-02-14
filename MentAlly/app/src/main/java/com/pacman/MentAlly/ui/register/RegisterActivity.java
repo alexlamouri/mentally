@@ -21,6 +21,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 
 import com.pacman.MentAlly.R;
 
@@ -46,6 +50,12 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
 
         final EditText DOBEditText = findViewById(R.id.DOB);
+
+        final Spinner gender = findViewById(R.id.gender);
+        String[] genderList = new String[]{"Male", "Female", "Other", "Prefer not to specify"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, genderList);
+        gender.setAdapter(adapter);
+
         final EditText countryEditText = findViewById(R.id.country);
 
         final Button registerButton = findViewById(R.id.register);
@@ -112,22 +122,34 @@ public class RegisterActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                        DOBEditText.getText().toString(), countryEditText.getText().toString());
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
             }
         };
+
+
+
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        DOBEditText.addTextChangedListener(afterTextChangedListener);
+
+        gender.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
+            }
 
             @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    registerViewModel.register(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                            DOBEditText.getText().toString(), countryEditText.getText().toString());
-                }
-                return false;
+            public void onNothingSelected(AdapterView<?> parentView) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
             }
+
         });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +158,8 @@ public class RegisterActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 registerViewModel.register(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                        DOBEditText.getText().toString(), countryEditText.getText().toString());
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
             }
         });
     }
