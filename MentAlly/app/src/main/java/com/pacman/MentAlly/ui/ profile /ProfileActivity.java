@@ -60,5 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         dob_txt.getBackground().setAlpha(75);
         password_txt = findViewById(R.id.password_textview);
         password_txt.getBackground().setAlpha(75);
+
+        first_name_txt.setText("Kavya");
     }
 }
