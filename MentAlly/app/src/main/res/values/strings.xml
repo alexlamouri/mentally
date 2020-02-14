@@ -7,6 +7,9 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_DOB">Must be in the format DD/MM/YYYY</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="sign_in">Sign in</string>
+    <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
 </resources>
