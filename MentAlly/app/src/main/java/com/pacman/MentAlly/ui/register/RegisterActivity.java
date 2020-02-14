@@ -170,15 +170,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             createAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString());
         }
         if (mAuth.getCurrentUser() != null) {
-            addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString());
+            addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString(), gender.getSelectedItem().toString());
         }
     }
 
-    public void addUserData(String UID, String name, String dob, String country) {
+    public void addUserData(String UID, String name, String dob, String country, String gender) {
         Map<String,String> user = new HashMap<>();
         user.put("Name", name);
         user.put("DOB", dob);
         user.put("Country", country);
+        user.put("Gender", gender);
 
         db.collection("users").document(UID).set(user);
     }
