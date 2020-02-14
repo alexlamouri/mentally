@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.pacman.MentAlly.R;
@@ -18,18 +19,18 @@ public class ProfileActivity extends AppCompatActivity {
         //set all button transparency levels
         Button profile_btn = findViewById(R.id.change_profile_pic);
         profile_btn.getBackground().setAlpha(65);
-        Button first_name_btn = findViewById(R.id.edit_first_name);
-        first_name_btn.getBackground().setAlpha(65);
-        Button last_name_btn = findViewById(R.id.edit_last_name);
-        last_name_btn.getBackground().setAlpha(65);
-        Button email_btn = findViewById(R.id.edit_email);
-        email_btn.getBackground().setAlpha(65);
-        Button dob_btn = findViewById(R.id.edit_dob);
-        dob_btn.getBackground().setAlpha(65);
-        Button country_btn = findViewById(R.id.edit_country);
-        country_btn.getBackground().setAlpha(65);
-        Button password_btn = findViewById(R.id.edit_password);
-        password_btn.getBackground().setAlpha(65);
+        ImageButton first_name_btn = findViewById(R.id.edit_first_name);
+        first_name_btn.getBackground().setAlpha(90);
+        ImageButton last_name_btn = findViewById(R.id.edit_last_name);
+        last_name_btn.getBackground().setAlpha(90);
+        ImageButton email_btn = findViewById(R.id.edit_email);
+        email_btn.getBackground().setAlpha(110);
+        ImageButton dob_btn = findViewById(R.id.edit_dob);
+        dob_btn.getBackground().setAlpha(110);
+        ImageButton country_btn = findViewById(R.id.edit_country);
+        country_btn.getBackground().setAlpha(110);
+        ImageButton password_btn = findViewById(R.id.edit_password);
+        password_btn.getBackground().setAlpha(110);
 
         //set all textview transparency level
         TextView first_name_txt = findViewById(R.id.firstname_textview);

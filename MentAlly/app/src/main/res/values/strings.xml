@@ -10,17 +10,22 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_profile">Profile</string>
+
     <string name="user_first_name">First Name</string>
     <string name="user_last_name">Last Name</string>
     <string name="daily_quote">Daily Quote</string>
     <string name="push_notif">Push Notifications</string>
     <string name="bgm">BGM</string>
     <string name="change_profile">Change</string>
-    <string name="email">Email</string>
+    <string name="email">user email</string>
     <string name="edit">Set</string>
-    <string name="date_of_birth">Date of Birth</string>
-    <string name="country">Country</string>
-    <string name="password">Password</string>
+    <string name="date_of_birth">date of Birth</string>
+    <string name="country">country</string>
+    <string name="password">password</string>
+    <string name="email_fix">Email</string>
+    <string name="dob_fix">Date of Birth</string>
+    <string name="country_fix">Country</string>
+    <string name="password_fix">Password</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
