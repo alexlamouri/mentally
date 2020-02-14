@@ -25,58 +25,37 @@
         android:id="@+id/button4"
         android:layout_width="32dp"
         android:layout_height="19dp"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="587dp"
         android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="237dp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="32dp"
         android:layout_height="19dp"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="620dp"
         android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="165dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="83dp"
+        android:layout_width="281dp"
+        android:layout_height="19dp"
         android:text="@string/email"
         android:textColor="#EDECEE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="237dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="165dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginBottom="621dp"
+        android:layout_height="27dp"
         android:text="@string/user_last_name"
         android:textColor="#EDECEE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -98,18 +77,13 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="165dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginBottom="660dp"
+        android:layout_height="28dp"
         android:text="@string/user_first_name"
         android:textColor="#EDECEE"
         android:textColorHint="#00F1EEEE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="64dp" />
 
     <Button
         android:id="@+id/button"
@@ -130,15 +104,9 @@
         android:id="@+id/button2"
         android:layout_width="32dp"
         android:layout_height="19dp"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="660dp"
         android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="64dp" />
 
     <Switch
         android:id="@+id/switch1"
