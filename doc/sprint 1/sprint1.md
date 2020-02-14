@@ -30,17 +30,14 @@ User stories:
         Task 7: Collect information from database and populating the profile page view with values
           Assigned to Kavya
 
+* Ilir mentioned in class that learning new technologies counts as a user story, so we have 5 user stories in total,
+  3 mentioned above and one for learning AndroidStudio and one for learning Firebase.
+
 
 Spikes: Look into Firebase database usage to store user information
+	Understand AndroidStudio program for the development and testing of our app 
 
-Team Capacities:
-  Kavya: 10 hours
-  Fareeha: 12 hours
-  Jasmine: 11.5 hours
-  Malaika:
-  Viju:
-  Navya: 18.5 hours
-  Alex:
+Team Capacity: 35
 
 Participants: Kavya, Fareeha, Jasmine, Malaika, Viju, Navya, Alex
 Everyone has participated: Yes
