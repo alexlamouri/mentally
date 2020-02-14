@@ -98,26 +98,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-//        registerViewModel.getRegisterResult().observe(this, new Observer<RegisterResult>() {
-//            @Override
-//            public void onChanged(@Nullable RegisterResult registerResult) {
-//                if (registerResult == null) {
-//                    return;
-//                }
-//                loadingProgressBar.setVisibility(View.GONE);
-//                if (registerResult.getError() != null) {
-//                    showRegisterFailed(registerResult.getError());
-//                }
-//                if (registerResult.getSuccess() != null) {
-//                    updateUIWithUser(registerResult.getSuccess());
-//                }
-//                setResult(Activity.RESULT_OK);
-//
-//                //Complete and destroy result activity once successful
-//                finish();
-//            }
-//        });
-
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -161,7 +141,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     public void addUserData(String UID, String name, String dob, String country) {
         Map<String,String> user = new HashMap<>();
-        //user.put("UID", UID);
         user.put("Name", name);
         user.put("DOB", dob);
         user.put("Country", country);
@@ -195,8 +174,5 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
-    private void showRegisterFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
-    }
 }
 
