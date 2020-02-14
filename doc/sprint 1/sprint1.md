@@ -38,7 +38,7 @@ Team Capacities:
   Fareeha: 12 hours
   Jasmine: 11.5 hours
   Malaika:
-  Viju:
+  Viju: 11 hours
   Navya: 18.5 hours
   Alex:
 
