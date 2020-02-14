@@ -1,8 +1,10 @@
-package com.pacman.MentAlly;
+package com.pacman.MentAlly.profile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.pacman.MentAlly.R;
 
 public class Profile extends AppCompatActivity {
 
