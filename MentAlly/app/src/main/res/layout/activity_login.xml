@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
 
         android:layout_marginEnd="24dp"
         android:backgroundTint="#3F51B5"
@@ -58,19 +58,19 @@
 
     <EditText
         android:id="@+id/register"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="40dp"
-        android:hint="Don't have an account? Sign up here"
+        android:hint="@string/don_t_have_an_account_sign_up_here"
         android:textAllCaps="false"
         android:textColor="#3F51B5"
         android:textColorHighlight="#3F51B5"
         android:textColorHint="#3F51B5"
         android:textColorLink="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
@@ -81,7 +81,7 @@
         android:layout_gravity="start"
         android:background="@drawable/rounded_button"
         android:backgroundTint="#C0B2E7"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:textColor="#664564"
         android:textColorHighlight="#664564"
         android:textColorHint="#664564"
@@ -92,7 +92,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -115,11 +115,11 @@
         android:layout_width="508dp"
         android:layout_height="301dp"
         android:layout_gravity="start"
-        android:layout_marginBottom="108dp"
-        android:src="@drawable/App_Logo"
-        app:layout_constraintBottom_toBottomOf="@+id/password"
+        android:layout_marginBottom="176dp"
+        android:src="@drawable/app_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toStartOf="parent" />
 
 

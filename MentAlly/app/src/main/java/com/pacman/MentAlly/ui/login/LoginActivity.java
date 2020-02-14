@@ -1,6 +1,7 @@
 package com.pacman.MentAlly.ui.login;
 
 import android.app.Activity;
+import android.content.Intent;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -92,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        final EditText signUpText = findViewById(R.id.register);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -166,8 +168,17 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+
             }
         });
+
+//        signUpText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view){
+//                Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
+//                startActivity(i);
+//            }
+//        });
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
