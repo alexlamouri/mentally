@@ -25,9 +25,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-<<<<<<< Updated upstream
 import java.util.*;
-=======
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,7 +36,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentReference;
->>>>>>> Stashed changes
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.login.LoginViewModel;
 import com.pacman.MentAlly.ui.login.LoginViewModelFactory;
