@@ -1,30 +1,22 @@
 package com.pacman.MentAlly.ui.register;
 
-import android.app.Activity;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AdapterView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,16 +25,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.firestore.DocumentReference;
+
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import io.opencensus.tags.Tag;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText passwordEditText;
     private EditText DOBEditText;
     private EditText countryEditText;
+    private Spinner gender;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +55,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        // Setup dropdown list for gender
+        gender = findViewById(R.id.gender);
+        String[] genderList = new String[]{"Male", "Female", "Other", "Prefer not to specify"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, genderList);
+        gender.setAdapter(adapter);
+
+        // Get access to all user input components on UI
         nameEditText = findViewById(R.id.name);
         usernameEditText = findViewById(R.id.username);
         passwordEditText = findViewById(R.id.password);
@@ -113,19 +110,35 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void afterTextChanged(Editable s) {
                 registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString(), nameEditText.getText().toString(),
-                        DOBEditText.getText().toString(), countryEditText.getText().toString());
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
             }
         };
+
+        // Setup listeners for input field changes
         usernameEditText.addTextChangedListener(afterTextChangedListener);
         passwordEditText.addTextChangedListener(afterTextChangedListener);
+        DOBEditText.addTextChangedListener(afterTextChangedListener);
         registerButton.setOnClickListener(this);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUIWithUser(currentUser);
+        gender.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                registerViewModel.registerDataChanged(usernameEditText.getText().toString(),
+                        passwordEditText.getText().toString(), nameEditText.getText().toString(),
+                        DOBEditText.getText().toString(), gender.getSelectedItem().toString(),
+                        countryEditText.getText().toString());
+            }
+
+        });
     }
 
     @Override
@@ -134,18 +147,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (i == R.id.register) {
             createAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString());
         }
-        if (mAuth.getCurrentUser() != null) {
-            addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString());
-        }
     }
 
-    public void addUserData(String UID, String name, String dob, String country) {
+    public void addUserData(String UID, String name, String dob, String country, String gender) {
         Map<String,String> user = new HashMap<>();
         user.put("Name", name);
         user.put("DOB", dob);
         user.put("Country", country);
+        user.put("Gender", gender);
 
-        db.collection("users").document(UID).set(user);
+        db.collection("users").document(UID).set(user).addOnSuccessListener(this, new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.w("SUCCESS","DocumentSnapshot added with ID:");
+            }
+        }).addOnFailureListener(this, new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("Registration Failed", "Error adding document", e);
+            }
+        });
     }
 
     public void createAccount(String email, String password) {
@@ -155,6 +176,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
+                    addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(),
+                            countryEditText.getText().toString(), gender.getSelectedItem().toString());
                     updateUIWithUser(user);
                 } else {
                     updateUIWithUser(null);
@@ -169,8 +192,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(RegisterActivity.this,"Registration Failed", Toast.LENGTH_SHORT).show();
             return;
         }
-        String welcome = getString(R.string.welcome) + user.getEmail();
-        // TODO : initiate successful logged in experience
+        String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 

@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
+
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class RegisterViewModel extends ViewModel {
 
@@ -22,13 +22,15 @@ public class RegisterViewModel extends ViewModel {
     }
 
     public void registerDataChanged(String username, String password, String name,
-                                    String DOB, String Country) {
+                                    String DOB,  String gender, String country) {
         if (!isUserNameValid(username)) {
-            registerFormState.setValue(new RegisterFormState(R.string.invalid_username, null, null, null, null));
+            registerFormState.setValue(new RegisterFormState(R.string.invalid_username, null, null, null, null, null));
         } else if (!isPasswordValid(password)) {
-            registerFormState.setValue(new RegisterFormState(null, R.string.invalid_password, null, null, null));
+            registerFormState.setValue(new RegisterFormState(null, R.string.invalid_password, null, null, null, null));
         } else if (!isDOBValid((DOB))) {
-            registerFormState.setValue(new RegisterFormState(null, null, null, R.string.invalid_DOB, null));
+            registerFormState.setValue(new RegisterFormState(null, null, null, R.string.invalid_DOB, null, null));
+        } else if (!isGenderValid(gender)) {
+            registerFormState.setValue(new RegisterFormState(null, null, null, null, R.string.invalid_gender, null));
         } else {
             registerFormState.setValue(new RegisterFormState(true));
         }
@@ -53,9 +55,21 @@ public class RegisterViewModel extends ViewModel {
 
     // A placeholder DOB validation check
     private boolean isDOBValid(String DOB) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+        try {
+            dateFormat.parse(DOB.trim());
+        } catch (ParseException pe) {
+            return false;
+        }
         return true;
     }
 
-
+    private boolean isGenderValid(String gender) {
+        if (gender.equals("Select")) {
+            return false;
+        }
+        return true;
+    }
 }
 

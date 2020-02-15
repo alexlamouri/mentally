@@ -1,11 +1,9 @@
 package com.pacman.MentAlly.ui.login;
 
-import android.app.Activity;
 import android.content.Intent;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
@@ -13,18 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -35,8 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
-
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.pacman.MentAlly.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -104,13 +94,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-//        signUpText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view){
-//                Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
-//                startActivity(i);
-//            }
-//        });
+        signUpText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void signIn(String email, String password) {
@@ -140,8 +130,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this,"Login Failed", Toast.LENGTH_SHORT).show();
             return;
         }
-        String welcome = getString(R.string.welcome) + user.getEmail();
-        // TODO : initiate successful logged in experience
+        String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
