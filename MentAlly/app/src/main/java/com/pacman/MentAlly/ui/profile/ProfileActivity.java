@@ -30,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView dob_txt;
     private TextView password_txt;
 
-    private FirebaseFirestore myDatabase;
+    public FirebaseFirestore myDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class ProfileActivity extends AppCompatActivity {
 //        first_name_txt.setText("Kavya");
 
         myDatabase = FirebaseFirestore.getInstance();
-        Log.d("hi", "hello");
+//        Log.d("hi", "hello");
 
         myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
@@ -79,13 +79,16 @@ public class ProfileActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot docsnap = task.getResult();
                     String name = docsnap.getString("Name");
+                    String country = docsnap.getString("Country");
+                    String dob = docsnap.getString("DOB");
 
                     first_name_txt.setText(name);
-                    System.out.println(name);
+                    country_txt.setText(country);
+                    dob_txt.setText(dob);
 
                 } else {
                     //error handling
-                    Log.d("oh", "no");
+//                    Log.d("oh", "no");
                 }
             }
         });
