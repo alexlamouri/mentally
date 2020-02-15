@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
@@ -29,8 +31,6 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView password_txt;
 
     private FirebaseFirestore myDatabase;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +70,23 @@ public class ProfileActivity extends AppCompatActivity {
 //        first_name_txt.setText("Kavya");
 
         myDatabase = FirebaseFirestore.getInstance();
+        Log.d("hi", "hello");
 
-        myDatabase.collection( s: "users").document( s: "KRqVZg5IUrhVmbiyvi0A0YYUUjA3").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>({
+        myDatabase.collection("users").document("KRqVZg5IUrhVmbiyvi0A0YYUUjA3").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
+
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot docsnap = task.getResult();
+                    String name = docsnap.getString("Name");
 
+                    first_name_txt.setText(name);
+                    System.out.println(name);
+
+                } else {
+                    //error handling
+                    Log.d("oh", "no");
+                }
             }
         });
     }
