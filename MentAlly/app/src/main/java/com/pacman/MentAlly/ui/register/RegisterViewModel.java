@@ -5,12 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 
-import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 

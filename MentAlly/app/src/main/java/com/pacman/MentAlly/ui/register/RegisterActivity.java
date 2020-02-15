@@ -3,12 +3,9 @@ package com.pacman.MentAlly.ui.register;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -28,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -178,7 +176,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(), countryEditText.getText().toString(), gender.getSelectedItem().toString());
+                    addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(),
+                            countryEditText.getText().toString(), gender.getSelectedItem().toString());
                     updateUIWithUser(user);
                 } else {
                     updateUIWithUser(null);

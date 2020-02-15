@@ -34,3 +34,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
 }
+//added all firebase implementations to easily connect the app to the firebase database.
+
