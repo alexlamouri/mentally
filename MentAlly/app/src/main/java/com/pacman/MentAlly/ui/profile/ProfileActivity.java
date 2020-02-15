@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,12 +17,12 @@ import com.pacman.MentAlly.R;
 
 public class ProfileActivity extends AppCompatActivity {
     private Button profile_btn;
-    private Button first_name_btn;
-    private Button last_name_btn;
-    private Button email_btn;
-    private Button dob_btn;
-    private Button country_btn;
-    private Button password_btn;
+    private ImageButton first_name_btn;
+    private ImageButton last_name_btn;
+    private ImageButton email_btn;
+    private ImageButton dob_btn;
+    private ImageButton country_btn;
+    private ImageButton password_btn;
 
     private TextView first_name_txt;
     private TextView last_name_txt;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/triangle_bg"
-    tools:context=".profile.ProfileActivity">
+    tools:context=".ui.profile.ProfileActivity">
 
     <TextView
         android:id="@+id/password_label"

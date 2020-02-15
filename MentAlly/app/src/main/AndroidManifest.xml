@@ -23,7 +23,7 @@
             android:name=".ui.register.RegisterActivity"
             android:label="@string/app_name">
         </activity>
-        <activity android:name=".ui.profile.ProfileActivity">
+        <activity android:name=".ui.profile.ProfileActivity"> </activity>
     </application>
 
 </manifest>
