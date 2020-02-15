@@ -72,6 +72,9 @@ public class ProfileActivity extends AppCompatActivity {
         myDatabase = FirebaseFirestore.getInstance();
 //        Log.d("hi", "hello");
 
+
+        //Note: Wasnt able to figure out why this is not able to find the users path and testing in the database. It has to do with
+        // permissions, but i couldnt figure out how to fix this.
         myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
             @Override
