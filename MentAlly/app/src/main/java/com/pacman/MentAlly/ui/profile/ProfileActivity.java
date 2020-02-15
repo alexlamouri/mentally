@@ -72,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
         myDatabase = FirebaseFirestore.getInstance();
         Log.d("hi", "hello");
 
-        myDatabase.collection("users").document("KRqVZg5IUrhVmbiyvi0A0YYUUjA3").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
+        myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -90,4 +90,5 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
 }
