@@ -32,7 +32,6 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView country_txt;
     private TextView dob_txt;
     private TextView password_txt;
-    private FirebaseAuth mAuth;
     private FirebaseUser user;
 
     public FirebaseFirestore myDatabase;
@@ -73,7 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
         password_txt.getBackground().setAlpha(75);
 
         myDatabase = FirebaseFirestore.getInstance();
-        mAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
