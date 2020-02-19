@@ -68,14 +68,8 @@ public class ProfileActivity extends AppCompatActivity {
         password_txt = findViewById(R.id.password_textview);
         password_txt.getBackground().setAlpha(75);
 
-//        first_name_txt.setText("Kavya");
-
         myDatabase = FirebaseFirestore.getInstance();
-//        Log.d("hi", "hello");
 
-
-        //Note: Wasnt able to figure out why this is not able to find the users path and testing in the database. It has to do with
-        // permissions, but i couldnt figure out how to fix this.
         myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
             @Override
@@ -85,14 +79,14 @@ public class ProfileActivity extends AppCompatActivity {
                     String name = docsnap.getString("Name");
                     String country = docsnap.getString("Country");
                     String dob = docsnap.getString("DOB");
+                    String email = docsnap.getString("email");
 
                     first_name_txt.setText(name);
+                    email_txt.setText(email);
                     country_txt.setText(country);
                     dob_txt.setText(dob);
 
                 } else {
-                    //error handling
-//                    Log.d("oh", "no");
                 }
             }
         });
