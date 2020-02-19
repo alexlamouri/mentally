@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
@@ -30,6 +32,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView country_txt;
     private TextView dob_txt;
     private TextView password_txt;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
     public FirebaseFirestore myDatabase;
 
@@ -69,27 +73,29 @@ public class ProfileActivity extends AppCompatActivity {
         password_txt.getBackground().setAlpha(75);
 
         myDatabase = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            myDatabase.collection("users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
-        myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot docsnap = task.getResult();
+                        String name = docsnap.getString("Name");
+                        String country = docsnap.getString("Country");
+                        String dob = docsnap.getString("DOB");
+                        //String email = docsnap.getString("email");
 
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot docsnap = task.getResult();
-                    String name = docsnap.getString("Name");
-                    String country = docsnap.getString("Country");
-                    String dob = docsnap.getString("DOB");
-                    String email = docsnap.getString("email");
-
-                    first_name_txt.setText(name);
-                    email_txt.setText(email);
-                    country_txt.setText(country);
-                    dob_txt.setText(dob);
-
-                } else {
+                        first_name_txt.setText(name);
+                        //email_txt.setText(email);
+                        country_txt.setText(country);
+                        dob_txt.setText(dob);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 }
