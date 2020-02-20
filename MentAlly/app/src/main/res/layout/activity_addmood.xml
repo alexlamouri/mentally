@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.Mood.MoodActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#9378C7"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20sp"
+            android:text="MentAlly"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20sp"
+            android:text="Log New Mood"
+            android:textAlignment="center"
+            android:textColor="#BFFFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/titlequote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='"Your mood should not dictate your manners"'
+            android:textAlignment="center"
+            android:textColor="#251580"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/on"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On..."
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#050505"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/calendar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="60dp"
+                android:src="@drawable/calender"/>
+
+            <LinearLayout
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/selectdate"
+                    android:layout_width="161dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="select date"
+                    android:textAlignment="center"
+                    android:background="#9EECDACE"
+                    android:textColor="#000C5D"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/felt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I felt..."
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#050505"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/happy"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/happy" />
+
+            <Button
+                android:id="@+id/sad"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/sad"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/cool"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/cool"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/scared"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/scared"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/excited"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/excited"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/lovely"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/lovely"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
+            <Button
+                android:id="@+id/depressed"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/depressed"
+                android:layout_marginEnd= "30dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/because"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Because..."
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#050505"/>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/textview_outline">
+
+        <EditText
+            android:id="@+id/descbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/addmood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add this Mood"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textColor="#050505"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
