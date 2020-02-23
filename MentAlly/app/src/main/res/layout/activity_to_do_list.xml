@@ -5,32 +5,39 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_vertical"
-    android:background="@drawable/triangle_bg"
     android:orientation="vertical"
     tools:context=".ui.ToDoList.ToDoListActivity">
 
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="132dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center_horizontal"
         android:clickable="false"
         app:srcCompat="@drawable/app_logo" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="To Do List"
-        android:textColor="#000000"
-        android:textSize="30dp" />
+    <ImageView
+        android:layout_width="132dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        app:srcCompat="@drawable/to_do_list" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:text="To Do List"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="30dp" />-->
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:backgroundTint="#F1E38F"
+        android:backgroundTint="#972196F3"
         android:text="+"
         android:textSize="25dp"></Button>
 
@@ -44,26 +51,31 @@
             android:id="@+id/viewCompletedButton"
             android:layout_width="205dp"
             android:layout_height="50dp"
-            android:backgroundTint="#413F51B5"
+            android:backgroundTint="#9219D5F0"
             android:text="My Completed Tasks"></Button>
 
         <Button
-            android:id="@+id/viewIncompleteButton"
+            android:id="@+id/viewIncompletedButton"
             android:layout_width="205dp"
             android:layout_height="50dp"
-            android:backgroundTint="#413F51B5"
-            android:text="My Incomplete Tasks"></Button>
+            android:backgroundTint="#5BCEDF"
+            android:text="My Pending Tasks"></Button>
     </LinearLayout>
 
     <ListView
         android:id="@+id/myList"
         android:layout_width="match_parent"
-        android:layout_height="390dp"
+        android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
-        android:background="#74CA67DB"
-        android:textSize="15dp"/>
+        android:background="#63B2F0F8"
+        android:textSize="15dp" />
 
+    <Button
+        android:id="@+id/delete_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Delete List"></Button>
 
 
     <!--    <ImageView-->
