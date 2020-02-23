@@ -48,9 +48,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(item.getItemId()){
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+                draw.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragmnent()).commit();
+                draw.closeDrawer(GravityCompat.START);
                 break;
         }
         return true;
