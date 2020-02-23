@@ -1,8 +1,10 @@
-package com.pacman.MentAlly;
+package com.pacman.MentAlly.ui.habit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.pacman.MentAlly.R;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
