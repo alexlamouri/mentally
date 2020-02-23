@@ -1,12 +1,16 @@
-package com.pacman.MentAlly.ui.profile;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.pacman.MentAlly.ui.menu;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -14,7 +18,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileFragmnent extends Fragment {
     private Button profile_btn;
     private ImageButton first_name_btn;
     private ImageButton last_name_btn;
@@ -32,39 +36,38 @@ public class ProfileActivity extends AppCompatActivity {
 
     public FirebaseFirestore myDatabase;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.frag_profile);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.frag_profile, container, false);
 
-        //set all button transparency levels
-        profile_btn = findViewById(R.id.change_profile_pic);
+        profile_btn = root.findViewById(R.id.change_profile_pic);
         profile_btn.getBackground().setAlpha(65);
-        first_name_btn = findViewById(R.id.edit_first_name);
+        first_name_btn = root.findViewById(R.id.edit_first_name);
         first_name_btn.getBackground().setAlpha(65);
-        last_name_btn = findViewById(R.id.edit_last_name);
+        last_name_btn = root.findViewById(R.id.edit_last_name);
         last_name_btn.getBackground().setAlpha(65);
-        email_btn = findViewById(R.id.edit_email);
+        email_btn = root.findViewById(R.id.edit_email);
         email_btn.getBackground().setAlpha(65);
-        dob_btn = findViewById(R.id.edit_dob);
+        dob_btn = root.findViewById(R.id.edit_dob);
         dob_btn.getBackground().setAlpha(65);
-        country_btn = findViewById(R.id.edit_country);
+        country_btn = root.findViewById(R.id.edit_country);
         country_btn.getBackground().setAlpha(65);
-        password_btn = findViewById(R.id.edit_password);
+        password_btn = root.findViewById(R.id.edit_password);
         password_btn.getBackground().setAlpha(65);
 
         //set all textview transparency level
-        first_name_txt = findViewById(R.id.firstname_textview);
+        first_name_txt = root.findViewById(R.id.firstname_textview);
         first_name_txt.getBackground().setAlpha(75);
-        last_name_txt = findViewById(R.id.lastname_textview);
+        last_name_txt = root.findViewById(R.id.lastname_textview);
         last_name_txt.getBackground().setAlpha(75);
-        email_txt = findViewById(R.id.email_textview);
+        email_txt = root.findViewById(R.id.email_textview);
         email_txt.getBackground().setAlpha(75);
-        country_txt = findViewById(R.id.country_textview);
+        country_txt = root.findViewById(R.id.country_textview);
         country_txt.getBackground().setAlpha(75);
-        dob_txt = findViewById(R.id.dob_textview);
+        dob_txt = root.findViewById(R.id.dob_textview);
         dob_txt.getBackground().setAlpha(75);
-        password_txt = findViewById(R.id.password_textview);
+        password_txt = root.findViewById(R.id.password_textview);
         password_txt.getBackground().setAlpha(75);
 
 //        first_name_txt.setText("Kavya");
@@ -95,6 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+        return root;
     }
-
 }
