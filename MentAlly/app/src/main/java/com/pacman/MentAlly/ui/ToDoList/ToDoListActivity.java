@@ -37,8 +37,8 @@ public class ToDoListActivity extends AppCompatActivity {
     private Button deleteListButton;
     private ListView myListView;
     private MyListAdapter mylistadapter;
-    private List<String> listObject;
-    private List<String> completedList;
+    private List<Task> listObject;
+    private List<Task> completedList;
 
     private State currentState;
 
@@ -73,37 +73,49 @@ public class ToDoListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final int pos = position;
+                final View infoTaskDialogView = getLayoutInflater().inflate(R.layout.info_task_dialog, null);
+                final TextView taskLabel = infoTaskDialogView.findViewById(R.id.taskLabel);
+                final TextView startDateLabel = infoTaskDialogView.findViewById(R.id.startDateLabel);
+                final TextView endDateLabel = infoTaskDialogView.findViewById(R.id.endDateLabel);
+
+
 
                 if (currentState == State.INCOMPLETE_TASKS) {
+                    final Task task = listObject.get(pos);
+                    taskLabel.setText(task.getTaskName());
+                    startDateLabel.setText(task.getStart_date());
+                    endDateLabel.setText(task.getEnd_date());
+
                     AlertDialog infoDialog = new AlertDialog.Builder(ToDoListActivity.this)
-                            .setTitle("Info")
-                            .setMessage(listObject.get(position))
+                            .setView(infoTaskDialogView)
                             .setPositiveButton("Mark As Completed", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    String completedTask = listObject.get(pos);
-                                    completedList.add(completedTask);
-                                    listObject.remove(pos);
+                                    completedList.add(task);
+                                    listObject.remove(task);
                                     mylistadapter.setData(listObject);
                                 }
                             })
                             .setNegativeButton("Cancel Task", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    listObject.remove(pos);
+                                    listObject.remove(task);
                                     mylistadapter.setData(listObject);
                                 }
                             })
                             .create();
                     infoDialog.show();
                 } else {
+                    final Task task = completedList.get(pos);
+                    taskLabel.setText(task.getTaskName());
+                    startDateLabel.setText(task.getStart_date());
+                    endDateLabel.setText(task.getEnd_date());
                     AlertDialog infoDialog = new AlertDialog.Builder(ToDoListActivity.this)
-                            .setTitle("Info")
-                            .setMessage(completedList.get(position))
-                            .setNegativeButton("Remove", new DialogInterface.OnClickListener() {
+                            .setView(infoTaskDialogView)
+                            .setNegativeButton("Cancel Task", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    completedList.remove(pos);
+                                    completedList.remove(task);
                                     mylistadapter.setData(completedList);
                                 }
                             })
@@ -129,7 +141,8 @@ public class ToDoListActivity extends AppCompatActivity {
 
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                listObject.add(taskName.getText().toString());
+                                Task newTask = new Task(taskName.getText().toString(), startDate.getText().toString(), finishDate.getText().toString());
+                                listObject.add(newTask);
                                 mylistadapter.setData(listObject);
                             }
                         })
@@ -177,9 +190,9 @@ public class ToDoListActivity extends AppCompatActivity {
     }
 
     class MyListAdapter extends BaseAdapter {
-        List<String> taskList = new ArrayList<>();
+        List<Task> taskList = new ArrayList<>();
 
-        public void setData(List<String> mList) {
+        public void setData(List<Task> mList) {
             taskList.clear();
             taskList.addAll(mList);
             notifyDataSetChanged();
@@ -205,7 +218,7 @@ public class ToDoListActivity extends AppCompatActivity {
             LayoutInflater inflateLayout = (LayoutInflater) ToDoListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View taskRow = inflateLayout.inflate(R.layout.task, parent, false);
             TextView taskObject = taskRow.findViewById(R.id.taskItem);
-            taskObject.setText(taskList.get(position));
+            taskObject.setText(taskList.get(position).getTaskName());
             return taskRow;
         }
     }
