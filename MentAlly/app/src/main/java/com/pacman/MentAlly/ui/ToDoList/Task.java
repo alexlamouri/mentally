@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Task {
     private String name; //mandatory
-    private Date start_date; //optional
-    private Date end_date; //optional
+    private String start_date; //optional
+    private String end_date; //optional
 
-    public Task(String name, Date start_date, Date end_date) {
+    public Task(String name, String start_date, String end_date) {
         this.name = name;
         if (start_date != null) {
             this.start_date = start_date;
@@ -17,27 +17,27 @@ public class Task {
         }
     }
 
-    public String getName() {
+    public String getTaskName() {
         return this.name;
     }
 
-    public Date getEnd_date() {
+    public String getEnd_date() {
         return this.end_date;
     }
 
-    public Date getStart_date() {
+    public String getStart_date() {
         return this.start_date;
     }
 
-    public void setName(String name) {
+    public void setTaskName(String name) {
         this.name = name;
     }
 
-    public void setStart_date(Date date) {
+    public void setStart_date(String date) {
         this.start_date = date;
     }
 
-    public void setEnd_date(Date date) {
+    public void setEnd_date(String date) {
         this.end_date = date;
     }
 
