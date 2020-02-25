@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -48,11 +49,19 @@ public class AddMoodActivity extends AppCompatActivity {
     Button happy;
     Button sad;
     Button cool;
-    Button excited;
-    Button depressed;
     Button scared;
     Button lovely;
+    Button depressed;
+    Button flushed;
+    Button angel;
+    Button neutral;
+    Button sick;
+    Button nerd;
+    Button sleepy;
+    Button devil;
+    Button angry;
     Button addmood;
+
 
     int moodid = MoodActivity.getmoodid()+1;
 
@@ -81,10 +90,17 @@ public class AddMoodActivity extends AppCompatActivity {
         happy = findViewById(R.id.happy);
         sad = findViewById(R.id.sad);
         cool = findViewById(R.id.cool);
-        excited = findViewById(R.id.excited);
+        nerd = findViewById(R.id.nerd);
         scared = findViewById(R.id.scared);
         lovely = findViewById(R.id.lovely);
+        neutral = findViewById(R.id.neutral);
         depressed = findViewById(R.id.depressed);
+        sick = findViewById(R.id.sick);
+        flushed = findViewById(R.id.flushed);
+        devil = findViewById(R.id.devil);
+        angel = findViewById(R.id.angel);
+        sleepy = findViewById(R.id.sleepy);
+        angry = findViewById(R.id.angry);
 
         addmood = findViewById(R.id.addmood);
 
@@ -99,7 +115,7 @@ public class AddMoodActivity extends AppCompatActivity {
 
                 DatePickerDialog d = new DatePickerDialog(
                         AddMoodActivity.this,
-                        android.R.style.Theme,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         dateSetListener,
                         year, month, day);
                 d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -124,6 +140,7 @@ public class AddMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moodtype = "happy";
+                Toast.makeText(AddMoodActivity.this, "I feel happy", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -132,14 +149,17 @@ public class AddMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moodtype = "sad";
+                Toast.makeText(AddMoodActivity.this, "I feel sad", Toast.LENGTH_SHORT).show();
+
 
             }
         });
-        excited.setOnClickListener(new View.OnClickListener(){
+        nerd.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                moodtype = "excited";
+                moodtype = "nerd";
+                Toast.makeText(AddMoodActivity.this, "I feel nerdy", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -148,14 +168,16 @@ public class AddMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moodtype = "cool";
+                Toast.makeText(AddMoodActivity.this, "I feel cool", Toast.LENGTH_SHORT).show();
 
             }
         });
-        depressed.setOnClickListener(new View.OnClickListener(){
+        sick.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                moodtype = "depressed";
+                moodtype = "sick";
+                Toast.makeText(AddMoodActivity.this, "I feel sick", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -164,6 +186,7 @@ public class AddMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moodtype = "lovely";
+                Toast.makeText(AddMoodActivity.this, "I feel lovely", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -173,6 +196,71 @@ public class AddMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 moodtype = "scared";
+                Toast.makeText(AddMoodActivity.this, "I feel scared", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        sleepy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "sleepy";
+                Toast.makeText(AddMoodActivity.this, "I feel sleepy", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        neutral.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "neutral";
+                Toast.makeText(AddMoodActivity.this, "I feel neutral", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        devil.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "devil";
+                Toast.makeText(AddMoodActivity.this, "I feel devilish", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+        flushed.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "flushed";
+                Toast.makeText(AddMoodActivity.this, "I feel embarrassed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        depressed.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "depressed";
+                Toast.makeText(AddMoodActivity.this, "I feel depressed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        angel.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "angel";
+                Toast.makeText(AddMoodActivity.this, "I feel angelic", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        angry.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                moodtype = "angry";
+                Toast.makeText(AddMoodActivity.this, "I feel angry", Toast.LENGTH_SHORT).show();
 
             }
         });
