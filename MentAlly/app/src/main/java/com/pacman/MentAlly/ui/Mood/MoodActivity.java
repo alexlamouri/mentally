@@ -117,11 +117,6 @@ public class MoodActivity extends AppCompatActivity {
                     curmoodid =0;
                 }
 
-
-                System.out.println(date);
-                System.out.println(desc);
-                System.out.println(mood);
-                System.out.println(moodid);
                 Adapter adapter = new Adapter(getApplicationContext(), date, desc, mood);
                 adapter.notifyDataSetChanged();
                 listView.setAdapter(adapter);
@@ -178,9 +173,32 @@ public class MoodActivity extends AppCompatActivity {
             if (mood.get(position).equalsIgnoreCase("lovely")) {
                 vmood.setImageResource(R.drawable.lovely);
             }
-            if (mood.get(position).equalsIgnoreCase("excited")) {
-                vmood.setImageResource(R.drawable.excited);
+            if (mood.get(position).equalsIgnoreCase("angry")) {
+                vmood.setImageResource(R.drawable.angry);
             }
+            if (mood.get(position).equalsIgnoreCase("angel")) {
+                vmood.setImageResource(R.drawable.angel);
+            }
+            if (mood.get(position).equalsIgnoreCase("flushed")) {
+                vmood.setImageResource(R.drawable.flushed);
+            }
+            if (mood.get(position).equalsIgnoreCase("neutral")) {
+                vmood.setImageResource(R.drawable.neutral);
+            }
+            if (mood.get(position).equalsIgnoreCase("sleepy")) {
+                vmood.setImageResource(R.drawable.sleepy);
+            }
+            if (mood.get(position).equalsIgnoreCase("nerd")) {
+                vmood.setImageResource(R.drawable.nerd);
+            }
+            if (mood.get(position).equalsIgnoreCase("neutral")) {
+                vmood.setImageResource(R.drawable.neutral);
+            }
+            if (mood.get(position).equalsIgnoreCase("sick")) {
+                vmood.setImageResource(R.drawable.sick);
+            }
+
+
 
 
             return row;
