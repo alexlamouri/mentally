@@ -41,4 +41,15 @@
     <string name="over_the_last_2_weeks_how_often_have_you_been_bothered_by_the_following_problems">Over the last 2 weeks, how often have you been bothered by the following problems?</string>
     <string name="your_result_is">Your Result is..</string>
     <string name="try_again">Try Again</string>
+    <string name="sometimes_things_happen_to_people_that_are_unusually_or_especially_frightening_horrible_or_traumatic_for_example">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</string>
+    <string name="a_serious_accident_or_fire">a serious accident or fire</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="a_physical_or_sexual_assault">•a physical or sexual assault</string>
+    <string name="a_serious_accident_or_fires">•a serious accident or fire</string>
+    <string name="an_earthquake_or_flood">•an earthquake or flood</string>
+    <string name="a_war">•a war</string>
+    <string name="seeing_someone_be_killed_or_seriously_injured">•seeing someone be killed or seriously injured</string>
+    <string name="having_a_loved_one_die_through_homicide_and_suicide">•having a loved one die through homicide and suicide</string>
+    <string name="have_you_ever_experienced_this_kind_of_event">Have you ever experienced this kind of event?</string>
 </resources>
