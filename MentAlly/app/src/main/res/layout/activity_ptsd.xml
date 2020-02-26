@@ -17,7 +17,6 @@
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="20dp"
         android:text="@string/sometimes_things_happen_to_people_that_are_unusually_or_especially_frightening_horrible_or_traumatic_for_example"
         android:textAllCaps="false"

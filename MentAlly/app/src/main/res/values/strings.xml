@@ -52,4 +52,7 @@
     <string name="seeing_someone_be_killed_or_seriously_injured">•seeing someone be killed or seriously injured</string>
     <string name="having_a_loved_one_die_through_homicide_and_suicide">•having a loved one die through homicide and suicide</string>
     <string name="have_you_ever_experienced_this_kind_of_event">Have you ever experienced this kind of event?</string>
+    <string name="in_the_past_have_you">In the past, have you...</string>
+    <string name="questions">Questions</string>
+    <string name="tried_hard_not_to_think_about_the_event_s_or_went_out_of_your_way_to_avoid_situations_that_reminded_you_of_the_event_s">Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?</string>
 </resources>
