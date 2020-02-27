@@ -36,4 +36,10 @@
     <string name="habit_tracker">Habit Tracker</string>
     <string name="habit_yes">Button for when habit successfully done</string>
     <string name="habit_no">Button for when habit not successfully done</string>
+    <string name="new_habit">New Habit</string>
+    <string name="habit_name">New Habit Name</string>
+    <string name="habit_end_date">Habit Tracking End Date</string>
+    <string name="habit_frequency">Tracking Frequency</string>
+    <string name="add_new_habit">Track New Habit</string>
+
 </resources>
