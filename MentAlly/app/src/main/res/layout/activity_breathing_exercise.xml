@@ -12,17 +12,28 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="25dp"
         android:clickable="false"
-        app:srcCompat="@drawable/app_logo" />
+        app:srcCompat="@drawable/app_logo_cropped" />
+
+    <TextView
+        android:id="@+id/breathNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="#000000"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/instruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="50dp"
         android:textColor="#000000"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/timer"
@@ -31,7 +42,7 @@
         android:gravity="center"
         android:layout_marginTop="100dp"
         android:textColor="#000000"
-        android:textSize="30dp" />
+        android:textSize="40dp" />
 
 
 

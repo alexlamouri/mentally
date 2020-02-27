@@ -2,15 +2,14 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:background="@drawable/triangle_bg"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -24,9 +23,9 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:clickable="false"
-            app:srcCompat="@drawable/app_logo" />
+            app:srcCompat="@drawable/app_logo_cropped" />
 
         <TextView
             android:id="@+id/title"
@@ -35,17 +34,18 @@
             android:gravity="center"
             android:text="Breathing Exercise"
             android:textColor="#000000"
-            android:layout_marginTop="30dp"
-            android:textSize="30dp" />
+            android:layout_marginTop="0dp"
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/inhaleLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="I want to inhale for"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,16 +55,16 @@
             <Spinner
                 android:id="@+id/inhale"
                 android:layout_width="150dp"
-                android:layout_height="35dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="24dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
                 android:textColor="#3F51B5"
                 android:textColorHighlight="#3F51B5"
                 android:textColorHint="#3F51B5"
-                android:textColorLink="#3F51B5"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
+                android:textColorLink="#3F51B5" />
 
             <TextView
                 android:id="@+id/secondsInhaleLabel"
@@ -75,7 +75,7 @@
                 android:layout_marginEnd="24dp"
                 android:ems="10"
                 android:text="seconds"
-                android:textSize="20dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -83,10 +83,11 @@
             android:id="@+id/holdLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="I want to hold for"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +117,7 @@
                 android:layout_marginEnd="24dp"
                 android:ems="10"
                 android:text="seconds"
-                android:textSize="20dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -124,10 +125,11 @@
             android:id="@+id/exhaleLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="I want to exhale for"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -157,7 +159,7 @@
                 android:layout_marginEnd="24dp"
                 android:ems="10"
                 android:text="seconds"
-                android:textSize="20dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -165,10 +167,11 @@
             android:id="@+id/breathsLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="For"
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -198,7 +201,7 @@
                 android:layout_marginEnd="24dp"
                 android:ems="10"
                 android:text="breaths"
-                android:textSize="20dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
 
@@ -207,7 +210,8 @@
             android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#C0B2E7"
             android:text="@string/start"

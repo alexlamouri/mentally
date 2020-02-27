@@ -20,6 +20,7 @@ public class BreathingExerciseActivity extends AppCompatActivity {
     private int instructionCounter = 0;
     TextView instructionText;
     TextView timerText;
+    TextView breathText;
     private CountDownTimer timer1, timer2, timer3;
     int counter;
     int breathsCounter = 0;
@@ -37,10 +38,12 @@ public class BreathingExerciseActivity extends AppCompatActivity {
 
         instructionText = findViewById(R.id.instruction);
         timerText = findViewById(R.id.timer);
+        breathText = findViewById(R.id.breathNumber);
 
         //create timer1
         counter=timers[instructionCounter];
         instructionText.setText(instructionList[instructionCounter]);
+        breathText.setText("Breath "+(breathsCounter+1)+" out of "+timers[3]);
 
         timer1 = new CountDownTimer(timers[instructionCounter]*1000, 1000) {
 
@@ -89,14 +92,16 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                             public  void onFinish(){
                                 instructionCounter=0;
                                 counter=timers[instructionCounter];
-                                instructionText.setText(instructionList[instructionCounter]);
-                                timerText.setText("finish!");
                                 breathsCounter++;
 
                                 if (breathsCounter < timers[3]) {
+                                    breathText.setText("Breath "+(breathsCounter+1)+" out of "+timers[3]);
+                                    instructionText.setText(instructionList[instructionCounter]);
                                     Log.i("breathsCounter", ""+breathsCounter);
                                     timer1.cancel();
                                     timer1.start();
+                                } else if (breathsCounter == timers[3]) {
+                                    timerText.setText("DONE!");
                                 }
                             }
                         };
