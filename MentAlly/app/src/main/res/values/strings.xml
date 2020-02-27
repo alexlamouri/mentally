@@ -51,4 +51,34 @@
     <string name="adhdResult">Your result is ...</string>
     <string name="adhdRetry">Try Again</string>
 
+    <!--  OCD Strings  -->
+    <string name="ocdOvr">Over the past month...</string>
+    <string name="ocdQ1">1. I have saved up so many things that they get in the way.</string>
+    <string name="ocdQ2">2. I check things more often than necessary.</string>
+    <string name="ocdQ3">3. I get upset if objects are not arranged properly.</string>
+    <string name="ocdQ4">4. I feel compelled to count while I am doing things.</string>
+    <string name="ocdQ5">5. I find it difficult to touch an object when I know it has been touched by strangers or certain people.</string>
+    <string name="ocdQ6">6. I find it difficult to control my own thoughts.</string>
+    <string name="ocdQ7">7. I collect things I don’t need.</string>
+    <string name="ocdQ8">8. I repeatedly check doors, windows, drawers, etc.</string>
+    <string name="ocdQ9">9. I get upset if others change the way I have arranged things.</string>
+    <string name="ocdQ10">10. I feel I have to repeat certain numbers.</string>
+    <string name="ocdQ11">11. I sometimes have to wash or clean myself simply because I feel contaminated.</string>
+    <string name="ocdQ12">12. I am upset by unpleasant thoughts that come into my mind against my will.</string>
+    <string name="ocdQ13">13. I avoid throwing things away because I am afraid I might need them later.</string>
+    <string name="ocdQ14">14. I repeatedly check gas and water taps and light switches after turning them off.</string>
+    <string name="ocdQ15">15. I need things to be arranged in a particular way.</string>
+    <string name="ocdQ16">16. I feel that there are good and bad numbers.</string>
+    <string name="ocdQ17">17. I wash my hands more often and longer than necessary.</string>
+    <string name="ocdQ18">18. I frequently get nasty thoughts and have difficulty in getting rid of them.</string>
+
+    <string name ="ocdA1">Never</string>
+    <string name ="ocdA2">Rarely</string>
+    <string name ="ocdA3">Sometimes</string>
+    <string name ="ocdA4">Often</string>
+    <string name ="ocdA5">Very Often</string>
+
+    <string name="ocdResult">Your result is ...</string>
+    <string name="ocdRetry">Try Again</string>
+
 </resources>
