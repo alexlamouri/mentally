@@ -40,6 +40,11 @@
     <string name="habit_name">New Habit Name</string>
     <string name="habit_end_date">Habit Tracking End Date</string>
     <string name="habit_frequency">Tracking Frequency</string>
+    <string-array name="freq">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
     <string name="add_new_habit">Track New Habit</string>
 
 </resources>

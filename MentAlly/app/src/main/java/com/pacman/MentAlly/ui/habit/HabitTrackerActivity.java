@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pacman.MentAlly.R;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
-    private FloatingActionButton newHabit;
+    private ImageButton newHabit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,8 @@ public class HabitTrackerActivity extends AppCompatActivity {
         newHabit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent i = new Intent(getApplicationContext(), NewHabitActivity.class);
+                startActivity(i);
             }
         });
 

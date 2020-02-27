@@ -10,9 +10,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:background="#9378C7"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/habitlist"
@@ -45,23 +42,21 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/habitlist"
-        android:layout_width="377dp"
+        android:layout_width="0dp"
         android:layout_height="470dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="#efcff0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <ImageButton
         android:id="@+id/new_habit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
-        android:clickable="true"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/profile_button"
         app:layout_constraintEnd_toEndOf="@+id/habitlist"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:srcCompat="@android:drawable/ic_input_add" />
