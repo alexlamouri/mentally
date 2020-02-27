@@ -18,9 +18,11 @@ import java.util.ArrayList;
 class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
     private Context mContext;
+    private ArrayList<String> habitNames;
 
-    public HabitAdapter(Context context) {
+    public HabitAdapter(Context context, ArrayList<String> habits) {
         mContext = context;
+        habitNames = habits;
     }
 
     @NonNull
@@ -33,12 +35,12 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
     @Override
     public void onBindViewHolder(@NonNull HabitView holder, int position) {
-
+        holder.habitName.setText(habitNames.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return habitNames.size();
     }
 
     class HabitView extends RecyclerView.ViewHolder {

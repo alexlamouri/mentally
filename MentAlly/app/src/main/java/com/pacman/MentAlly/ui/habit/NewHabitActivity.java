@@ -63,6 +63,6 @@ public class NewHabitActivity extends AppCompatActivity {
         habit.put("End Date", habitEndDate.getText().toString());
         habit.put("Frequency", trackingFrequency.getSelectedItem().toString());
 
-        db.collection("habits").document(mAuth.getCurrentUser().getUid()).set(habit);
+        db.collection("users").document(mAuth.getCurrentUser().getUid()).collection("habits").document().set(habit);
     }
 }
