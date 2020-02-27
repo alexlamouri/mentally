@@ -11,10 +11,12 @@ public class PHQ9QuestionModel {
             "6. Feeling bad about yourself – or that you are a failure or have let yourself or your family down",
             "7. Trouble concentrating on things, such as reading the newspaper or watching television",
             "8. Moving or speaking so slowly that other people could have noticed? Or the opposite – being so fidgety or restless that you have been moving around a lot more than usual",
-            "9. . Thoughts that you would be better off dead or of hurting yourself in some way"
+            "9. Thoughts that you would be better off dead or of hurting yourself in some way"
     };
 
     private String[][] mChoices = {
+            {"Not at all sure", "Several days", "Over half the days", "Nearly every day"},
+            {"Not at all sure", "Several days", "Over half the days", "Nearly every day"},
             {"Not at all sure", "Several days", "Over half the days", "Nearly every day"},
             {"Not at all sure", "Several days", "Over half the days", "Nearly every day"},
             {"Not at all sure", "Several days", "Over half the days", "Nearly every day"},

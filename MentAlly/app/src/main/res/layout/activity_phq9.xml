@@ -1,9 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_phq9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    android:background="#F2ECE0"
     tools:context=".ui.PHQ9.PHQ9Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="@string/over_the_last_2_weeks_how_often_have_you_been_bothered_by_the_following_problems"
+        android:textAllCaps="false"
+        android:textColor="#3F51B5"
+        android:textColorHighlight="#3F51B5"
+        android:textColorHint="#3F51B5"
+        android:textColorLink="#3F51B5"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:autoSizeTextType="uniform"
+        android:text="@string/_1_little_interest_or_pleasure_in_doing_things"
+        android:textAllCaps="false"
+        android:textColor="#3F51B5"
+        android:textColorHighlight="#3F51B5"
+        android:textColorHint="#3F51B5"
+        android:textColorLink="#3F51B5"
+         />
+
+    <Button
+        android:id="@+id/choiceA"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:text="@string/not_at_all"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/questions"
+        />
+
+    <Button
+        android:text="@string/Several_days"
+        android:id="@+id/choiceB"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/choiceA"
+        />
+
+    <Button
+        android:text="@string/over_half_the_days"
+        android:id="@+id/choiceC"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/choiceB"
+
+        />
+
+    <Button
+        android:text="@string/nearly_every_day"
+        android:id="@+id/choiceD"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/choiceC"
+
+        />
+
+
+</LinearLayout>

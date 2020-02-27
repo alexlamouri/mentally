@@ -55,4 +55,7 @@
     <string name="in_the_past_have_you">In the past, have you...</string>
     <string name="questions">Questions</string>
     <string name="tried_hard_not_to_think_about_the_event_s_or_went_out_of_your_way_to_avoid_situations_that_reminded_you_of_the_event_s">Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?</string>
+    <string name="question">question</string>
+    <string name="not_at_all">not at all</string>
+    <string name="_1_little_interest_or_pleasure_in_doing_things">1. Little interest or pleasure in doing things</string>
 </resources>
