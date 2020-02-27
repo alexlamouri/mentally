@@ -191,8 +191,8 @@ public class MoodActivity extends AppCompatActivity {
             if (mood.get(position).equalsIgnoreCase("nerd")) {
                 vmood.setImageResource(R.drawable.nerd);
             }
-            if (mood.get(position).equalsIgnoreCase("neutral")) {
-                vmood.setImageResource(R.drawable.neutral);
+            if (mood.get(position).equalsIgnoreCase("devil")) {
+                vmood.setImageResource(R.drawable.devil);
             }
             if (mood.get(position).equalsIgnoreCase("sick")) {
                 vmood.setImageResource(R.drawable.sick);
