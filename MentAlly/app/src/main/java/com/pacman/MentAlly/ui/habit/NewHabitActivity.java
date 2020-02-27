@@ -13,28 +13,39 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class NewHabitActivity extends AppCompatActivity {
 
-    private EditText habit_name;
-    private EditText habit_end_date;
-    private Spinner tracking_frequency;
+    private EditText habitName;
+    private EditText habitEndDate;
+    private Spinner trackingFrequency;
     private Button newHabit;
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_habit);
 
-        habit_name = findViewById(R.id.habit_name);
-        habit_end_date = findViewById(R.id.habit_end_date);
-        tracking_frequency = findViewById(R.id.habit_frequency);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
+        habitName = findViewById(R.id.habit_name);
+        habitEndDate = findViewById(R.id.habit_end_date);
+        trackingFrequency = findViewById(R.id.habit_frequency);
         newHabit = findViewById(R.id.add_new_habit);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.freq, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        tracking_frequency.setAdapter(adapter);
+        trackingFrequency.setAdapter(adapter);
 
         newHabit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +58,11 @@ public class NewHabitActivity extends AppCompatActivity {
     }
 
     private void addHabit() {
+        Map<String,String> habit = new HashMap<>();
+        habit.put("Habit Name", habitName.getText().toString());
+        habit.put("End Date", habitEndDate.getText().toString());
+        habit.put("Frequency", trackingFrequency.getSelectedItem().toString());
 
+        db.collection("habits").document(mAuth.getCurrentUser().getUid()).set(habit);
     }
 }
