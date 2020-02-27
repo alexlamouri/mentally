@@ -11,17 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.PTSD.PTSDResults"></activity>
+        <activity android:name=".ui.PHQ9.PHQ9ResultActivity"></activity>
+        <activity android:name=".ui.PHQ9.PHQ9Activity" />
+        <activity android:name=".ui.PTSD.PTSDResultActivity" />
         <activity android:name=".ui.PTSD.PTSDActivity" />
         <activity android:name=".ui.PTSD.PTSD">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter> </activity>
-        <activity android:name=".ui.GAD7.GAD7Results" />
-        <activity android:name=".ui.GAD7.GAD7Activity">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".ui.GAD7.GAD7ResultActivity" />
+        <activity android:name=".ui.GAD7.GAD7Activity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="Mentally" />

@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.GAD7;
+package com.pacman.MentAlly.ui.PHQ9;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class GAD7Activity extends AppCompatActivity {
+public class PHQ9Activity extends AppCompatActivity {
 
-    private GAD7QuestionModel mQues = new GAD7QuestionModel();
+    private PHQ9QuestionModel mQues = new PHQ9QuestionModel();
     private TextView mQuesView;
     private Button mChoice1;
     private Button mChoice2;
@@ -24,26 +24,20 @@ public class GAD7Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gad7);
+        setContentView(R.layout.activity_phq9);
 
-        mQuesView = (TextView) findViewById(R.id.question);
-        mChoice1 = (Button) findViewById(R.id.choice1);
-        mChoice2 = (Button) findViewById(R.id.choice2);
-        mChoice3 = (Button) findViewById(R.id.choice3);
-        mChoice4 = (Button) findViewById(R.id.choice4);
+        mQuesView = (TextView) findViewById(R.id.questions);
+        mChoice1 = (Button) findViewById(R.id.choiceA);
+        mChoice2 = (Button) findViewById(R.id.choiceB);
+        mChoice3 = (Button) findViewById(R.id.choiceC);
+        mChoice4 = (Button) findViewById(R.id.choiceD);
 
         updateQuestion();
 
         mChoice1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
-
+                    updateResult();
                 } else {
                     updateQuestion();
                 }
@@ -54,13 +48,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 1;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
-
+                    updateResult();
                 } else {
                     updateQuestion();
                 }
@@ -71,13 +59,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 2;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
-
+                    updateResult();
                 } else {
                     updateQuestion();
                 }
@@ -88,13 +70,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 3;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
-
+                    updateResult();
                 } else {
                     updateQuestion();
                 }
@@ -113,4 +89,12 @@ public class GAD7Activity extends AppCompatActivity {
         mQuesNumber++;
     }
 
+    private void updateResult(){
+        Intent i = new Intent(getApplicationContext(), PHQ9ResultActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("points",mPoint);
+        i.putExtras(b);
+        PHQ9Activity.this.finish();
+        startActivity(i);
+    }
 }

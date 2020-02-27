@@ -1,6 +1,6 @@
 package com.pacman.MentAlly.ui.PHQ9;
 
-public class PHQ9Questions {
+public class PHQ9QuestionModel {
 
     public String[] mQues = {
             "1. Little interest or pleasure in doing things",

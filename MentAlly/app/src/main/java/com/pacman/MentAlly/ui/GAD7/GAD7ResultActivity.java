@@ -12,7 +12,7 @@ import com.pacman.MentAlly.R;
 
 import org.w3c.dom.Text;
 
-public class GAD7Results extends AppCompatActivity {
+public class GAD7ResultActivity extends AppCompatActivity {
 
     private TextView mResult;
     private Button mRetry;

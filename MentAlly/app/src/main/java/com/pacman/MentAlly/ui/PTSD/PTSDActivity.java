@@ -10,11 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-import org.w3c.dom.Text;
-
 public class PTSDActivity extends AppCompatActivity {
 
-    private PTSDQuestions mQues = new PTSDQuestions();
+    private PTSDQuestionModel mQues = new PTSDQuestionModel();
     private TextView mQuesView;
     private int mQuesNum=0;
     private int mScore=0;
@@ -62,7 +60,7 @@ public class PTSDActivity extends AppCompatActivity {
     }
 
     private void updateResult(){
-        Intent i = new Intent(getApplicationContext(),PTSDResults.class);
+        Intent i = new Intent(getApplicationContext(), PTSDResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("score",mScore);
         i.putExtras(b);

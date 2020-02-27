@@ -12,7 +12,7 @@ import com.pacman.MentAlly.R;
 
 import org.w3c.dom.Text;
 
-public class PTSDResults extends AppCompatActivity {
+public class PTSDResultActivity extends AppCompatActivity {
 
     private TextView mResults;
     private Button mRetry;
