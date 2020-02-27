@@ -1,5 +1,7 @@
 package com.pacman.MentAlly.ui.habit;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -11,12 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pacman.MentAlly.R;
 
+import java.util.ArrayList;
+
 class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
+
+    private Context mContext;
+
+    public HabitAdapter(Context context) {
+        mContext = context;
+    }
 
     @NonNull
     @Override
     public HabitView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_habit, parent, false);
+        HabitView holder = new HabitView(view);
+        return holder;
     }
 
     @Override
