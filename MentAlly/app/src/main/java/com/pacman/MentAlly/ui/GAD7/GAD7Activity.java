@@ -37,12 +37,7 @@ public class GAD7Activity extends AppCompatActivity {
         mChoice1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
+                    updateResult();
 
                 } else {
                     updateQuestion();
@@ -54,12 +49,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 1;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
+                    updateResult();
 
                 } else {
                     updateQuestion();
@@ -71,12 +61,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 2;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
+                    updateResult();
 
                 } else {
                     updateQuestion();
@@ -88,12 +73,7 @@ public class GAD7Activity extends AppCompatActivity {
             public void onClick(View view){
                 mPoint = mPoint + 3;
                 if (mQuesNumber == mQues.getLength()){
-                    Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
-                    Bundle b = new Bundle();
-                    b.putInt("points",mPoint);
-                    i.putExtras(b);
-                    GAD7Activity.this.finish();
-                    startActivity(i);
+                    updateResult();
 
                 } else {
                     updateQuestion();
@@ -111,6 +91,15 @@ public class GAD7Activity extends AppCompatActivity {
         mChoice4.setText(mQues.getChoice4(mQuesNumber));
 
         mQuesNumber++;
+    }
+
+    private void updateResult(){
+        Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("points",mPoint);
+        i.putExtras(b);
+        GAD7Activity.this.finish();
+        startActivity(i);
     }
 
 }
