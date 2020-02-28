@@ -1,16 +1,14 @@
 Sprint1.md
 
-
 Meeting Goal: 
 Assign tasks to group members.
-
 
 Sprint Goals
 1. Create database
 2. Registration view
-3. login view
-4. profile page view
-5. learn new technologies (firebase and android studio)
+3. Login view
+4. Profile page view
+5. Learn new technologies (firebase and android studio)
 
 
 User stories:
@@ -56,6 +54,3 @@ Team Capacity: 35
 
 Participants: Kavya, Fareeha, Jasmine, Malaika, Viju, Navya, Alex
 Everyone has participated: Yes
-
-
-Daily Standup days: Monday, Tuesday, Wednesday, Thursday, Friday
