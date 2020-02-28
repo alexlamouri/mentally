@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pacman.MentAlly">
 
@@ -11,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".ui.PHQ9.PHQ9ResultActivity"></activity>
         <activity android:name=".ui.PHQ9.PHQ9Activity" >
         <intent-filter>
@@ -35,4 +37,6 @@
         <activity android:name=".ui.profile.ProfileActivity" />
     </application>
 
+
+    </application>
 </manifest>
