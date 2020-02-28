@@ -14,15 +14,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 enum State {
     INCOMPLETE_TASKS,
@@ -31,41 +42,51 @@ enum State {
 
 public class ToDoListActivity extends AppCompatActivity {
 
+    private static final String TAG = "ToDoListActivity";
+
     private Button addButton;
     private Button completedButton;
     private Button incompleteButton;
     private Button deleteListButton;
     private ListView myListView;
     private MyListAdapter mylistadapter;
-    private List<Task> listObject;
-    private List<Task> completedList;
 
     private State currentState;
+    private FirebaseFirestore db;
+    private String uid;
+
+    private final List<Task> incompletedList = new ArrayList<>();
+    private final List<Task> completedList = new ArrayList<>();
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstance) {
+        super.onCreate(savedInstance);
         setContentView(R.layout.activity_to_do_list);
 
-        currentState = State.INCOMPLETE_TASKS;
-        addButton = findViewById(R.id.addButton);
-        completedButton = findViewById(R.id.viewCompletedButton);
-        incompleteButton = findViewById(R.id.viewIncompletedButton);
-        deleteListButton = findViewById(R.id.delete_list_btn);
-        myListView = findViewById(R.id.myList);
-        mylistadapter = new MyListAdapter();
-        listObject = new ArrayList<>();
-        completedList = new ArrayList<>();
+        this.currentState = State.INCOMPLETE_TASKS;
+        this.addButton = findViewById(R.id.addButton);
+        this.completedButton = findViewById(R.id.viewCompletedButton);
+        this.incompleteButton = findViewById(R.id.viewIncompletedButton);
+        this.deleteListButton = findViewById(R.id.delete_list_btn);
 
-        mylistadapter.setData(listObject);
-        myListView.setAdapter(mylistadapter);
+        this.db = FirebaseFirestore.getInstance();
+        this.uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        if (currentState == State.INCOMPLETE_TASKS) {
-            incompleteButton.setEnabled(false);
+        this.mylistadapter = new MyListAdapter();
+
+        this.getAllCompletedTasksFromDB();
+
+        this.getAllIncompletedTasksFromDB();
+
+        this.myListView = findViewById(R.id.myList);
+        this.myListView.setAdapter(this.mylistadapter);
+
+        if (this.currentState == State.INCOMPLETE_TASKS) {
+            this.incompleteButton.setEnabled(false);
         } else {
-            completedButton.setEnabled(false);
-            addButton.setEnabled(false);
+            this.completedButton.setEnabled(false);
+            this.addButton.setEnabled(false);
         }
 
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,10 +99,8 @@ public class ToDoListActivity extends AppCompatActivity {
                 final TextView startDateLabel = infoTaskDialogView.findViewById(R.id.startDateLabel);
                 final TextView endDateLabel = infoTaskDialogView.findViewById(R.id.endDateLabel);
 
-
-
                 if (currentState == State.INCOMPLETE_TASKS) {
-                    final Task task = listObject.get(pos);
+                    final Task task = incompletedList.get(pos);
                     taskLabel.setText(task.getTaskName());
                     startDateLabel.setText(task.getStart_date());
                     endDateLabel.setText(task.getEnd_date());
@@ -91,16 +110,22 @@ public class ToDoListActivity extends AppCompatActivity {
                             .setPositiveButton("Mark As Completed", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    //mark task as completed
+                                    Log.d(TAG, "marking as completed " + task.getTaskId());
+                                    task.setCompleted();
+                                    updateCompleteInDb(task.getTaskId());
                                     completedList.add(task);
-                                    listObject.remove(task);
-                                    mylistadapter.setData(listObject);
+                                    incompletedList.remove(task);
+                                    mylistadapter.setData(incompletedList);
                                 }
                             })
                             .setNegativeButton("Cancel Task", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    listObject.remove(task);
-                                    mylistadapter.setData(listObject);
+                                    Log.d(TAG, "removing task " + task.getTaskId());
+                                    removeTaskFromDb(task.getTaskId());
+                                    incompletedList.remove(task);
+                                    mylistadapter.setData(incompletedList);
                                 }
                             })
                             .create();
@@ -115,6 +140,7 @@ public class ToDoListActivity extends AppCompatActivity {
                             .setNegativeButton("Cancel Task", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    removeTaskFromDb(task.getTaskId());
                                     completedList.remove(task);
                                     mylistadapter.setData(completedList);
                                 }
@@ -138,12 +164,19 @@ public class ToDoListActivity extends AppCompatActivity {
                 AlertDialog dialog = new AlertDialog.Builder(ToDoListActivity.this)
                         .setView(addTaskDialogView)
                         .setPositiveButton(null, new DialogInterface.OnClickListener() {
-
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Task newTask = new Task(taskName.getText().toString(), startDate.getText().toString(), finishDate.getText().toString());
-                                listObject.add(newTask);
-                                mylistadapter.setData(listObject);
+                                if (taskName.getText().toString().isEmpty()) {
+                                    Toast.makeText(ToDoListActivity.this, "ERROR: Please specify task name", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(ToDoListActivity.this, "Successfully Added Task", Toast.LENGTH_SHORT).show();
+                                    Task newTask = new Task(taskName.getText().toString(), startDate.getText().toString(), finishDate.getText().toString());
+                                    incompletedList.add(newTask);
+                                    //add to database
+                                    addTaskToDatabase(taskName.getText().toString(), startDate.getText().toString(), finishDate.getText().toString(), newTask.getTaskId(), false);
+                                    mylistadapter.setData(incompletedList);
+                                }
+
                             }
                         })
                         .setPositiveButtonIcon(AppCompatResources.getDrawable(ToDoListActivity.this, R.drawable.complete_task))
@@ -167,7 +200,7 @@ public class ToDoListActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                mylistadapter.setData(listObject);
+                mylistadapter.setData(incompletedList);
                 incompleteButton.setEnabled(false);
                 completedButton.setEnabled(true);
                 addButton.setEnabled(true);
@@ -179,9 +212,15 @@ public class ToDoListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentState == State.INCOMPLETE_TASKS) {
-                    listObject.clear();
-                    mylistadapter.setData(listObject);
+                    for (Task t:incompletedList) {
+                        removeTaskFromDb(t.getTaskId());
+                    }
+                    incompletedList.clear();
+                    mylistadapter.setData(incompletedList);
                 } else {
+                    for (Task t:completedList) {
+                        removeTaskFromDb(t.getTaskId());
+                    }
                     completedList.clear();
                     mylistadapter.setData(completedList);
                 }
@@ -200,12 +239,13 @@ public class ToDoListActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
+            Log.d("ToDoListActivity inside count", Integer.toString(taskList.size()));
             return taskList.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return taskList.get(position);
         }
 
         @Override
@@ -215,11 +255,108 @@ public class ToDoListActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
             LayoutInflater inflateLayout = (LayoutInflater) ToDoListActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View taskRow = inflateLayout.inflate(R.layout.task, parent, false);
             TextView taskObject = taskRow.findViewById(R.id.taskItem);
             taskObject.setText(taskList.get(position).getTaskName());
+            Log.d("Inside getView", taskList.get(position).getTaskName());
             return taskRow;
         }
+    }
+
+    public void addTaskToDatabase(String taskName, String startDate, String finishDate, String taskId, boolean completed) {
+        Map<String, Object> newTaskForUser = new HashMap<>();
+
+        newTaskForUser.put("taskname", taskName);
+        newTaskForUser.put("startDate", startDate);
+        newTaskForUser.put("finishDate", finishDate);
+        newTaskForUser.put("completed", completed);
+
+        db.collection("users").document(uid).collection("taskLog").document(taskId).set(newTaskForUser).addOnSuccessListener(this, new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.w("SUCCESS", "Document snapshot added with ID");
+            }
+        });
+    }
+
+    public void getAllCompletedTasksFromDB() {
+
+        db.collection("users").document(uid).collection("taskLog")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                Map<String, Object> taskItem = document.getData();
+                                String taskName = (String)taskItem.get("taskname");
+                                String startDate = (String)taskItem.get("startDate");
+                                String finishDate = (String)taskItem.get("finishDate");
+                                boolean complete = (boolean)taskItem.get("completed");
+
+                                Task t = new Task();
+                                t.setCompleted();
+                                t.setEnd_date(finishDate);
+                                t.setStart_date(startDate);
+                                t.setTaskName(taskName);
+                                t.setTaskId(document.getId());
+
+                                if (complete) {
+                                    completedList.add(t);
+                                    Log.w("ToDoListActivity", "Got data from firebase complete");
+                                }
+                            }
+                            mylistadapter.setData(completedList);
+                        } else {
+                            Log.w("couldnt receive items", "nope");
+                        }
+                    }
+                });
+    }
+
+    public void getAllIncompletedTasksFromDB() {
+        db.collection("users").document(uid).collection("taskLog")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                Map<String, Object> taskItem = document.getData();
+                                String taskName = (String)taskItem.get("taskname");
+                                String startDate = (String)taskItem.get("startDate");
+                                String finishDate = (String)taskItem.get("finishDate");
+                                boolean complete = (boolean)taskItem.get("completed");
+
+
+                                Task t = new Task();
+                                t.setCompleted();
+                                t.setEnd_date(finishDate);
+                                t.setStart_date(startDate);
+                                t.setTaskName(taskName);
+                                t.setTaskId(document.getId());
+
+                                if (!complete) {
+                                    incompletedList.add(t);
+                                    Log.w("ToDoListActivity", "Got data from firebase incomplete");
+                                }
+
+                            }
+                            mylistadapter.setData(incompletedList);
+                        } else {
+                            Log.w("couldnt receive items", "nope");
+                        }
+                    }
+                });
+    }
+
+    public void updateCompleteInDb(String taskID) {
+        db.collection("users").document(this.uid).collection("taskLog").document(taskID).update("completed", true);
+    }
+
+    public void removeTaskFromDb(String taskID) {
+        db.collection("users").document(this.uid).collection("taskLog").document(taskID).delete();
     }
 }
