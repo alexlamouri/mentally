@@ -11,7 +11,7 @@
     android:paddingTop="16dp"
     android:orientation="vertical"
     android:background="#F2ECE0"
-    tools:context=".ui.PTSD.PTSD">
+    tools:context=".ui.ptsd.ptsd">
 
     <TextView
         android:id="@+id/question"

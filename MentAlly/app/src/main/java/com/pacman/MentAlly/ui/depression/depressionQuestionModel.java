@@ -1,6 +1,6 @@
-package com.pacman.MentAlly.ui.Depression;
+package com.pacman.MentAlly.ui.depression;
 
-public class DepressionQuestionModel {
+public class depressionQuestionModel {
 
     public String[] mQues = {
             "1. Little interest or pleasure in doing things",

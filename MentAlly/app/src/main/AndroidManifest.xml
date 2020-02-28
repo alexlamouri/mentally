@@ -13,30 +13,49 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.Depression.DepressionResultActivity"></activity>
-        <activity android:name=".ui.Depression.DepressionActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-        <activity android:name=".ui.PTSD.PTSDResultActivity" />
-        <activity android:name=".ui.PTSD.PTSDActivity" />
-        <activity android:name=".ui.PTSD.PTSD"/>
+        <!-- Placeholder -->
+        <activity android:name=".ui.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
 
-        <activity android:name=".ui.Anxiety.AnxietyResultActivity" />
-        <activity android:name=".ui.Anxiety.AnxietyActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="Mentally" />
+        <!-- ADHD Questionnaire -->
+        <activity android:name=".ui.adhd.adhdActivity"/>
+        <activity android:name=".ui.adhd.adhdResultActivity"/>
+
+        <!-- Anxiety Questionnaire -->
+        <activity android:name=".ui.anxiety.anxietyActivity"/>
+        <activity android:name=".ui.anxiety.anxietyResultActivity"/>
+
+        <!-- Bipolar Questionnaire -->
+        <activity android:name=".ui.bipolar.bipolarActivity"/>
+        <activity android:name=".ui.bipolar.bipolarResultActivity"/>
+
+        <!-- Depression Questionnaire -->
+        <activity android:name=".ui.depression.depressionActivity"/>
+        <activity android:name=".ui.depression.depressionResultActivity"/>
+
+        <!-- OCD Questionnaire -->
+        <activity android:name=".ui.ocd.ocdActivity"/>
+        <activity android:name=".ui.ocd.ocdResultActivity"/>
+
+        <!-- PTSD Questionnaire -->
+        <activity android:name=".ui.ptsd.ptsd"/>
+        <activity android:name=".ui.ptsd.ptsdActivity"/>
+        <activity android:name=".ui.ptsd.ptsdResultActivity"/>
+
+        <!-- Registration Page -->
         <activity
             android:name=".ui.register.RegisterActivity"
-            android:label="@string/app_name" />
-        <activity android:name=".ui.profile.ProfileActivity" />
-    </application>
+            android:label="@string/app_name"
+        />
 
+        <!-- Profile Page -->
+        <activity android:name=".ui.profile.ProfileActivity"/>
 
     </application>
 </manifest>

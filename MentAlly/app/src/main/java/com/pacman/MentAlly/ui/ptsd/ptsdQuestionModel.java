@@ -1,6 +1,6 @@
-package com.pacman.MentAlly.ui.PTSD;
+package com.pacman.MentAlly.ui.ptsd;
 
-public class PTSDQuestionModel {
+public class ptsdQuestionModel {
 
     public String[] mQues = {
             "Had nightmares about the event(s) or thought about the event(s) when you did not want to?",
