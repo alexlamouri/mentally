@@ -20,6 +20,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 
@@ -27,9 +28,11 @@ import java.util.ArrayList;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
+    private static final String TAG = "HabitTrackerActivity";
     private ImageButton newHabit;
-    private ArrayList<String> habitNames;
+    private ArrayList<String> habitNames = new ArrayList<>();
     private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class HabitTrackerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_habit_tracker);
 
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         newHabit = findViewById(R.id.new_habit);
         newHabit.setOnClickListener(new View.OnClickListener() {
@@ -46,39 +50,29 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        habitNames = new ArrayList<>();
+        //habitNames = new ArrayList<>();
         initHabitList();
     }
 
     private void initHabitList() {
-        db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("habits").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("users").document(mAuth.getCurrentUser().getUid()).collection("habits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onEvent(@Nullable QuerySnapshot docsnapshot, @Nullable FirebaseFirestoreException e) {
-                Log.w("", "Entered sucessful");
-                habitNames.clear();
-
-                for (DocumentSnapshot snapshot : docsnapshot) {
-                    if (e != null) {
-                        Log.w("Listen failed.", e);
-                        return;
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d(TAG, document.getId() + "=>" + document.getData());
+                        habitNames.add(document.getString("Habit Name"));
                     }
-
-                    if (snapshot != null && snapshot.exists()) {
-                        habitNames.add(snapshot.getString("Habit Name"));
-                        Log.w("", snapshot.getString("Habit Name"));
-                        Log.d("", "Current data: " + snapshot.getData());
-                    } else {
-                        Log.d("", "Current data: null");
-                    }
+                    initRecyclerView();
+                } else {
+                    Log.d(TAG, "Error getting documents: ", task.getException());
                 }
-                //adapter.notifyDataSetChanged();
             }
         });
-
-        initRecyclerView();
     }
 
     private void initRecyclerView() {
+        Log.d(TAG, "Initialize recycler view");
         RecyclerView habitList = findViewById(R.id.habitlist);
         HabitAdapter adapter = new HabitAdapter(this, habitNames);
         habitList.setAdapter(adapter);
