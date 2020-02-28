@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
         }
         else if(time >= 18 && time < 22){
             root = inflater.inflate(R.layout.frag_home_sunset, container, false);
-        }else{
+        }else {
             root = inflater.inflate(R.layout.frag_home_night, container, false);
         }
 

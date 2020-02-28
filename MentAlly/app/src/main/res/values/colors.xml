@@ -3,6 +3,6 @@
     <color name="colorPrimary">#ccccff</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#efcff0 </color>
-    <color name="colorDayT">#413395</color>
-    <color name="colorDayB">#ff9961</color>
+    <color name="colorDayT">#ffff7a</color>
+    <color name="colorDayB">#a0e6ff</color>
 </resources>
