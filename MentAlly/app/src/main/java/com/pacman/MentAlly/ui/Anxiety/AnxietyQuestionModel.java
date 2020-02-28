@@ -1,6 +1,6 @@
-package com.pacman.MentAlly.ui.GAD7;
+package com.pacman.MentAlly.ui.Anxiety;
 
-public class GAD7QuestionModel {
+public class AnxietyQuestionModel {
 
     public String[] mQues = {
             "1. Feeling nervous, anxious, or on edge",

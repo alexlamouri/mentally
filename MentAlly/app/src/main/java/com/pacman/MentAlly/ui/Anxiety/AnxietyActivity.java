@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.GAD7;
+package com.pacman.MentAlly.ui.Anxiety;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class GAD7Activity extends AppCompatActivity {
+public class AnxietyActivity extends AppCompatActivity {
 
-    private GAD7QuestionModel mQues = new GAD7QuestionModel();
+    private AnxietyQuestionModel mQues = new AnxietyQuestionModel();
     private TextView mQuesView;
     private Button mChoice1;
     private Button mChoice2;
@@ -94,11 +94,11 @@ public class GAD7Activity extends AppCompatActivity {
     }
 
     private void updateResult(){
-        Intent i = new Intent(getApplicationContext(), GAD7ResultActivity.class);
+        Intent i = new Intent(getApplicationContext(), AnxietyResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("points",mPoint);
         i.putExtras(b);
-        GAD7Activity.this.finish();
+        AnxietyActivity.this.finish();
         startActivity(i);
     }
 

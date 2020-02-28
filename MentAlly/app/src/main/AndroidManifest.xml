@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.PHQ9.PHQ9ResultActivity"></activity>
-        <activity android:name=".ui.PHQ9.PHQ9Activity" >
+        <activity android:name=".ui.Depression.DepressionResultActivity"></activity>
+        <activity android:name=".ui.Depression.DepressionActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +26,8 @@
         <activity android:name=".ui.PTSD.PTSD"/>
 
 
-        <activity android:name=".ui.GAD7.GAD7ResultActivity" />
-        <activity android:name=".ui.GAD7.GAD7Activity" />
+        <activity android:name=".ui.Anxiety.AnxietyResultActivity" />
+        <activity android:name=".ui.Anxiety.AnxietyActivity" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="Mentally" />

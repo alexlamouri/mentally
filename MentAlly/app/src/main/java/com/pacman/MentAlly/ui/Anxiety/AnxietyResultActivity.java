@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.GAD7;
+package com.pacman.MentAlly.ui.Anxiety;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,7 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-import org.w3c.dom.Text;
-
-public class GAD7ResultActivity extends AppCompatActivity {
+public class AnxietyResultActivity extends AppCompatActivity {
 
     private TextView mResult;
     private Button mRetry;
@@ -40,7 +38,7 @@ public class GAD7ResultActivity extends AppCompatActivity {
         mRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),GAD7Activity.class);
+                Intent i = new Intent(getApplicationContext(), AnxietyActivity.class);
                 startActivity(i);
             }
         });

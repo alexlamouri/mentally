@@ -11,7 +11,7 @@
     android:paddingTop="16dp"
     android:orientation="vertical"
     android:background="#F2ECE0"
-    tools:context=".ui.GAD7.GAD7Activity">
+    tools:context=".ui.Anxiety.AnxietyActivity">
 
     <TextView
         android:id="@+id/general"

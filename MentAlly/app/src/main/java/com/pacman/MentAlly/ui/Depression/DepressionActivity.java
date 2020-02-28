@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.PHQ9;
+package com.pacman.MentAlly.ui.Depression;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class PHQ9Activity extends AppCompatActivity {
+public class DepressionActivity extends AppCompatActivity {
 
-    private PHQ9QuestionModel mQues = new PHQ9QuestionModel();
+    private DepressionQuestionModel mQues = new DepressionQuestionModel();
     private TextView mQuesView;
     private Button mChoice1;
     private Button mChoice2;
@@ -90,11 +90,11 @@ public class PHQ9Activity extends AppCompatActivity {
     }
 
     private void updateResult(){
-        Intent i = new Intent(getApplicationContext(), PHQ9ResultActivity.class);
+        Intent i = new Intent(getApplicationContext(), DepressionResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("points",mPoint);
         i.putExtras(b);
-        PHQ9Activity.this.finish();
+        DepressionActivity.this.finish();
         startActivity(i);
     }
 }

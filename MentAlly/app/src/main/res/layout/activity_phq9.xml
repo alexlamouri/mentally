@@ -11,7 +11,7 @@
     android:paddingTop="16dp"
     android:orientation="vertical"
     android:background="#F2ECE0"
-    tools:context=".ui.PHQ9.PHQ9Activity">
+    tools:context=".ui.Depression.DepressionActivity">
 
     <TextView
         android:id="@+id/general"
