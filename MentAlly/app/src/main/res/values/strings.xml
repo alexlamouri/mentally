@@ -1,5 +1,7 @@
 <resources>
+
     <string name="app_name">MentAlly</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -80,5 +82,30 @@
 
     <string name="ocdResult">Your result is ...</string>
     <string name="ocdRetry">Try Again</string>
+
+    <!--  Bipolar Strings  -->
+    <string name="bipOvr">Over my life...</string>
+    <string name="bipQ1">1. At times I am much more talkative or speak much faster than usual.</string>
+    <string name="bipQ2">2. There have been times when I was much more active or did many more things than usual.</string>
+    <string name="bipQ3">3. I get into moods where I feel very speeded up or irritable.</string>
+    <string name="bipQ4">4. There have been times when I have felt both high (elated) and low (depressed) at the same time.</string>
+    <string name="bipQ5">5. At times I have been much more interested in sex than usual.</string>
+    <string name="bipQ6">6. My self-confidence ranges from great self- doubt to equally great overconfidence.</string>
+    <string name="bipQ7">7. There have been GREAT variations in the quantity or quality of my work.</string>
+    <string name="bipQ8">8. For no apparent reason I sometimes have been VERY angry or hostile.</string>
+    <string name="bigQ9">9. I have periods of mental dullness and other periods of very creative thinking.</string>
+    <string name="bipQ10">10. At times I am greatly interested in being with people and at other times I just want to be left alone with my thoughts.</string>
+    <string name="bipQ11">11. I have had periods of great optimism and other periods of equally great pessimism.</string>
+    <string name="bipQ12">12. I have had periods of tearfulness and crying and other times when I laugh and joke excessively.</string>
+
+    <string name ="bipA1">Not at all</string>
+    <string name ="bipA2">Just a little</string>
+    <string name ="bipA3">Somewhat</string>
+    <string name ="bipA4">Moderately</string>
+    <string name ="bipA5">Quite a lot</string>
+    <string name ="bipA6">Very much</string>
+
+    <string name="bipResult">Your result is ...</string>
+    <string name="bipRetry">Try Again</string>
 
 </resources>
