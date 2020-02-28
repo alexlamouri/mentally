@@ -111,7 +111,6 @@ public class ToDoListActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     //mark task as completed
-                                    Log.d(TAG, "marking as completed " + task.getTaskId());
                                     task.setCompleted();
                                     updateCompleteInDb(task.getTaskId());
                                     completedList.add(task);
@@ -122,7 +121,6 @@ public class ToDoListActivity extends AppCompatActivity {
                             .setNegativeButton("Cancel Task", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Log.d(TAG, "removing task " + task.getTaskId());
                                     removeTaskFromDb(task.getTaskId());
                                     incompletedList.remove(task);
                                     mylistadapter.setData(incompletedList);
@@ -239,7 +237,6 @@ public class ToDoListActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            Log.d("ToDoListActivity inside count", Integer.toString(taskList.size()));
             return taskList.size();
         }
 
@@ -260,7 +257,6 @@ public class ToDoListActivity extends AppCompatActivity {
             View taskRow = inflateLayout.inflate(R.layout.task, parent, false);
             TextView taskObject = taskRow.findViewById(R.id.taskItem);
             taskObject.setText(taskList.get(position).getTaskName());
-            Log.d("Inside getView", taskList.get(position).getTaskName());
             return taskRow;
         }
     }
@@ -273,12 +269,7 @@ public class ToDoListActivity extends AppCompatActivity {
         newTaskForUser.put("finishDate", finishDate);
         newTaskForUser.put("completed", completed);
 
-        db.collection("users").document(uid).collection("taskLog").document(taskId).set(newTaskForUser).addOnSuccessListener(this, new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.w("SUCCESS", "Document snapshot added with ID");
-            }
-        });
+        db.collection("users").document(uid).collection("taskLog").document(taskId).set(newTaskForUser);
     }
 
     public void getAllCompletedTasksFromDB() {
@@ -305,12 +296,9 @@ public class ToDoListActivity extends AppCompatActivity {
 
                                 if (complete) {
                                     completedList.add(t);
-                                    Log.w("ToDoListActivity", "Got data from firebase complete");
                                 }
                             }
                             mylistadapter.setData(completedList);
-                        } else {
-                            Log.w("couldnt receive items", "nope");
                         }
                     }
                 });
@@ -340,13 +328,10 @@ public class ToDoListActivity extends AppCompatActivity {
 
                                 if (!complete) {
                                     incompletedList.add(t);
-                                    Log.w("ToDoListActivity", "Got data from firebase incomplete");
                                 }
 
                             }
                             mylistadapter.setData(incompletedList);
-                        } else {
-                            Log.w("couldnt receive items", "nope");
                         }
                     }
                 });
