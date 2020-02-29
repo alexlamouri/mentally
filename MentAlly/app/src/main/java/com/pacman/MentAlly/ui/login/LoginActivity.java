@@ -27,8 +27,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.menu.MainActivity;
-import com.pacman.MentAlly.ui.profile.ProfileActivity;
-import com.pacman.MentAlly.ui.register.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
