@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.PTSD;
+package com.pacman.MentAlly.ui.ptsd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class PTSDActivity extends AppCompatActivity {
+public class ptsdActivity extends AppCompatActivity {
 
-    private PTSDQuestionModel mQues = new PTSDQuestionModel();
+    private ptsdQuestionModel mQues = new ptsdQuestionModel();
     private TextView mQuesView;
     private int mQuesNum=0;
     private int mScore=0;
@@ -20,7 +20,7 @@ public class PTSDActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ptsd2);
+        setContentView(R.layout.activity_ptsd_2);
 
         mQuesView = (TextView) findViewById(R.id.quesP);
         Button yesB = (Button) findViewById(R.id.yesP);
@@ -60,11 +60,11 @@ public class PTSDActivity extends AppCompatActivity {
     }
 
     private void updateResult(){
-        Intent i = new Intent(getApplicationContext(), PTSDResultActivity.class);
+        Intent i = new Intent(getApplicationContext(), ptsdResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("score",mScore);
         i.putExtras(b);
-        PTSDActivity.this.finish();
+        ptsdActivity.this.finish();
         startActivity(i);
     }
 }

@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.Depression;
+package com.pacman.MentAlly.ui.depression;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class DepressionResultActivity extends AppCompatActivity {
+public class depressionResultActivity extends AppCompatActivity {
 
     private TextView mResult;
     private Button mRetry;
@@ -18,7 +18,7 @@ public class DepressionResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phq9_result);
+        setContentView(R.layout.activity_depression_result);
 
         mResult = (TextView) findViewById(R.id.results);
         mRetry = (Button) findViewById(R.id.redo);
@@ -45,7 +45,7 @@ public class DepressionResultActivity extends AppCompatActivity {
         mRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), DepressionActivity.class);
+                Intent i = new Intent(getApplicationContext(), depressionActivity.class);
                 startActivity(i);
             }
         });

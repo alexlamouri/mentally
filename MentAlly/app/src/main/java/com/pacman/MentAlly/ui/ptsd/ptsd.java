@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.PTSD;
+package com.pacman.MentAlly.ui.ptsd;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class PTSD extends AppCompatActivity {
+public class ptsd extends AppCompatActivity {
 
 
     private Button yes_b;
@@ -19,7 +19,7 @@ public class PTSD extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ptsd);
+        setContentView(R.layout.activity_ptsd_1);
 
         yes_b = (Button) findViewById(R.id.yes);
         no_b = (Button) findViewById(R.id.no);
@@ -28,7 +28,7 @@ public class PTSD extends AppCompatActivity {
         yes_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),PTSDActivity.class);
+                Intent i = new Intent(getApplicationContext(), ptsdActivity.class);
                 startActivity(i);
             }
         });
@@ -36,11 +36,11 @@ public class PTSD extends AppCompatActivity {
         no_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), PTSDResultActivity.class);
+                Intent i = new Intent(getApplicationContext(), ptsdResultActivity.class);
                 Bundle b = new Bundle();
                 b.putInt("score",score);
                 i.putExtras(b);
-                PTSD.this.finish();
+                ptsd.this.finish();
                 startActivity(i);
             }
         });
