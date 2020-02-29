@@ -15,22 +15,19 @@ import android.widget.ImageButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
     private static final String TAG = "HabitTrackerActivity";
     private ImageButton newHabit;
-    private ArrayList<String> habitNames = new ArrayList<>();
+    private ArrayList<Habit> habitList = new ArrayList<>();
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
 
@@ -38,7 +35,6 @@ public class HabitTrackerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habit_tracker);
-
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,7 +46,6 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        //habitNames = new ArrayList<>();
         initHabitList();
     }
 
@@ -61,7 +56,10 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + "=>" + document.getData());
-                        habitNames.add(document.getString("Habit Name"));
+                        /*Calendar endDate = Calendar.getInstance();
+                        endDate.setTime(document.getDate("End Date"));*/
+                        Habit habit = new Habit(document.getString("Habit Name"), document.getString("End Date"), Integer.parseInt(document.getString("Progress")));
+                        habitList.add(habit);
                     }
                     initRecyclerView();
                 } else {
@@ -73,10 +71,10 @@ public class HabitTrackerActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         Log.d(TAG, "Initialize recycler view");
-        RecyclerView habitList = findViewById(R.id.habitlist);
-        HabitAdapter adapter = new HabitAdapter(this, habitNames);
-        habitList.setAdapter(adapter);
-        habitList.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView habitListView = findViewById(R.id.habitlist);
+        HabitAdapter adapter = new HabitAdapter(this, habitList);
+        habitListView.setAdapter(adapter);
+        habitListView.setLayoutManager(new LinearLayoutManager(this));
         adapter.notifyDataSetChanged();
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,15 +18,18 @@ import com.pacman.MentAlly.R;
 
 import java.util.ArrayList;
 
+/**
+ * A class that controls the habits that are displayed in the list as it scrolls
+ */
 class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
     private static final String TAG = "HabitAdapter";
     private Context mContext;
-    private ArrayList<String> habitNames;
+    private ArrayList<Habit> habitList;
 
-    public HabitAdapter(Context context, ArrayList<String> habits) {
+    public HabitAdapter(Context context, ArrayList<Habit> habits) {
         mContext = context;
-        habitNames = habits;
+        habitList = habits;
     }
 
     @NonNull
@@ -38,21 +42,28 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
     @Override
     public void onBindViewHolder(@NonNull HabitView holder, final int position) {
-        holder.habitName.setText(habitNames.get(position));
-        holder.progress.incrementProgressBy(1);
-
-        holder.layout.setOnClickListener(new View.OnClickListener() {
+        holder.habitName.setText(habitList.get(position).getHabitName());
+        holder.upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, habitNames.get(position), Toast.LENGTH_SHORT).show();
+                habitList.get(position).incrementProgress(1);
+                notifyItemChanged(position);
             }
         });
-        Log.d(TAG, "Viewholder " + habitNames.get(position) + " bound.");
+
+        holder.downButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, habitList.get(position).getHabitName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.progress.incrementProgressBy(habitList.get(position).getProgress());
+        Log.d(TAG, "Viewholder " + habitList.get(position).getHabitName() + " bound.");
     }
 
     @Override
     public int getItemCount() {
-        return habitNames.size();
+        return habitList.size();
     }
 
     class HabitView extends RecyclerView.ViewHolder {
@@ -60,12 +71,16 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
         private ConstraintLayout layout;
         private TextView habitName;
         private ProgressBar progress;
+        private ImageButton upButton;
+        private ImageButton downButton;
 
         public HabitView(@NonNull View itemView) {
             super(itemView);
             layout = itemView.findViewById(R.id.parent_layout);
             habitName = itemView.findViewById(R.id.habitname);
             progress = itemView.findViewById(R.id.progressBar);
+            upButton = itemView.findViewById(R.id.habityes);
+            downButton = itemView.findViewById(R.id.habitno);
         }
     }
 }

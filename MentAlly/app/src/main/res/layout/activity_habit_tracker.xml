@@ -40,6 +40,15 @@
 
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/new_habit"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        android:background="@drawable/profile_button"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/habitlist"
         android:layout_width="0dp"
@@ -49,16 +58,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <ImageButton
-        android:id="@+id/new_habit"
-        android:layout_width="53dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/profile_button"
-        app:layout_constraintEnd_toEndOf="@+id/habitlist"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
