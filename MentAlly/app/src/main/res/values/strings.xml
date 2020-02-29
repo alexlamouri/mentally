@@ -1,6 +1,8 @@
 <resources>
+
     <string name="app_name">MentAlly</string>
-    <!-- Strings related to login -->
+
+    <!-- Login Strings -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -32,6 +34,7 @@
     <string name="title_activity_register2">Sign in</string>
     <string name="sign_in">Sign in</string>
     <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
+
     <!-- Strings related to habits -->
     <string name="habit_tracker">Habit Tracker</string>
     <string name="habit_yes">Button for when habit successfully done</string>
@@ -47,4 +50,109 @@
     </string-array>
     <string name="add_new_habit">Track New Habit</string>
 
+    <!--  ADHD Strings  -->
+    <string name="adhdOvr">Over the past 6 months...</string>
+    <string name="adhdQ1">1. How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?</string>
+    <string name="adhdQ2">2. How often do you have difficulty getting things in order when you have to do a task that requires organization?</string>
+    <string name="adhdQ3">3. How often do you have problems remembering appointments or obligations?</string>
+    <string name="adhdQ4">4. When you have a task that requires a lot of thought, how often do you avoid or delay getting started?</string>
+    <string name="adhdQ5">5. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?</string>
+    <string name="adhdQ6">6. How often do you feel overly active and compelled to do things, like you were driven by a motor?</string>
+
+    <string name ="adhdA1">Never</string>
+    <string name ="adhdA2">Rarely</string>
+    <string name ="adhdA3">Sometimes</string>
+    <string name ="adhdA4">Often</string>
+    <string name ="adhdA5">Very Often</string>
+
+    <string name="adhdResult">Your result is ...</string>
+    <string name="adhdRetry">Try Again</string>
+
+    <!--  OCD Strings  -->
+    <string name="ocdOvr">Over the past month...</string>
+    <string name="ocdQ1">1. I have saved up so many things that they get in the way.</string>
+    <string name="ocdQ2">2. I check things more often than necessary.</string>
+    <string name="ocdQ3">3. I get upset if objects are not arranged properly.</string>
+    <string name="ocdQ4">4. I feel compelled to count while I am doing things.</string>
+    <string name="ocdQ5">5. I find it difficult to touch an object when I know it has been touched by strangers or certain people.</string>
+    <string name="ocdQ6">6. I find it difficult to control my own thoughts.</string>
+    <string name="ocdQ7">7. I collect things I don’t need.</string>
+    <string name="ocdQ8">8. I repeatedly check doors, windows, drawers, etc.</string>
+    <string name="ocdQ9">9. I get upset if others change the way I have arranged things.</string>
+    <string name="ocdQ10">10. I feel I have to repeat certain numbers.</string>
+    <string name="ocdQ11">11. I sometimes have to wash or clean myself simply because I feel contaminated.</string>
+    <string name="ocdQ12">12. I am upset by unpleasant thoughts that come into my mind against my will.</string>
+    <string name="ocdQ13">13. I avoid throwing things away because I am afraid I might need them later.</string>
+    <string name="ocdQ14">14. I repeatedly check gas and water taps and light switches after turning them off.</string>
+    <string name="ocdQ15">15. I need things to be arranged in a particular way.</string>
+    <string name="ocdQ16">16. I feel that there are good and bad numbers.</string>
+    <string name="ocdQ17">17. I wash my hands more often and longer than necessary.</string>
+    <string name="ocdQ18">18. I frequently get nasty thoughts and have difficulty in getting rid of them.</string>
+
+    <string name ="ocdA1">Never</string>
+    <string name ="ocdA2">Rarely</string>
+    <string name ="ocdA3">Sometimes</string>
+    <string name ="ocdA4">Often</string>
+    <string name ="ocdA5">Very Often</string>
+
+    <string name="ocdResult">Your result is ...</string>
+    <string name="ocdRetry">Try Again</string>
+
+    <!--  Bipolar Strings  -->
+    <string name="bipOvr">Over my life...</string>
+    <string name="bipQ1">1. At times I am much more talkative or speak much faster than usual.</string>
+    <string name="bipQ2">2. There have been times when I was much more active or did many more things than usual.</string>
+    <string name="bipQ3">3. I get into moods where I feel very speeded up or irritable.</string>
+    <string name="bipQ4">4. There have been times when I have felt both high (elated) and low (depressed) at the same time.</string>
+    <string name="bipQ5">5. At times I have been much more interested in sex than usual.</string>
+    <string name="bipQ6">6. My self-confidence ranges from great self- doubt to equally great overconfidence.</string>
+    <string name="bipQ7">7. There have been GREAT variations in the quantity or quality of my work.</string>
+    <string name="bipQ8">8. For no apparent reason I sometimes have been VERY angry or hostile.</string>
+    <string name="bigQ9">9. I have periods of mental dullness and other periods of very creative thinking.</string>
+    <string name="bipQ10">10. At times I am greatly interested in being with people and at other times I just want to be left alone with my thoughts.</string>
+    <string name="bipQ11">11. I have had periods of great optimism and other periods of equally great pessimism.</string>
+    <string name="bipQ12">12. I have had periods of tearfulness and crying and other times when I laugh and joke excessively.</string>
+
+    <string name ="bipA1">Not at all</string>
+    <string name ="bipA2">Just a little</string>
+    <string name ="bipA3">Somewhat</string>
+    <string name ="bipA4">Moderately</string>
+    <string name ="bipA5">Quite a lot</string>
+    <string name ="bipA6">Very much</string>
+
+    <string name="bipResult">Your result is ...</string>
+    <string name="bipRetry">Try Again</string>
+
+    <!--  Other Strings  -->
+    <string name="feeling_nervous_anxious_or_on_edge">Feeling nervous, anxious, or on edge</string>
+    <string name="not_at_all_sure">Not at all sure</string>
+    <string name="several_days">Several_days</string>
+    <string name="over_half_the_days">Over half the days</string>
+    <string name="nearly_every_day">Nearly every day</string>
+    <string name="Several_days">several days</string>
+    <string name="over_the_last_2_weeks_how_often_have_you_been_bothered_by_the_following_problems">Over the last 2 weeks, how often have you been bothered by the following problems?</string>
+    <string name="your_result_is">Your Result is..</string>
+    <string name="try_again">Try Again</string>
+    <string name="sometimes_things_happen_to_people_that_are_unusually_or_especially_frightening_horrible_or_traumatic_for_example">Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example:</string>
+    <string name="a_serious_accident_or_fire">a serious accident or fire</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="a_physical_or_sexual_assault">•a physical or sexual assault</string>
+    <string name="a_serious_accident_or_fires">•a serious accident or fire</string>
+    <string name="an_earthquake_or_flood">•an earthquake or flood</string>
+    <string name="a_war">•a war</string>
+    <string name="seeing_someone_be_killed_or_seriously_injured">•seeing someone be killed or seriously injured</string>
+    <string name="having_a_loved_one_die_through_homicide_and_suicide">•having a loved one die through homicide and suicide</string>
+    <string name="have_you_ever_experienced_this_kind_of_event">Have you ever experienced this kind of event?</string>
+    <string name="in_the_past_have_you">In the past, have you...</string>
+    <string name="questions">Questions</string>
+    <string name="tried_hard_not_to_think_about_the_event_s_or_went_out_of_your_way_to_avoid_situations_that_reminded_you_of_the_event_s">Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?</string>
+    <string name="question">question</string>
+    <string name="not_at_all">not at all</string>
+    <string name="_1_little_interest_or_pleasure_in_doing_things">1. Little interest or pleasure in doing things</string>
+
+
+    <string name="start">Start</string>
+
 </resources>
+

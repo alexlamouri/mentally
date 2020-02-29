@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
@@ -30,6 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView country_txt;
     private TextView dob_txt;
     private TextView password_txt;
+    private FirebaseUser user;
 
     public FirebaseFirestore myDatabase;
 
@@ -68,34 +71,29 @@ public class ProfileActivity extends AppCompatActivity {
         password_txt = findViewById(R.id.password_textview);
         password_txt.getBackground().setAlpha(75);
 
-//        first_name_txt.setText("Kavya");
-
         myDatabase = FirebaseFirestore.getInstance();
-//        Log.d("hi", "hello");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String uid = user.getUid();
+            myDatabase.collection("users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot docsnap = task.getResult();
+                        String name = docsnap.getString("Name");
+                        String country = docsnap.getString("Country");
+                        String dob = docsnap.getString("DOB");
+                        //String email = docsnap.getString("email");
 
-        //Note: Wasnt able to figure out why this is not able to find the users path and testing in the database. It has to do with
-        // permissions, but i couldnt figure out how to fix this.
-        myDatabase.collection("users").document("testing").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot docsnap = task.getResult();
-                    String name = docsnap.getString("Name");
-                    String country = docsnap.getString("Country");
-                    String dob = docsnap.getString("DOB");
-
-                    first_name_txt.setText(name);
-                    country_txt.setText(country);
-                    dob_txt.setText(dob);
-
-                } else {
-                    //error handling
-//                    Log.d("oh", "no");
+                        first_name_txt.setText(name);
+                        //email_txt.setText(email);
+                        country_txt.setText(country);
+                        dob_txt.setText(dob);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 }

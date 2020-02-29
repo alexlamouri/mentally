@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_gad7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    android:background="#F2ECE0"
+    tools:context=".ui.ptsd.ptsdActivity">
+
+    <TextView
+        android:id="@+id/generalP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/in_the_past_have_you"
+        android:textAllCaps="false"
+        android:textColor="#3F51B5"
+        android:textColorHighlight="#3F51B5"
+        android:textColorHint="#3F51B5"
+        android:textColorLink="#3F51B5"
+        android:textSize="40sp"
+        />
+
+    <TextView
+        android:id="@+id/quesP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/tried_hard_not_to_think_about_the_event_s_or_went_out_of_your_way_to_avoid_situations_that_reminded_you_of_the_event_s"
+        android:textAllCaps="false"
+        android:textColor="#3F51B5"
+        android:textColorHighlight="#3F51B5"
+        android:textColorHint="#3F51B5"
+        android:textColorLink="#3F51B5"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/yesP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:text="@string/yes"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="30sp"
+        />
+
+    <Button
+        android:id="@+id/noP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#C0B2E7"
+        android:text="@string/no"
+        android:textAllCaps="false"
+        android:textColor="#664564"
+        android:textColorHighlight="#664564"
+        android:textColorHint="#664564"
+        android:textColorLink="#664564"
+        android:textSize="30sp"
+        />
+
+</LinearLayout>
