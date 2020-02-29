@@ -57,7 +57,8 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
                 Toast.makeText(mContext, habitList.get(position).getHabitName(), Toast.LENGTH_SHORT).show();
             }
         });
-        holder.progress.incrementProgressBy(habitList.get(position).getProgress());
+        holder.progress.setMax(habitList.get(position).getMaxProgress());
+        holder.progress.setProgress(habitList.get(position).getProgress(), true);
         Log.d(TAG, "Viewholder " + habitList.get(position).getHabitName() + " bound.");
     }
 

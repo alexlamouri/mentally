@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,6 +73,9 @@ public class NewHabitActivity extends AppCompatActivity {
     private void addHabit() {
         Map<String,String> habit = new HashMap<>();
         habit.put("Habit Name", habitName.getText().toString());
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        String start = sdf.format(Calendar.getInstance().getTime());
+        habit.put("Start Date", start);
         habit.put("End Date", habitEndDate.getText().toString());
         habit.put("Frequency", trackingFrequency.getSelectedItem().toString());
         habit.put("Progress", "0");

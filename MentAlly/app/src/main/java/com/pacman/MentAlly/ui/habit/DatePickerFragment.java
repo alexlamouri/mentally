@@ -9,6 +9,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -35,6 +36,8 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        this.dateString.setText(DateFormat.getDateInstance().format(c.getTime()));
+        String dateFormat = "MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
+        this.dateString.setText(sdf.format(c.getTime()));
     }
 }

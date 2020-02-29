@@ -20,8 +20,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class HabitTrackerActivity extends AppCompatActivity {
 
@@ -56,9 +59,20 @@ public class HabitTrackerActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + "=>" + document.getData());
-                        /*Calendar endDate = Calendar.getInstance();
-                        endDate.setTime(document.getDate("End Date"));*/
-                        Habit habit = new Habit(document.getString("Habit Name"), document.getString("End Date"), Integer.parseInt(document.getString("Progress")));
+                        Calendar endDate = Calendar.getInstance();
+                        Calendar startDate = Calendar.getInstance();
+                        Date date1 = null;
+                        Date date2 = null;
+                        try {
+                            date1 = new SimpleDateFormat("MM/dd/yyyy").parse(document.getString("Start Date"));
+                            date2 = new SimpleDateFormat("MM/dd/yyyy").parse(document.getString("End Date"));
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        startDate.setTime(date1);
+                        endDate.setTime(date2);
+                        Habit habit = new Habit(document.getString("Habit Name"), startDate, endDate, document.getString("Frequency"), Integer.parseInt(document.getString("Progress")));
                         habitList.add(habit);
                     }
                     initRecyclerView();
