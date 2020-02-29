@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.Mood.MoodActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="252dp"
+            android:background="#9378C7"
+            android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20sp"
+                    android:text="MentAlly"
+                    android:textAlignment="center"
+                    android:textColor="#E8F8F7F7"
+                    android:textSize="50sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="20sp"
+                    android:text="Mood Tracker Log"
+                    android:textAlignment="center"
+                    android:textColor="#BFFFFFFF"
+                    android:textSize="25sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/titlequote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='"Your mood should not dictate your manners"'
+                    android:textAlignment="center"
+                    android:textColor="#FF251580"
+                    android:textSize="15sp" />
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/moodlist"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-40dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/listviewbackground"/>
+        <Button
+            android:id="@+id/addmood"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_gravity="center"
+            android:background="@drawable/plussign"
+            android:backgroundTint="#FF9378C7"
+            android:textSize="18sp"
+            android:layout_marginTop="-40dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"/>
+
+</LinearLayout>

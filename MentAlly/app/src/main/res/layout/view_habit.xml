@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageButton
+        android:id="@+id/habitno"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:contentDescription="@string/habit_no"
+        android:src="@android:drawable/arrow_down_float"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/habityes"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:contentDescription="@string/habit_yes"
+        android:src="@android:drawable/arrow_up_float"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/habitname"
+        android:layout_width="286dp"
+        android:layout_height="35dp"
+        android:paddingTop="5dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/habitno"
+        app:layout_constraintStart_toEndOf="@+id/habityes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="252dp"
+        android:layout_height="33dp"
+        android:progressTint="#FA8B82"
+        app:layout_constraintEnd_toStartOf="@+id/habitno"
+        app:layout_constraintStart_toEndOf="@+id/habityes"
+        app:layout_constraintTop_toBottomOf="@+id/habitname" />
+</androidx.constraintlayout.widget.ConstraintLayout>
