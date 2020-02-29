@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(getApplicationContext(), HabitTrackerActivity.class);
+        Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
         startActivity(i);
     }
 
