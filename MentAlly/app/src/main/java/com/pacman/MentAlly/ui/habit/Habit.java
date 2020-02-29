@@ -1,15 +1,20 @@
 package com.pacman.MentAlly.ui.habit;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.Observable;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * Store information about a habit object
  */
-public class Habit {
+public class Habit extends Observable{
 
+    private String habitId;
     private String habitName;
     private String frequency;
     private Calendar startDate;
@@ -17,7 +22,8 @@ public class Habit {
     private int progress;
     private int maxProgress;
 
-    public Habit(String name, Calendar start, Calendar end, String freq, int progress) {
+    public Habit(String id, String name, Calendar start, Calendar end, String freq, int progress) {
+        this.habitId = id;
         this.habitName = name;
         this.frequency = freq;
         this.startDate = start;
@@ -38,6 +44,10 @@ public class Habit {
         }
     }
 
+    public String getHabitId() {
+        return this.habitId;
+    }
+
     public String getHabitName() {
         return this.habitName;
     }
@@ -50,8 +60,10 @@ public class Habit {
         return maxProgress;
     }
 
-    public void incrementProgress(int diff) {
-        this.progress += diff;
+    public void incrementProgress() {
+        this.progress += 1;
+        setChanged();
+        notifyObservers(this);
     }
 
 }

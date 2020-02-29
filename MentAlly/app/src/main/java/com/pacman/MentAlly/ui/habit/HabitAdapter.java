@@ -46,7 +46,7 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
         holder.upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                habitList.get(position).incrementProgress(1);
+                habitList.get(position).incrementProgress();
                 notifyItemChanged(position);
             }
         });
