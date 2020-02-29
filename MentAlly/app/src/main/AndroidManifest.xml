@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <!-- Placeholder -->
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
@@ -21,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+      
+        <!-- Todo List -->
+        <activity android:name=".ui.ToDoList.ToDoListActivity"></activity>
 
         <!-- ADHD Questionnaire -->
         <activity android:name=".ui.adhd.adhdActivity"/>
