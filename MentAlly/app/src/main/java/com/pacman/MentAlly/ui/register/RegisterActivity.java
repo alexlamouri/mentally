@@ -179,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    addUserData(mAuth.getCurrentUser().getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(),
+                    addUserData(user.getUid(), nameEditText.getText().toString(), DOBEditText.getText().toString(),
                             countryEditText.getText().toString(), gender.getSelectedItem().toString());
                     updateUIWithUser(user);
                 } else {
