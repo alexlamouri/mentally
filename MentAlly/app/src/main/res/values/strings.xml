@@ -36,6 +36,7 @@
     <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
 
 
+
     <!--  ADHD Strings  -->
     <string name="adhdOvr">Over the past 6 months...</string>
     <string name="adhdQ1">1. How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?</string>
@@ -136,6 +137,9 @@
     <string name="question">question</string>
     <string name="not_at_all">not at all</string>
     <string name="_1_little_interest_or_pleasure_in_doing_things">1. Little interest or pleasure in doing things</string>
+
+
+    <string name="start">Start</string>
 
 </resources>
 
