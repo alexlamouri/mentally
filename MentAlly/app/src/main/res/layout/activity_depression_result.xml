@@ -10,7 +10,7 @@
     android:paddingTop="16dp"
     android:orientation="vertical"
     android:background="#F2ECE0"
-    tools:context=".ui.Depression.DepressionResultActivity">
+    tools:context=".ui.depression.depressionResultActivity">
 
     <ImageView
         android:id="@+id/Logo"

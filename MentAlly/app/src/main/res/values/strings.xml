@@ -2,7 +2,7 @@
 
     <string name="app_name">MentAlly</string>
 
-    <!-- Strings related to login -->
+    <!-- Login Strings -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -109,8 +109,7 @@
     <string name="bipResult">Your result is ...</string>
     <string name="bipRetry">Try Again</string>
 
-</resources>
-
+    <!--  Other Strings  -->
     <string name="feeling_nervous_anxious_or_on_edge">Feeling nervous, anxious, or on edge</string>
     <string name="not_at_all_sure">Not at all sure</string>
     <string name="several_days">Several_days</string>
@@ -137,5 +136,6 @@
     <string name="question">question</string>
     <string name="not_at_all">not at all</string>
     <string name="_1_little_interest_or_pleasure_in_doing_things">1. Little interest or pleasure in doing things</string>
+
 </resources>
 

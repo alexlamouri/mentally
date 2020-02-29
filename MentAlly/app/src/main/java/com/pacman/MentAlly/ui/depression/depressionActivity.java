@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.Anxiety;
+package com.pacman.MentAlly.ui.depression;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class AnxietyActivity extends AppCompatActivity {
+public class depressionActivity extends AppCompatActivity {
 
-    private AnxietyQuestionModel mQues = new AnxietyQuestionModel();
+    private depressionQuestionModel mQues = new depressionQuestionModel();
     private TextView mQuesView;
     private Button mChoice1;
     private Button mChoice2;
@@ -24,13 +24,13 @@ public class AnxietyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gad7);
+        setContentView(R.layout.activity_depression);
 
-        mQuesView = (TextView) findViewById(R.id.question);
-        mChoice1 = (Button) findViewById(R.id.choice1);
-        mChoice2 = (Button) findViewById(R.id.choice2);
-        mChoice3 = (Button) findViewById(R.id.choice3);
-        mChoice4 = (Button) findViewById(R.id.choice4);
+        mQuesView = (TextView) findViewById(R.id.questions);
+        mChoice1 = (Button) findViewById(R.id.choiceA);
+        mChoice2 = (Button) findViewById(R.id.choiceB);
+        mChoice3 = (Button) findViewById(R.id.choiceC);
+        mChoice4 = (Button) findViewById(R.id.choiceD);
 
         updateQuestion();
 
@@ -38,7 +38,6 @@ public class AnxietyActivity extends AppCompatActivity {
             public void onClick(View view){
                 if (mQuesNumber == mQues.getLength()){
                     updateResult();
-
                 } else {
                     updateQuestion();
                 }
@@ -50,7 +49,6 @@ public class AnxietyActivity extends AppCompatActivity {
                 mPoint = mPoint + 1;
                 if (mQuesNumber == mQues.getLength()){
                     updateResult();
-
                 } else {
                     updateQuestion();
                 }
@@ -62,7 +60,6 @@ public class AnxietyActivity extends AppCompatActivity {
                 mPoint = mPoint + 2;
                 if (mQuesNumber == mQues.getLength()){
                     updateResult();
-
                 } else {
                     updateQuestion();
                 }
@@ -74,7 +71,6 @@ public class AnxietyActivity extends AppCompatActivity {
                 mPoint = mPoint + 3;
                 if (mQuesNumber == mQues.getLength()){
                     updateResult();
-
                 } else {
                     updateQuestion();
                 }
@@ -94,12 +90,11 @@ public class AnxietyActivity extends AppCompatActivity {
     }
 
     private void updateResult(){
-        Intent i = new Intent(getApplicationContext(), AnxietyResultActivity.class);
+        Intent i = new Intent(getApplicationContext(), depressionResultActivity.class);
         Bundle b = new Bundle();
         b.putInt("points",mPoint);
         i.putExtras(b);
-        AnxietyActivity.this.finish();
+        depressionActivity.this.finish();
         startActivity(i);
     }
-
 }

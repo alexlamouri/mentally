@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.Anxiety;
+package com.pacman.MentAlly.ui.anxiety;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,14 +10,14 @@ import android.content.Intent;
 
 import com.pacman.MentAlly.R;
 
-public class AnxietyResultActivity extends AppCompatActivity {
+public class anxietyResultActivity extends AppCompatActivity {
 
     private TextView mResult;
     private Button mRetry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gad7_results);
+        setContentView(R.layout.activity_anxiety_results);
 
         mResult = (TextView) findViewById(R.id.result);
         mRetry = (Button) findViewById(R.id.retry);
@@ -38,7 +38,7 @@ public class AnxietyResultActivity extends AppCompatActivity {
         mRetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AnxietyActivity.class);
+                Intent i = new Intent(getApplicationContext(), anxietyActivity.class);
                 startActivity(i);
             }
         });
