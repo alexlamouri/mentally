@@ -38,3 +38,4 @@ dependencies {
 
 }
 //added all firebase implementations to easily connect the app to the firebase database.
+
