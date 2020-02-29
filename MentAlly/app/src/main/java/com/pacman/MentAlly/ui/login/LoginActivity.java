@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
 import com.pacman.MentAlly.ui.register.RegisterActivity;
 

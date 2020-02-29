@@ -35,7 +35,20 @@
     <string name="sign_in">Sign in</string>
     <string name="don_t_have_an_account_sign_up_here">Don\'t have an account? Sign up here</string>
 
-
+    <!-- Strings related to habits -->
+    <string name="habit_tracker">Habit Tracker</string>
+    <string name="habit_yes">Button for when habit successfully done</string>
+    <string name="habit_no">Button for when habit not successfully done</string>
+    <string name="new_habit">New Habit</string>
+    <string name="habit_name">New Habit Name</string>
+    <string name="habit_end_date">Habit Tracking End Date</string>
+    <string name="habit_frequency">Tracking Frequency</string>
+    <string-array name="freq">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+    <string name="add_new_habit">Track New Habit</string>
 
     <!--  ADHD Strings  -->
     <string name="adhdOvr">Over the past 6 months...</string>

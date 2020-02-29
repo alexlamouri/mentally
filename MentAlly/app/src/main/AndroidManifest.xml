@@ -52,15 +52,13 @@
         <!-- Registration Page -->
         <activity
             android:name=".ui.register.RegisterActivity"
-
-            android:label="@string/app_name"
-        />
-
             android:label="@string/app_name">
         </activity>
         <activity android:name=".ui.profile.ProfileActivity"> </activity>
         <activity android:name=".ui.Mood.MoodActivity"></activity>
         <activity android:name=".ui.Mood.AddMoodActivity"></activity>
+        <activity android:name=".ui.habit.HabitTrackerActivity" />
+        <activity android:name=".ui.habit.NewHabitActivity" />
         <activity
             android:name=".ui.breathing.BreathingActivity"
             android:label="@string/app_name">
