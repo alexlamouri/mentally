@@ -1,5 +1,6 @@
 package com.pacman.MentAlly.ui.habit;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -12,6 +13,7 @@ import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +48,14 @@ public class NewHabitActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.freq, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         trackingFrequency.setAdapter(adapter);
+
+        habitEndDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerFragment newFragment = new DatePickerFragment(habitEndDate);
+                newFragment.show(getSupportFragmentManager(), "datePicker");
+            }
+        });
 
         newHabit.setOnClickListener(new View.OnClickListener() {
             @Override
