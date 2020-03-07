@@ -21,7 +21,6 @@ public class DayTheme extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_theme);
 
-        //trial
 
         quote = (TextView) findViewById(R.id.motivational_quote_day);
 
