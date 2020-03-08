@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.MotivationalQuoteAndBackgrounds;
+package com.pacman.MentAlly.ui.menu;
 
 public class QuotesModel {
     public String[] mQuotes = {
