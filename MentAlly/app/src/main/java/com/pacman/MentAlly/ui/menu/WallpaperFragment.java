@@ -60,6 +60,21 @@ public class WallpaperFragment extends Fragment {
         image.add(new image(R.drawable.wallpaper24));
         image.add(new image(R.drawable.wallpaper25));
         image.add(new image(R.drawable.wallpaper26));
+        image.add(new image(R.drawable.wallpaper27));
+        image.add(new image(R.drawable.wallpaper28));
+        image.add(new image(R.drawable.wallpaper29));
+        image.add(new image(R.drawable.wallpaper30));
+        image.add(new image(R.drawable.wallpaper31));
+        image.add(new image(R.drawable.wallpaper32));
+        image.add(new image(R.drawable.wallpaper33));
+        image.add(new image(R.drawable.wallpaper34));
+        image.add(new image(R.drawable.wallpaper35));
+        image.add(new image(R.drawable.wallpaper36));
+        image.add(new image(R.drawable.wallpaper37));
+        image.add(new image(R.drawable.wallpaper38));
+        image.add(new image(R.drawable.wallpaper39));
+        image.add(new image(R.drawable.wallpaper40));
+        image.add(new image(R.drawable.wallpaper41));
 
 
         System.out.println(image);
