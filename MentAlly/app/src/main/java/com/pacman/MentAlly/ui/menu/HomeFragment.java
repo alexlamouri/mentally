@@ -1,6 +1,7 @@
 package com.pacman.MentAlly.ui.menu;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,18 +22,20 @@ public class HomeFragment extends Fragment {
         int time = calendar.get(Calendar.HOUR_OF_DAY);
         View root;
 
-        //set background based on time of day
-        if(time >= 5 && time < 11){
-            root = inflater.inflate(R.layout.frag_home_dawn, container, false);
-        }
-        else if(time >= 11 && time < 18){
-            root = inflater.inflate(R.layout.frag_home_day, container, false);
-        }
-        else if(time >= 18 && time < 22){
-            root = inflater.inflate(R.layout.frag_home_sunset, container, false);
-        }else {
-            root = inflater.inflate(R.layout.frag_home_night, container, false);
-        }
+//        //set background based on time of day
+//        if(time >= 5 && time < 11){
+//            root = inflater.inflate(R.layout.frag_home_dawn, container, false);
+//        }
+//        else if(time >= 11 && time < 18){
+//            root = inflater.inflate(R.layout.frag_home_day, container, false);
+//        }
+//        else if(time >= 18 && time < 22){
+//            root = inflater.inflate(R.layout.frag_home_sunset, container, false);
+//        }else {
+//            root = inflater.inflate(R.layout.frag_home_night, container, false);
+//        }
+        Log.d("yo", "yooo");
+        root = inflater.inflate(R.layout.wallpaperlayout, container, false);
 
         return root;
     }

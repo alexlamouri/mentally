@@ -1,11 +1,13 @@
 package com.pacman.MentAlly.ui.menu;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.pacman.MentAlly.R;
 
@@ -22,12 +25,18 @@ public class WallpaperFragment extends Fragment {
 
     private ArrayList<image> image = new ArrayList<>();
     private static final int NUM_COLUMNS = 2;
+    private AppCompatImageView backgroundImg;
+    private View bg_view;
+    private int theme = -1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_wallpaper, container, false);
+        this.bg_view = inflater.inflate(R.layout.wallpaperlayout, container, false);
+        this.backgroundImg = this.bg_view.findViewById(R.id.imageView);
         getImages(root);
+        Log.d("hi", "hello");
         return root;
     }
 
@@ -79,13 +88,11 @@ public class WallpaperFragment extends Fragment {
 
         System.out.println(image);
         initRecyclerView(root);
-
-
-
     }
 
     private void initRecyclerView(View root){
         Log.d("tag", "initRecyclerView: initializing staggered recyclerview.");
+
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setItemViewCacheSize(20);
@@ -94,4 +101,65 @@ public class WallpaperFragment extends Fragment {
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(staggeredRecyclerViewAdapter);
     }
+
+    class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
+        private static final String TAG = "RecyclerViewAdapter";
+
+        //vars
+        private ArrayList<image> image;
+        private Context mContext;
+
+        public RecyclerViewAdapter(Context context, ArrayList<image> image) {
+            this.image= image;
+            this.mContext = context;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.wallpaperlayout, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            Log.d(TAG, "onBindViewHolder: called.");
+            holder.imageView.setImageResource(image.get(position).getImage());
+            final int pos = position;
+
+            holder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d(TAG, Integer.toString(pos));
+                    theme = image.get(pos).getImage();
+                    Log.d(TAG, Integer.toString(theme));
+                    if (theme != -1) {
+                        Log.d("wallpaperfrag", "setting image for theme");
+                        backgroundImg.setImageResource(R.drawable.wallpaper1);
+                    }
+//                    backgroundImage.setImageResource(R.drawable.wallpaper1);
+                    //image.get(pos).getImage()
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return image.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder{
+
+            ImageView imageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                imageView = itemView.findViewById(R.id.imageView);
+            }
+        }
+    }
 }
+
+
