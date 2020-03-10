@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_goals"
             android:title="Goals"/>
 
+        <item android:id="@+id/nav_habit"
+            android:icon="@drawable/ic_habit"
+            android:title="Habit Tracker"/>
+
         <item android:id="@+id/nav_mood"
             android:icon="@drawable/ic_mood"
             android:title="Mood Tracker"/>
