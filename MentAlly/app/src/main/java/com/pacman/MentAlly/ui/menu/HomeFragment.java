@@ -28,27 +28,31 @@ public class HomeFragment extends Fragment {
         int time = calendar.get(Calendar.HOUR_OF_DAY);
         View root;
 
-
-
-
         //set background based on time of day
         if(time >= 5 && time < 11){
             root = inflater.inflate(R.layout.frag_home_dawn, container, false);
+            quoteAnimation(root);
         }
         else if(time >= 11 && time < 18){
             root = inflater.inflate(R.layout.frag_home_day, container, false);
+            quoteAnimation(root);
         }
         else if(time >= 18 && time < 22){
             root = inflater.inflate(R.layout.frag_home_sunset, container, false);
-            quote = (TextView) root.findViewById(R.id.motivational_quote);
-            setQuote();
-            Animation aniFade = AnimationUtils.loadAnimation(getContext(),R.anim.fade_in);
-            quote.startAnimation(aniFade);
+            quoteAnimation(root);
         }else {
             root = inflater.inflate(R.layout.frag_home_night, container, false);
+            quoteAnimation(root);
         }
 
         return root;
+    }
+
+    public void quoteAnimation(View root){
+        quote = (TextView) root.findViewById(R.id.motivational_quote);
+        setQuote();
+        Animation aniFade = AnimationUtils.loadAnimation(getContext(),R.anim.fade_in);
+        quote.startAnimation(aniFade);
     }
 
     public void setQuote(){
@@ -56,4 +60,5 @@ public class HomeFragment extends Fragment {
         int quoteNum = num.nextInt(mQuotes.getLength());
         quote.setText(mQuotes.getQuote(quoteNum));
     }
+
 }
