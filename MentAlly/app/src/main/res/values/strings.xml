@@ -62,11 +62,11 @@
     <string name="adhdQ5">5. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?</string>
     <string name="adhdQ6">6. How often do you feel overly active and compelled to do things, like you were driven by a motor?</string>
 
-    <string name ="adhdA1">Never</string>
-    <string name ="adhdA2">Rarely</string>
-    <string name ="adhdA3">Sometimes</string>
-    <string name ="adhdA4">Often</string>
-    <string name ="adhdA5">Very Often</string>
+    <string name="adhdA1">Never</string>
+    <string name="adhdA2">Rarely</string>
+    <string name="adhdA3">Sometimes</string>
+    <string name="adhdA4">Often</string>
+    <string name="adhdA5">Very Often</string>
 
     <string name="adhdResult">Your result is ...</string>
     <string name="adhdRetry">Try Again</string>
@@ -92,11 +92,11 @@
     <string name="ocdQ17">17. I wash my hands more often and longer than necessary.</string>
     <string name="ocdQ18">18. I frequently get nasty thoughts and have difficulty in getting rid of them.</string>
 
-    <string name ="ocdA1">Never</string>
-    <string name ="ocdA2">Rarely</string>
-    <string name ="ocdA3">Sometimes</string>
-    <string name ="ocdA4">Often</string>
-    <string name ="ocdA5">Very Often</string>
+    <string name="ocdA1">Never</string>
+    <string name="ocdA2">Rarely</string>
+    <string name="ocdA3">Sometimes</string>
+    <string name="ocdA4">Often</string>
+    <string name="ocdA5">Very Often</string>
 
     <string name="ocdResult">Your result is ...</string>
     <string name="ocdRetry">Try Again</string>
@@ -116,12 +116,12 @@
     <string name="bipQ11">11. I have had periods of great optimism and other periods of equally great pessimism.</string>
     <string name="bipQ12">12. I have had periods of tearfulness and crying and other times when I laugh and joke excessively.</string>
 
-    <string name ="bipA1">Not at all</string>
-    <string name ="bipA2">Just a little</string>
-    <string name ="bipA3">Somewhat</string>
-    <string name ="bipA4">Moderately</string>
-    <string name ="bipA5">Quite a lot</string>
-    <string name ="bipA6">Very much</string>
+    <string name="bipA1">Not at all</string>
+    <string name="bipA2">Just a little</string>
+    <string name="bipA3">Somewhat</string>
+    <string name="bipA4">Moderately</string>
+    <string name="bipA5">Quite a lot</string>
+    <string name="bipA6">Very much</string>
 
     <string name="bipResult">Your result is ...</string>
     <string name="bipRetry">Try Again</string>
