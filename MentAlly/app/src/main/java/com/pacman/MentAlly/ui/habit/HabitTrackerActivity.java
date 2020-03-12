@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.menu.MainActivity;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -34,7 +36,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-public class HabitTrackerActivity extends AppCompatActivity implements Observer, OnCompleteListener<QuerySnapshot> {
+public class HabitTrackerActivity extends MainActivity implements Observer, OnCompleteListener<QuerySnapshot> {
 
     private static final String TAG = "HabitTrackerActivity";
     private ImageButton newHabit;
@@ -45,7 +47,9 @@ public class HabitTrackerActivity extends AppCompatActivity implements Observer,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_habit_tracker);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_habit_tracker, contentFrameLayout);
+
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 

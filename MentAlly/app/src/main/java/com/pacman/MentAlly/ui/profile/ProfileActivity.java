@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.contentcapture.ContentCaptureCondition;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -45,8 +46,8 @@ public class ProfileActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.frag_profile);
-
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.frag_profile, contentFrameLayout);
 
         //set all button transparency levels
         profile_btn = findViewById(R.id.change_profile_pic);

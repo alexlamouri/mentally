@@ -1,5 +1,6 @@
 package com.pacman.MentAlly.ui.menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -13,6 +14,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
+import com.pacman.MentAlly.ui.habit.HabitTrackerFragment;
+import com.pacman.MentAlly.ui.profile.ProfileActivity;
 import com.pacman.MentAlly.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,30 +40,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         draw.addDrawerListener(toggle);
         toggle.syncState();
 
-        //start app on home fragment if app is not already running
+/*        //start app on home fragment if app is not already running
         if(savedInstanceState==null){
             getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
             //show 'Home' as selected in menu
             navView.setCheckedItem(R.id.nav_home);
-        }
+        }*/
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+                Intent i_home = new Intent(this, HomeActivity.class);
+                startActivity(i_home);
                 draw.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
-//                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-//                startActivity(intent);
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragment()).commit();
+                Intent i_profile = new Intent(this, ProfileActivity.class);
+                startActivity(i_profile);
                 draw.closeDrawer(GravityCompat.START);
                 break;
-//            case R.id.nav_habit:
-//                draw.closeDrawer(GravityCompat.START);
-//                break;
+            case R.id.nav_habit:
+                Intent i_habit = new Intent(this, HabitTrackerActivity.class);
+                startActivity(i_habit);
+                draw.closeDrawer(GravityCompat.START);
+                break;
         }
         return true;
     }
