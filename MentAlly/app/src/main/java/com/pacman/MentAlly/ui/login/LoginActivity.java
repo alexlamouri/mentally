@@ -29,6 +29,8 @@ import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.menu.MainActivity;
 import com.pacman.MentAlly.ui.register.RegisterActivity;
 
+import com.pacman.MentAlly.ui.emergencyContacts.EmergencyContactsActivity;
+
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
@@ -133,7 +135,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), EmergencyContactsActivity.class);
+//        Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }
 

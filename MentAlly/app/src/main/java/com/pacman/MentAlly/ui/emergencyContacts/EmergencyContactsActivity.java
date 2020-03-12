@@ -82,7 +82,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
 
                 final Contact contact = contactList.get(pos);
                 nameLabel.setText(contact.getContactName());
-                phoneNumberLabel.setText(contact.getPhoneNumber());
+                phoneNumberLabel.setText(String.valueOf(contact.getPhoneNumber()));
                 emailLabel.setText(contact.getEmail());
 
                 AlertDialog infoDialog = new AlertDialog.Builder(EmergencyContactsActivity.this)
@@ -126,10 +126,10 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                                 }
                                 else {
                                     Toast.makeText(EmergencyContactsActivity.this, "Successfully Added Task", Toast.LENGTH_SHORT).show();
-                                    Contact newContact = new Contact(contactName.getText().toString(), Integer.parseInt(phoneNumber.getText().toString()), email.getText().toString());
+                                    Contact newContact = new Contact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
                                     contactList.add(newContact);
                                     //add to database
-                                    addContactToDatabase(newContact.getContactId(), contactName.getText().toString(), Integer.parseInt(phoneNumber.getText().toString()), email.getText().toString());
+                                    addContactToDatabase(newContact.getContactId(), contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
                                     mylistadapter.setData(contactList);
                                 }
 
@@ -212,7 +212,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         }
     }
 
-    public void addContactToDatabase(String contactId, String contactName, int phoneNumber, String email) {
+    public void addContactToDatabase(String contactId, String contactName, long phoneNumber, String email) {
         Map<String, Object> newContactForUser = new HashMap<>();
 
         newContactForUser.put("name", contactName);
@@ -233,7 +233,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : contact.getResult()) {
                                 Map<String, Object> contactItem = document.getData();
                                 String contactName = (String) contactItem.get("name");
-                                int phoneNumber = Integer.parseInt((String)  contactItem.get("phoneNumber"));
+                                long phoneNumber = Long.parseLong(String.valueOf(contactItem.get("phoneNumber")));
                                 String email = (String)  contactItem.get("email");
 
                                 Contact c = new Contact();

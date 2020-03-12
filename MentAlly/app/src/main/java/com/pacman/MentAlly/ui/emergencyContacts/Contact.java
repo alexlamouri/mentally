@@ -3,12 +3,12 @@ package com.pacman.MentAlly.ui.emergencyContacts;
 public class Contact {
 
     private String name; //mandatory
-    private int phoneNumber; //mandatory
+    private long phoneNumber; //mandatory
     private String email; //optional
     private String contactId;
     private static int contactIdCounter;
 
-    public Contact (String name, int phoneNumber, String email) {
+    public Contact (String name, long phoneNumber, String email) {
 
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -25,7 +25,7 @@ public class Contact {
 
     public String getContactName() { return this.name; }
 
-    public int getPhoneNumber() { return this.phoneNumber; }
+    public long getPhoneNumber() { return this.phoneNumber; }
 
     public String getEmail() { return this.email; }
 
@@ -33,7 +33,7 @@ public class Contact {
 
     public void setContactName(String name) { this.name = name; }
 
-    public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPhoneNumber(long phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public void setEmail(String email) { this.email = email; }
 

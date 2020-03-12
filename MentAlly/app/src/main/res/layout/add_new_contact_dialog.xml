@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:hint="Phone Number"
-        android:inputType="date"></EditText>
+        android:inputType="number"></EditText>
 
     <EditText
         android:id="@+id/email"
@@ -37,6 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:hint="Email"
-        android:inputType="date"></EditText>
+        android:inputType="textEmailAddress"></EditText>
 
 </LinearLayout>
