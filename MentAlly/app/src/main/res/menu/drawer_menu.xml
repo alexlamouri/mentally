@@ -24,6 +24,10 @@
         <item android:id="@+id/nav_mood"
             android:icon="@drawable/ic_mood"
             android:title="Mood Tracker"/>
+        
+        <item android:id="@+id/nav_breathe"
+            android:icon="@drawable/ic_breathe"
+            android:title="Breathe"/>
 
         <item android:id="@+id/nav_sleep"
             android:icon="@drawable/ic_sleep"
@@ -40,6 +44,7 @@
         <item android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="Profile"/>
+
 
     </group>
 
