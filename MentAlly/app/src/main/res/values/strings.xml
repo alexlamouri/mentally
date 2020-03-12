@@ -156,5 +156,8 @@
 
     <string name="start">Start</string>
 
+    <!-- Strings related to ambient noises -->
+    <string name="ambient_sounds">Ambient Sounds</string>
+
 </resources>
 
