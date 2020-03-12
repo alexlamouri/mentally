@@ -1,12 +1,9 @@
 package com.pacman.MentAlly.ui.habit;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentQueryMap;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +19,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 import com.pacman.MentAlly.R;
-import com.pacman.MentAlly.ui.menu.MainActivity;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

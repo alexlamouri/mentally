@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.menu;
+package com.pacman.MentAlly.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +14,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.Mood.MoodActivity;
+import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
+import com.pacman.MentAlly.ui.breathing.BreathingActivity;
 import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
-import com.pacman.MentAlly.ui.habit.HabitTrackerFragment;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
-import com.pacman.MentAlly.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout draw;
@@ -66,6 +67,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i_habit);
                 draw.closeDrawer(GravityCompat.START);
                 break;
+            case R.id.nav_todo:
+                Intent i_todo = new Intent(this, ToDoListActivity.class);
+                startActivity(i_todo);
+                draw.closeDrawer(GravityCompat.START);
+            case R.id.nav_mood:
+                Intent i_mood = new Intent(this, MoodActivity.class);
+                startActivity(i_mood);
+                draw.closeDrawer(GravityCompat.START);
+            case R.id.nav_breathe:
+                Intent i_breathe = new Intent(this, BreathingActivity.class);
+                startActivity(i_breathe);
+                draw.closeDrawer(GravityCompat.START);
         }
         return true;
     }

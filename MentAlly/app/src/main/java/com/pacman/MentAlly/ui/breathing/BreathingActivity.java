@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.os.Bundle;
 import com.pacman.MentAlly.R;
@@ -22,7 +23,8 @@ public class BreathingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_breathing);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_breathing, contentFrameLayout);
 
         //inhale
         inhale = findViewById(R.id.inhale);
