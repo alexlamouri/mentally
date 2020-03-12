@@ -1,9 +1,15 @@
 package com.pacman.MentAlly.ui.profile;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.contentcapture.ContentCaptureCondition;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -15,15 +21,16 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.menu.MainActivity;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends MainActivity {
     private Button profile_btn;
     private ImageButton first_name_btn;
     private ImageButton last_name_btn;
     private ImageButton email_btn;
     private ImageButton dob_btn;
     private ImageButton country_btn;
-    private ImageButton password_btn;
+    private ImageButton password_btn;   
 
     private TextView first_name_txt;
     private TextView last_name_txt;
@@ -39,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.frag_profile);
+
 
         //set all button transparency levels
         profile_btn = findViewById(R.id.change_profile_pic);

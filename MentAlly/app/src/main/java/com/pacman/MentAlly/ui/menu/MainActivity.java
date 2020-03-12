@@ -13,9 +13,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private DrawerLayout draw;
+    protected DrawerLayout draw;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,9 +52,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 draw.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragmnent()).commit();
+//                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+//                startActivity(intent);
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragment()).commit();
                 draw.closeDrawer(GravityCompat.START);
                 break;
+//            case R.id.nav_habit:
+//                draw.closeDrawer(GravityCompat.START);
+//                break;
         }
         return true;
     }
