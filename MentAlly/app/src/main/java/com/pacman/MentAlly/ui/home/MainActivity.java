@@ -19,6 +19,8 @@ import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
 import com.pacman.MentAlly.ui.breathing.BreathingActivity;
 import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
+import com.pacman.MentAlly.ui.profile.ProfileFragment;
+import com.pacman.MentAlly.ui.quiz.QuizActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout draw;
@@ -80,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_breathe:
                 Intent i_breathe = new Intent(this, BreathingActivity.class);
                 startActivity(i_breathe);
+                draw.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.nav_quiz:
+                Intent i_quiz = new Intent(this, QuizActivity.class);
+                startActivity(i_quiz);
                 draw.closeDrawer(GravityCompat.START);
                 break;
         }

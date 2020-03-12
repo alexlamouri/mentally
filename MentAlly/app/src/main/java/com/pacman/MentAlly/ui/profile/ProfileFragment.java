@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.frag_profile, container, false);
+        View root = inflater.inflate(R.layout.activity_profile, container, false);
 
         //set all button transparency levels
         profile_btn = root.findViewById(R.id.change_profile_pic);

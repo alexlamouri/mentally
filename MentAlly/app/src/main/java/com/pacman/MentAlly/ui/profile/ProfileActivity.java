@@ -40,7 +40,7 @@ public class ProfileActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
-        getLayoutInflater().inflate(R.layout.frag_profile, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_profile, contentFrameLayout);
 
         //set all button transparency levels
         profile_btn = findViewById(R.id.change_profile_pic);
