@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,7 +63,8 @@ public class ToDoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        setContentView(R.layout.activity_to_do_list);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_to_do_list, contentFrameLayout);
 
         this.currentState = State.INCOMPLETE_TASKS;
         this.addButton = findViewById(R.id.addButton);
