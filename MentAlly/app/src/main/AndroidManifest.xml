@@ -79,5 +79,9 @@
             android:name=".ui.breathing.BreathingExerciseActivity"
             android:label="@string/app_name">
         </activity>
+
+        <!-- Emergency Contacts -->
+        <activity android:name=".ui.emergencyContacts.EmergencyContactsActivity"></activity>
+
     </application>
 </manifest>
