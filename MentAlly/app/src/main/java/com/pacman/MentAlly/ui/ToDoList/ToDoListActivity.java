@@ -30,6 +30,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +42,7 @@ enum State {
     COMPLETE_TASKS
 }
 
-public class ToDoListActivity extends AppCompatActivity {
+public class ToDoListActivity extends MainActivity {
 
     private static final String TAG = "ToDoListActivity";
 

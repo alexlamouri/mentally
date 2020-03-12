@@ -9,10 +9,12 @@ import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.os.Bundle;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
+
 import android.content.Intent;
 
 
-public class BreathingActivity extends AppCompatActivity {
+public class BreathingActivity extends MainActivity {
 
     private Button startButton;
     private Spinner inhale;

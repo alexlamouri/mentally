@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 
 import android.view.View;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 
 
 
-public class MoodActivity extends AppCompatActivity {
+public class MoodActivity extends MainActivity {
 
     private static int curmoodid;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
