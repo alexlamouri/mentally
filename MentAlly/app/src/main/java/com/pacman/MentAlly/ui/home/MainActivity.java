@@ -43,12 +43,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         draw.addDrawerListener(toggle);
         toggle.syncState();
 
-/*        //start app on home fragment if app is not already running
-        if(savedInstanceState==null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
-            //show 'Home' as selected in menu
-            navView.setCheckedItem(R.id.nav_home);
-        }*/
     }
 
     @Override
