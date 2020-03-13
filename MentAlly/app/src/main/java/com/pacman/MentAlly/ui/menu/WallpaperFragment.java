@@ -25,18 +25,13 @@ public class WallpaperFragment extends Fragment {
 
     private ArrayList<image> image = new ArrayList<>();
     private static final int NUM_COLUMNS = 2;
-    private AppCompatImageView backgroundImg;
-    private View bg_view;
-    private int theme = -1;
+    public static int theme = -1;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_wallpaper, container, false);
-        this.bg_view = inflater.inflate(R.layout.wallpaperlayout, container, false);
-        this.backgroundImg = this.bg_view.findViewById(R.id.imageView);
         getImages(root);
-        Log.d("hi", "hello");
         return root;
     }
 
@@ -104,8 +99,6 @@ public class WallpaperFragment extends Fragment {
 
     class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-        private static final String TAG = "RecyclerViewAdapter";
-
         //vars
         private ArrayList<image> image;
         private Context mContext;
@@ -124,22 +117,13 @@ public class WallpaperFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            Log.d(TAG, "onBindViewHolder: called.");
             holder.imageView.setImageResource(image.get(position).getImage());
             final int pos = position;
 
             holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d(TAG, Integer.toString(pos));
                     theme = image.get(pos).getImage();
-                    Log.d(TAG, Integer.toString(theme));
-                    if (theme != -1) {
-                        Log.d("wallpaperfrag", "setting image for theme");
-                        backgroundImg.setImageResource(R.drawable.wallpaper1);
-                    }
-//                    backgroundImage.setImageResource(R.drawable.wallpaper1);
-                    //image.get(pos).getImage()
                 }
             });
 

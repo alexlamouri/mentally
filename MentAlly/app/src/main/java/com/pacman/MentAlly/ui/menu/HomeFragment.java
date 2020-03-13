@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 
 import com.pacman.MentAlly.R;
@@ -15,28 +16,22 @@ import com.pacman.MentAlly.R;
 import java.util.Calendar;
 
 public class HomeFragment extends Fragment {
+    private int theme;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        WallpaperFragment w = new WallpaperFragment();
+        this.theme = w.theme;
+
         Calendar calendar = Calendar.getInstance();
-        int time = calendar.get(Calendar.HOUR_OF_DAY);
+       // int time = calendar.get(Calendar.HOUR_OF_DAY);
         View root;
-
-//        //set background based on time of day
-//        if(time >= 5 && time < 11){
-//            root = inflater.inflate(R.layout.frag_home_dawn, container, false);
-//        }
-//        else if(time >= 11 && time < 18){
-//            root = inflater.inflate(R.layout.frag_home_day, container, false);
-//        }
-//        else if(time >= 18 && time < 22){
-//            root = inflater.inflate(R.layout.frag_home_sunset, container, false);
-//        }else {
-//            root = inflater.inflate(R.layout.frag_home_night, container, false);
-//        }
-        Log.d("yo", "yooo");
         root = inflater.inflate(R.layout.wallpaperlayout, container, false);
-
+        if (this.theme != -1) {
+            AppCompatImageView i = root.findViewById(R.id.imageView);
+            i.setImageResource(theme);
+        }
         return root;
     }
 }
