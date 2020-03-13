@@ -33,22 +33,22 @@ public class QuizActivity extends MainActivity {
         getLayoutInflater().inflate(R.layout.activity_quiz, contentFrameLayout);
 
         adhd = findViewById(R.id.button_adhd);
-        adhd.getBackground().setAlpha(50);
+        adhd.getBackground().setAlpha(180);
 
         anxiety = findViewById(R.id.button_anxiety);
-        anxiety.getBackground().setAlpha(50);
+        anxiety.getBackground().setAlpha(180);
 
         depression = findViewById(R.id.button_depression);
-        depression.getBackground().setAlpha(50);
+        depression.getBackground().setAlpha(180);
 
         ocd = findViewById(R.id.button_ocd);
-        ocd.getBackground().setAlpha(50);
+        ocd.getBackground().setAlpha(180);
 
         ptsd = findViewById(R.id.button_ptsd);
-        ptsd.getBackground().setAlpha(50);
+        ptsd.getBackground().setAlpha(180);
 
         bipolar = findViewById(R.id.button_bipolar);
-        bipolar.getBackground().setAlpha(50);
+        bipolar.getBackground().setAlpha(180);
     }
 
     public void adhd_test(View view){
