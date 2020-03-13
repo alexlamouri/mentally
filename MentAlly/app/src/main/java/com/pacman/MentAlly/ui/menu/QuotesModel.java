@@ -10,7 +10,16 @@ public class QuotesModel {
             "Love yourself ♥",
             "Stay strong, stay positive and never give up \uD83D\uDCAA",
             "You miss 100% of the shots you don't take.",
-            "We all have to start somewhere."
+            "We all have to start somewhere.",
+            "Victory is always possible for the person who refuses to stop fighting.",
+            "Breathe. Take care. Stand still for a minute. What you are looking for might just be looking for you too.",
+            "Wherever you are, be all there.",
+            "Never dull your shine for somebody else.",
+            "In any given moment we have two options: to step forward into growth or back into safety.",
+            "Today, you have 100% of your life left.",
+            "Forget all the reasons why it won't work and believe the one reason why it will.",
+            "The master has failed more times than the beginner has even tried.",
+            "Going back isn't an option. Standing still is not enough."
 
     };
 
