@@ -1,11 +1,13 @@
 package com.pacman.MentAlly.ui.menu;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.pacman.MentAlly.R;
 
@@ -22,6 +25,7 @@ public class WallpaperFragment extends Fragment {
 
     private ArrayList<image> image = new ArrayList<>();
     private static final int NUM_COLUMNS = 2;
+    public static int theme = -1;
 
     @Nullable
     @Override
@@ -79,13 +83,11 @@ public class WallpaperFragment extends Fragment {
 
         System.out.println(image);
         initRecyclerView(root);
-
-
-
     }
 
     private void initRecyclerView(View root){
         Log.d("tag", "initRecyclerView: initializing staggered recyclerview.");
+
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setItemViewCacheSize(20);
@@ -94,4 +96,54 @@ public class WallpaperFragment extends Fragment {
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(staggeredRecyclerViewAdapter);
     }
+
+    class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+
+        //vars
+        private ArrayList<image> image;
+        private Context mContext;
+
+        public RecyclerViewAdapter(Context context, ArrayList<image> image) {
+            this.image= image;
+            this.mContext = context;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(mContext).inflate(R.layout.wallpaperlayout, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.imageView.setImageResource(image.get(position).getImage());
+            final int pos = position;
+
+            holder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    theme = image.get(pos).getImage();
+                }
+            });
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return image.size();
+        }
+
+        public class ViewHolder extends RecyclerView.ViewHolder{
+
+            ImageView imageView;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                imageView = itemView.findViewById(R.id.imageView);
+            }
+        }
+    }
 }
+
+
