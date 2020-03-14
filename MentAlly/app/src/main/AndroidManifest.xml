@@ -11,74 +11,99 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!-- Launch Activity -->
-      
-        <activity android:name=".ui.login.LoginActivity"></activity>
-      
-        <!-- Todo List -->
-        <activity android:name=".ui.ToDoList.ToDoListActivity"></activity>
 
-        <!-- ADHD Questionnaire -->
-        <activity android:name=".ui.adhd.adhdActivity"/>
-        <activity android:name=".ui.adhd.adhdResultActivity"/>
+        <!-- Login Page -->
+        <activity android:name=".ui.login.LoginActivity" />
 
-        <!-- Anxiety Questionnaire -->
-        <activity android:name=".ui.anxiety.anxietyActivity"/>
-        <activity android:name=".ui.anxiety.anxietyResultActivity"/>
-
-        <!-- Bipolar Questionnaire -->
-        <activity android:name=".ui.bipolar.bipolarActivity"/>
-        <activity android:name=".ui.bipolar.bipolarResultActivity"/>
-              
-        <activity android:name=".ui.helpline.helplineActivity"> </activity>
-      
-        </activity> <!-- Todo List -->
-        <activity android:name=".ui.ToDoList.ToDoListActivity" /> <!-- ADHD Questionnaire -->
-        <activity android:name=".ui.adhd.adhdActivity" />
-        <activity android:name=".ui.adhd.adhdResultActivity" /> <!-- Anxiety Questionnaire -->
-        <activity android:name=".ui.anxiety.anxietyActivity" />
-        <activity android:name=".ui.anxiety.anxietyResultActivity" /> <!-- Bipolar Questionnaire -->
-        <activity android:name=".ui.bipolar.bipolarActivity" />
-        <activity android:name=".ui.bipolar.bipolarResultActivity" /> <!-- Depression Questionnaire -->
-        <activity android:name=".ui.depression.depressionActivity" />
-        <activity android:name=".ui.depression.depressionResultActivity" /> <!-- OCD Questionnaire -->
-        <activity android:name=".ui.ocd.ocdActivity" />
-        <activity android:name=".ui.ocd.ocdResultActivity" /> <!-- PTSD Questionnaire -->
-        <activity android:name=".ui.ptsd.ptsd" />
-        <activity android:name=".ui.ptsd.ptsdActivity" />
-        <activity android:name=".ui.ptsd.ptsdResultActivity" /> 
-  
         <!-- Registration Page -->
         <activity
             android:name=".ui.register.RegisterActivity"
-            android:label="@string/app_name"></activity> 
-        <!-- Main & Profile Page -->
-        <activity
-            android:name=".ui.menu.MainActivity"
+            android:label="@string/app_name">
+        </activity> 
 
+        <!-- Main Page -->
+        <activity
+            android:name=".ui.home.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- Profile Page -->
         <activity android:name=".ui.profile.ProfileActivity" />
+      
+        <!-- Todo List -->
+        <activity android:name=".ui.ToDoList.ToDoListActivity" />
+
+        <!-- ADHD Questionnaire -->
+        <activity android:name=".ui.adhd.adhdActivity" />
+        <activity android:name=".ui.adhd.adhdResultActivity" />
+
+        <!-- Anxiety Questionnaire -->
+        <activity android:name=".ui.anxiety.anxietyActivity" />
+        <activity android:name=".ui.anxiety.anxietyResultActivity" />
+
+        <!-- Bipolar Questionnaire -->
+        <activity android:name=".ui.bipolar.bipolarActivity" />
+        <activity android:name=".ui.bipolar.bipolarResultActivity" />
+              
+        <activity android:name=".ui.helpline.helplineActivity" />
+      
+        <!-- Todo List -->
+        <activity android:name=".ui.ToDoList.ToDoListActivity" /> 
+
+        <!-- ADHD Questionnaire -->
+        <activity android:name=".ui.adhd.adhdActivity" />
+        <activity android:name=".ui.adhd.adhdResultActivity" /> 
+
+        <!-- Anxiety Questionnaire -->
+        <activity android:name=".ui.anxiety.anxietyActivity" />
+        <activity android:name=".ui.anxiety.anxietyResultActivity" /> 
+
+        <!-- Bipolar Questionnaire -->
+        <activity android:name=".ui.bipolar.bipolarActivity" />
+        <activity android:name=".ui.bipolar.bipolarResultActivity" /> 
+
+        <!-- Depression Questionnaire -->
+        <activity android:name=".ui.depression.depressionActivity" />
+        <activity android:name=".ui.depression.depressionResultActivity" /> 
+
+        <!-- OCD Questionnaire -->
+        <activity android:name=".ui.ocd.ocdActivity" />
+        <activity android:name=".ui.ocd.ocdResultActivity" /> 
+
+        <!-- PTSD Questionnaire -->
+        <activity android:name=".ui.ptsd.ptsd" />
+        <activity android:name=".ui.ptsd.ptsdActivity" />
+        <activity android:name=".ui.ptsd.ptsdResultActivity" /> 
         
         <!-- Mood Page -->
         <activity android:name=".ui.Mood.MoodActivity" />
-        <activity android:name=".ui.Mood.AddMoodActivity" /> <!-- Habit Page -->
+        <activity android:name=".ui.Mood.AddMoodActivity" />
+      
+        <!-- Habit Page -->
         <activity android:name=".ui.habit.HabitTrackerActivity" />
-        <activity android:name=".ui.habit.NewHabitActivity" /> <!-- Breathing Page -->
+        <activity android:name=".ui.habit.NewHabitActivity" />
+        
+        <!-- Breathing Page -->
         <activity
             android:name=".ui.breathing.BreathingActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name">     
+        </activity>
+
         <activity
             android:name=".ui.breathing.BreathingExerciseActivity"
             android:label="@string/app_name">
         </activity>
 
         <!-- Emergency Contacts -->
-        <activity android:name=".ui.emergencyContacts.EmergencyContactsActivity"></activity>
+        <activity android:name=".ui.emergencyContacts.EmergencyContactsActivity" />
+
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.quiz.QuizActivity" />
+
     </application>
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>

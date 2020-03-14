@@ -26,7 +26,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
-import com.pacman.MentAlly.ui.menu.MainActivity;
+import com.pacman.MentAlly.ui.home.HomeActivity;
+import com.pacman.MentAlly.ui.home.MainActivity;
 import com.pacman.MentAlly.ui.register.RegisterActivity;
 
 import com.pacman.MentAlly.ui.emergencyContacts.EmergencyContactsActivity;
@@ -135,8 +136,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(getApplicationContext(), EmergencyContactsActivity.class);
-//        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
+        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(i);
     }
 

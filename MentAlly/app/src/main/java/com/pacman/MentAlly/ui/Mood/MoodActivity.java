@@ -22,12 +22,14 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,7 +40,7 @@ import java.util.ArrayList;
 
 
 
-public class MoodActivity extends AppCompatActivity {
+public class MoodActivity extends MainActivity {
 
     private static int curmoodid;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -61,7 +63,8 @@ public class MoodActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_mood, contentFrameLayout);
 
 
         // get access to all the variables
