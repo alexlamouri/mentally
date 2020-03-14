@@ -35,6 +35,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:21.4.0'
     implementation 'com.firebaseui:firebase-ui-firestore:4.3.1'
     implementation "com.firebaseui:firebase-ui-auth:3.0.0"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+
+
+    //circle imageview
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }
 //added all firebase implementations to easily connect the app to the firebase database.

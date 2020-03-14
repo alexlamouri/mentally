@@ -1,7 +1,16 @@
 package com.pacman.MentAlly.ui.menu;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,13 +23,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.pacman.MentAlly.R;
 
+import java.net.URI;
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout draw;
+    private static final int SELECTED_PIC =1;
 
+    ImageView imageView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        imageView = findViewById(R.id.imageView);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,14 +65,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
                 draw.closeDrawer(GravityCompat.START);
                 break;
+
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragmnent()).commit();
                 draw.closeDrawer(GravityCompat.START);
                 break;
+
+            case R.id.nav_wallpaper:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new WallpaperFragment()).commit();
+                draw.closeDrawer(GravityCompat.START);
+                break;
+
+
         }
         return true;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int result, Intent data){
+        super.onActivityResult(requestCode,result,data);
+        switch(requestCode){
+            case SELECTED_PIC:
+                if(requestCode == RESULT_OK){
+                    Uri uri = data.getData();
+                    String[] projection = {MediaStore.Images.Media.DATA};
+                    Cursor cursor = getContentResolver().query(uri,projection,null,null,null );
+                    cursor.moveToFirst();
+                    int columnindex = cursor.getColumnIndex(projection[0]);
+                    String filepath = cursor.getString(columnindex);
+                    cursor.close();
+
+                    Bitmap b = BitmapFactory.decodeFile(filepath);
+                    Drawable d = new BitmapDrawable(b);
+                    imageView.setBackground(d);
+
+
+                }
+        }
+    }
     @Override
     public void onBackPressed() {
         //close navigation bar before closing app
