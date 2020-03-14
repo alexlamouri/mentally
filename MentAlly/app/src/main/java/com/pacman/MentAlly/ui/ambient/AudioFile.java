@@ -6,6 +6,11 @@ public class AudioFile {
     private String title;
     private String length;
 
+    public AudioFile(String data, String audioTitle) {
+        this.data = data;
+        this.title = audioTitle;
+    }
+
     public AudioFile(String data, String audioTitle, String audioLength) {
         this.data = data;
         this.title = audioTitle;
