@@ -19,7 +19,16 @@ public class QuotesModel {
             "Today, you have 100% of your life left.",
             "Forget all the reasons why it won't work and believe the one reason why it will.",
             "The master has failed more times than the beginner has even tried.",
-            "Going back isn't an option. Standing still is not enough."
+            "Going back isn't an option. Standing still is not enough.",
+            "Look for something positive in each day, even if some days you have to look a little harder.",
+            "Be strong because thing will get better. It may be stormy now, but it never rains forever.",
+            "When you can't find sunshine, be the sunshine.",
+            "Every day is a new beginning. Take a deep breath, smile and start again",
+            "If you never try, you will never know.",
+            "Don't Quit.",
+            "Don't give up. Great things take time.",
+            "You are wonderful as you are.",
+            "If you stumble, you are still moving forward."
 
     };
 
