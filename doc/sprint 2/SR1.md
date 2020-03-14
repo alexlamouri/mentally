@@ -1,5 +1,5 @@
 Participants: Alex, Viju, Navya, Kavya, Fareeha, Malaika, Jasmine
-
+Everyone has participated: yes
 We were able to successfully complete all our tasks except for one. Under user story 5 our task [PAC-22] populating the profile page was implemented but had some bugs that we need to fix in sprint 2 otherwise it won't be able to load the profile page properly. 
 
 Our new User Story would be to load the profile page 
