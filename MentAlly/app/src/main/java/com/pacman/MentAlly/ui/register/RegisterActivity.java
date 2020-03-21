@@ -31,7 +31,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.pacman.MentAlly.ui.profile.ProfileActivity;
+import com.pacman.MentAlly.ui.menu.ProfileFragmnent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -197,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+        Intent i = new Intent(getApplicationContext(), ProfileFragmnent.class);
         startActivity(i);
     }
 
