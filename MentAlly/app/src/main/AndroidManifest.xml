@@ -32,7 +32,7 @@
         </activity>
 
         <!-- Profile Page -->
-        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.profile.ProfileFragment" />
       
         <!-- Todo List -->
         <activity android:name=".ui.ToDoList.ToDoListActivity" />
@@ -51,20 +51,20 @@
               
         <activity android:name=".ui.helpline.helplineActivity" />
       
-        <!-- Todo List -->
-        <activity android:name=".ui.ToDoList.ToDoListActivity" /> 
+<!--        &lt;!&ndash; Todo List &ndash;&gt;-->
+<!--        <activity android:name=".ui.ToDoList.ToDoListActivity" /> -->
 
-        <!-- ADHD Questionnaire -->
-        <activity android:name=".ui.adhd.adhdActivity" />
-        <activity android:name=".ui.adhd.adhdResultActivity" /> 
+<!--        &lt;!&ndash; ADHD Questionnaire &ndash;&gt;-->
+<!--        <activity android:name=".ui.adhd.adhdActivity" />-->
+<!--        <activity android:name=".ui.adhd.adhdResultActivity" /> -->
 
-        <!-- Anxiety Questionnaire -->
-        <activity android:name=".ui.anxiety.anxietyActivity" />
-        <activity android:name=".ui.anxiety.anxietyResultActivity" /> 
+<!--        &lt;!&ndash; Anxiety Questionnaire &ndash;&gt;-->
+<!--        <activity android:name=".ui.anxiety.anxietyActivity" />-->
+<!--        <activity android:name=".ui.anxiety.anxietyResultActivity" /> -->
 
-        <!-- Bipolar Questionnaire -->
-        <activity android:name=".ui.bipolar.bipolarActivity" />
-        <activity android:name=".ui.bipolar.bipolarResultActivity" /> 
+<!--        &lt;!&ndash; Bipolar Questionnaire &ndash;&gt;-->
+<!--        <activity android:name=".ui.bipolar.bipolarActivity" />-->
+<!--        <activity android:name=".ui.bipolar.bipolarResultActivity" /> -->
 
         <!-- Depression Questionnaire -->
         <activity android:name=".ui.depression.depressionActivity" />
