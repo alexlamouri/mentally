@@ -1,332 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
     android:background="@drawable/triangle_bg"
     tools:context=".ui.profile.ProfileActivity">
 
-    <TextView
-        android:id="@+id/password_label"
-        android:layout_width="96dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="475dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="235dp"
-        android:text="@string/password_fix"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/country_label"
-        android:layout_width="96dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="409dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="301dp"
-        android:text="@string/country_fix"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/country_label"-->
+<!--        android:layout_width="96dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="409dp"-->
+<!--        android:layout_marginEnd="290dp"-->
+<!--        android:layout_marginBottom="301dp"-->
+<!--        android:text="@string/country_fix"-->
+<!--        android:textColor="#070505"/>-->
 
-    <TextView
-        android:id="@+id/email_textview"
-        android:layout_width="281dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="302dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="410dp"
-        android:background="#f8f8f8"
-        android:text="@string/email"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/edit_password"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="306dp"
-        android:layout_marginTop="419dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="140dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/edit_country"-->
+<!--        android:layout_width="32dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="306dp"-->
+<!--        android:layout_marginTop="367dp"-->
+<!--        android:layout_marginEnd="73dp"-->
+<!--        android:layout_marginBottom="220dp"-->
+<!--        android:background="@drawable/edit_button"-->
+<!--        app:srcCompat="@drawable/edit_icon" />-->
 
-    <ImageButton
-        android:id="@+id/edit_country"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="306dp"
-        android:layout_marginTop="367dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="220dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/edit_dob"-->
+<!--        android:layout_width="32dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="306dp"-->
+<!--        android:layout_marginTop="315dp"-->
+<!--        android:layout_marginEnd="73dp"-->
+<!--        android:layout_marginBottom="295dp"-->
+<!--        android:background="@drawable/edit_button"-->
+<!--        app:srcCompat="@drawable/edit_icon" />-->
 
-    <ImageButton
-        android:id="@+id/edit_dob"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="306dp"
-        android:layout_marginTop="315dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="295dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/edit_first_name"-->
+<!--        android:layout_width="36dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="350dp"-->
+<!--        android:layout_marginTop="73dp"-->
+<!--        android:layout_marginEnd="25dp"-->
+<!--        android:layout_marginBottom="629dp"-->
+<!--        android:background="@drawable/edit_button"-->
+<!--        app:srcCompat="@drawable/edit_icon" />-->
 
-    <ImageButton
-        android:id="@+id/edit_first_name"
-        android:layout_width="36dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="350dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="629dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+<!--    <TextView-->
+<!--        android:id="@+id/country_textview"-->
+<!--        android:layout_width="281dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="430dp"-->
+<!--        android:layout_marginEnd="105dp"-->
+<!--        android:layout_marginBottom="282dp"-->
+<!--        android:background="#f8f8f8"-->
+<!--        android:text="@string/country"-->
+<!--        android:textColor="#070505"/>-->
 
-    <TextView
-        android:id="@+id/country_textview"
-        android:layout_width="281dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="430dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="282dp"
-        android:background="#f8f8f8"
-        android:text="@string/country"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/password_textview"
-        android:layout_width="281dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="496dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="216dp"
-        android:background="#f8f8f8"
-        android:text="@string/password"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/dob_textview"-->
+<!--        android:layout_width="281dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="25dp"-->
+<!--        android:layout_marginTop="366dp"-->
+<!--        android:layout_marginEnd="105dp"-->
+<!--        android:layout_marginBottom="346dp"-->
+<!--        android:background="#f8f8f8"-->
+<!--        android:text="@string/date_of_birth"-->
+<!--        android:textColor="#070505"/>-->
 
-    <TextView
-        android:id="@+id/dob_textview"
-        android:layout_width="281dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="366dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="346dp"
-        android:background="#f8f8f8"
-        android:text="@string/date_of_birth"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/bgm_switch"
-        android:layout_width="196dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="686dp"
-        android:layout_marginEnd="224dp"
-        android:layout_marginBottom="250dp"
-        android:drawableLeft="@drawable/music_icon"
-        android:text="@string/bgm"
-        android:theme="@style/SwitchColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+<!--    <TextView-->
+<!--        android:id="@+id/firstname_textview"-->
+<!--        android:layout_width="165dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginStart="184dp"-->
+<!--        android:layout_marginTop="64dp"-->
+<!--        android:layout_marginEnd="62dp"-->
+<!--        android:layout_marginBottom="619dp"-->
+<!--        android:background="#f8f8f8"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:text="@string/user_first_name"-->
+<!--        android:textColor="#070505"-->
+<!--        android:textSize="16sp"/>-->
 
-    <TextView
-        android:id="@+id/lastname_textview"
-        android:layout_width="165dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="556dp"
-        android:background="#f8f8f8"
-        android:fontFamily="sans-serif"
-        android:text="@string/user_last_name"
-        android:textColor="#070505"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/dob_label"-->
+<!--        android:layout_width="96dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="345dp"-->
+<!--        android:layout_marginEnd="290dp"-->
+<!--        android:layout_marginBottom="365dp"-->
+<!--        android:text="@string/dob_fix"-->
+<!--        android:textColor="#070505"/>-->
+
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="144dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="236dp"
-        android:layout_marginBottom="525dp"
-        android:contentDescription="@string/title_activity_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars[4]" />
+        android:id="@+id/imageView2"
+        android:layout_width="132dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        app:srcCompat="@drawable/app_logo2" />
 
     <TextView
-        android:id="@+id/firstname_textview"
-        android:layout_width="165dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="62dp"
-        android:layout_marginBottom="619dp"
-        android:background="#f8f8f8"
-        android:fontFamily="sans-serif"
-        android:text="@string/user_first_name"
-        android:textColor="#070505"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B9D3D0D0"
+        android:gravity="center_horizontal"
+        android:text="Profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
-    <Button
-        android:id="@+id/change_profile_pic"
-        android:layout_width="104dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="257dp"
-        android:layout_marginBottom="493dp"
-        android:background="@drawable/profile_button"
-        android:drawableLeft="@drawable/camera_icon"
-        android:paddingStart="10dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:text="@string/change_profile"
-        android:textAllCaps="false"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/push_notif_switch"
-        android:layout_width="196dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="670dp"
-        android:layout_marginEnd="224dp"
-        android:layout_marginBottom="300dp"
-        android:drawableLeft="@drawable/notif_icon"
-        android:text="@string/push_notif"
-        android:theme="@style/SwitchColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100px" />
 
-    <ImageButton
-        android:id="@+id/edit_last_name"
-        android:layout_width="36dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="349dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="563dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/edit_email"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="306dp"
-        android:layout_marginTop="237dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="345dp"
-        android:background="@drawable/edit_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/edit_icon" />
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="400px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:paddingLeft="15px"
+                android:text="Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/email_label"
-        android:layout_width="96dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="429dp"
-        android:text="@string/email_fix"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/firstname_textview"
+                android:layout_width="700px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:text="YourName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/dob_label"
-        android:layout_width="96dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="345dp"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="365dp"
-        android:text="@string/dob_fix"
-        android:textColor="#070505"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dobLabel"
+                android:layout_width="400px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:paddingLeft="15px"
+                android:text="Date of Birth"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/dob_textview"
+                android:layout_width="700px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:text="YourBirthday"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/countryLabel"
+                android:layout_width="400px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:paddingLeft="15px"
+                android:text="Country"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <TextView
+                android:id="@+id/country_textview"
+                android:layout_width="700px"
+                android:layout_height="wrap_content"
+                android:background="#BCFFFFFF"
+                android:text="YourCountry"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
