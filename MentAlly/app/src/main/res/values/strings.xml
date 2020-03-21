@@ -155,6 +155,12 @@
     <string name="_1_little_interest_or_pleasure_in_doing_things">1. Little interest or pleasure in doing things</string>
 
     <string name="start">Start</string>
+    <string name="ptsd">Test for PTSD</string>
+    <string name="ocd">Test for OCD</string>
+    <string name="depression">Test for Depression</string>
+    <string name="bipolar">Test for Bilpolarism</string>
+    <string name="anxiety">Test for Anxiety</string>
+    <string name="adhd">Test for ADHD</string>
 
 </resources>
 

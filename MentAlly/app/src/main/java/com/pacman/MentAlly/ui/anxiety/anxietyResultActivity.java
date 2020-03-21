@@ -3,21 +3,24 @@ package com.pacman.MentAlly.ui.anxiety;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
-public class anxietyResultActivity extends AppCompatActivity {
+public class anxietyResultActivity extends MainActivity {
 
     private TextView mResult;
     private Button mRetry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anxiety_results);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_anxiety_results, contentFrameLayout);
 
         mResult = (TextView) findViewById(R.id.result);
         mRetry = (Button) findViewById(R.id.retry);

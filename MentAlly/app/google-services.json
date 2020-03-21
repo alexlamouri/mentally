@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1055750495058-373m3r9g1j78tlphvo6rbvjl7sj8e1sm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pacman.MentAlly",
+            "certificate_hash": "b6ad935e1329c4baa2b009d2cb78949e60a14866"
+          }
+        },
+        {
           "client_id": "1055750495058-3agc9qek3attbnbffqb797tl923j17fv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
