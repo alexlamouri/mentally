@@ -28,9 +28,9 @@ import com.pacman.MentAlly.ui.Mood.MoodActivity;
 import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
 import com.pacman.MentAlly.ui.breathing.BreathingActivity;
 import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
-import com.pacman.MentAlly.ui.profile.ProfileActivity;
 import com.pacman.MentAlly.ui.profile.ProfileFragment;
 import com.pacman.MentAlly.ui.quiz.QuizActivity;
+import com.pacman.MentAlly.ui.menu.WallpaperFragment;
 
 import java.net.URI;
 import java.net.URL;
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_profile:
-                Intent i_profile = new Intent(this, ProfileActivity.class);
+                Intent i_profile = new Intent(this, ProfileFragment.class);
                 startActivity(i_profile);
                 draw.closeDrawer(GravityCompat.START);
                 break;
