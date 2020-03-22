@@ -14,10 +14,6 @@
             android:icon="@drawable/ic_todo"
             android:title="ToDo"/>
 
-        <item android:id="@+id/nav_goals"
-            android:icon="@drawable/ic_goals"
-            android:title="Goals"/>
-
         <item android:id="@+id/nav_habit"
             android:icon="@drawable/ic_habit"
             android:title="Habit Tracker"/>
@@ -29,10 +25,6 @@
         <item android:id="@+id/nav_breathe"
             android:icon="@drawable/ic_breathe"
             android:title="Breathe"/>
-
-        <item android:id="@+id/nav_sleep"
-            android:icon="@drawable/ic_sleep"
-            android:title="Sleep Tracker"/>
 
         <item android:id="@+id/nav_quiz"
             android:icon="@drawable/ic_quiz"
