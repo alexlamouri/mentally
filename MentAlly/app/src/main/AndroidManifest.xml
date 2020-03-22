@@ -13,7 +13,12 @@
         android:theme="@style/AppTheme">
 
         <!-- Login Page -->
-        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <!-- Registration Page -->
         <activity
@@ -22,14 +27,7 @@
         </activity> 
 
         <!-- Main Page -->
-        <activity
-            android:name=".ui.home.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.home.MainActivity" />
 
         <!-- Profile Page -->
         <activity android:name=".ui.profile.ProfileActivity" />
@@ -50,21 +48,6 @@
         <activity android:name=".ui.bipolar.bipolarResultActivity" />
               
         <activity android:name=".ui.helpline.helplineActivity" />
-      
-<!--        &lt;!&ndash; Todo List &ndash;&gt;-->
-<!--        <activity android:name=".ui.ToDoList.ToDoListActivity" /> -->
-
-<!--        &lt;!&ndash; ADHD Questionnaire &ndash;&gt;-->
-<!--        <activity android:name=".ui.adhd.adhdActivity" />-->
-<!--        <activity android:name=".ui.adhd.adhdResultActivity" /> -->
-
-<!--        &lt;!&ndash; Anxiety Questionnaire &ndash;&gt;-->
-<!--        <activity android:name=".ui.anxiety.anxietyActivity" />-->
-<!--        <activity android:name=".ui.anxiety.anxietyResultActivity" /> -->
-
-<!--        &lt;!&ndash; Bipolar Questionnaire &ndash;&gt;-->
-<!--        <activity android:name=".ui.bipolar.bipolarActivity" />-->
-<!--        <activity android:name=".ui.bipolar.bipolarResultActivity" /> -->
 
         <!-- Depression Questionnaire -->
         <activity android:name=".ui.depression.depressionActivity" />
