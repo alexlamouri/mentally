@@ -1,4 +1,4 @@
-package com.pacman.MentAlly.ui.menu;
+package com.pacman.MentAlly.ui.home;
 
 public class QuotesModel {
     public String[] mQuotes = {
