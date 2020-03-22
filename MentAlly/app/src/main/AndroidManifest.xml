@@ -32,7 +32,7 @@
         </activity>
 
         <!-- Profile Page -->
-        <activity android:name=".ui.profile.ProfileFragment" />
+        <activity android:name=".ui.profile.ProfileActivity" />
       
         <!-- Todo List -->
         <activity android:name=".ui.ToDoList.ToDoListActivity" />

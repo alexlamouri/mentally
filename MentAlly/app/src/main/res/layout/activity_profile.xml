@@ -7,7 +7,7 @@
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
     android:background="@drawable/triangle_bg"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileActivity">
 
     <ImageView
         android:id="@+id/imageView2"
