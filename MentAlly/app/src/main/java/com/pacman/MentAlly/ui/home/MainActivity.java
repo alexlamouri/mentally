@@ -11,6 +11,7 @@ import android.net.Uri;
 
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
@@ -29,8 +30,8 @@ import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
 import com.pacman.MentAlly.ui.breathing.BreathingActivity;
 import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
-import com.pacman.MentAlly.ui.profile.ProfileFragment;
 import com.pacman.MentAlly.ui.quiz.QuizActivity;
+import com.pacman.MentAlly.ui.menu.WallpaperFragment;
 
 import java.net.URI;
 import java.net.URL;
@@ -71,9 +72,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.nav_profile:
+                Log.d("Hi", "hello");
                 Intent i_profile = new Intent(this, ProfileActivity.class);
                 startActivity(i_profile);
                 draw.closeDrawer(GravityCompat.START);
+                Log.d("Hi", "hello");
                 break;
             case R.id.nav_habit:
                 Intent i_habit = new Intent(this, HabitTrackerActivity.class);

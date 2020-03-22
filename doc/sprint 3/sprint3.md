@@ -25,11 +25,13 @@ Alex - User Story 12: As a user, I want to be able to access professional mental
 Jasmine - User Story 38: As a user I would like to navigate to the various modules in the app, and have a page that can navigate me to the different quizzes.
 
 Spikes:
-    1. Creating Custom Dialog Box
-    2. Implementing Recycler View
-    3. Implementing a chained timer
+    1. Implementing Audio/Music in the app
+    2. Implementing recycler view
+    3. Connecting navigation to other features using activities
+    4. Overlapping motivational quote on homepage
+    5. Researching canadian-specific helplines for the mental health assistance module
 
-Team Capacity: 28
+Team Capacity: 42
 
 Participants:
     Kavya
