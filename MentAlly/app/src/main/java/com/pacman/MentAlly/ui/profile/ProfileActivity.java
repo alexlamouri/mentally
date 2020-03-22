@@ -42,14 +42,6 @@ public class ProfileActivity extends MainActivity {
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_profile, contentFrameLayout);
 
-//        first_name_btn = root.findViewById(R.id.edit_first_name);
-//        first_name_btn.getBackground().setAlpha(65);
-//        dob_btn = root.findViewById(R.id.edit_dob);
-//        dob_btn.getBackground().setAlpha(65);
-//        country_btn = root.findViewById(R.id.edit_country);
-//        country_btn.getBackground().setAlpha(65);
-
-        //set all textview transparency level
         first_name_txt = findViewById(R.id.firstname_textview);
         first_name_txt.getBackground().setAlpha(75);
         country_txt = findViewById(R.id.country_textview);
