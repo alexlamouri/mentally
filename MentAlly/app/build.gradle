@@ -43,6 +43,8 @@ dependencies {
 
     //circle imageview
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
 
 }
 //added all firebase implementations to easily connect the app to the firebase database.

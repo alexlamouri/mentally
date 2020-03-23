@@ -12,9 +12,13 @@
         android:layout_height="match_parent"
         android:id="@+id/imageView"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop">
+        android:scaleType="centerCrop"
+        android:background="#050505">
 <!--        android:src="@drawable/wallpaper1"-->
 
 
     </androidx.appcompat.widget.AppCompatImageView>
+
+
+
 </RelativeLayout>

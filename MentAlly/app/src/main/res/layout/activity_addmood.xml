@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center"
-
-        tools:context=".ui.Mood.MoodActivity">
+        tools:context=".ui.Mood.MoodActivity"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#9378C7"
+            android:background="#729378C7"
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/title"
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20sp"
-                android:text="MentAlly"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="50sp"
-                android:textStyle="bold" />
+                android:layout_height="100dp"
+                android:clickable="false"
+                app:srcCompat="@drawable/app_logo2"/>
 
             <TextView
                 android:id="@+id/subtitle"
@@ -40,7 +34,7 @@
                 android:paddingVertical="20sp"
                 android:text="Log New Mood"
                 android:textAlignment="center"
-                android:textColor="#BFFFFFFF"
+                android:textColor="#251580"
                 android:textSize="25sp"
                 android:textStyle="bold|italic" />
 
@@ -127,7 +121,6 @@
                 android:textSize="20dp"
                 android:textColor="#050505"/>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
