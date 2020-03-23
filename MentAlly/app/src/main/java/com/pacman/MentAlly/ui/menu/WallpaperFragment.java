@@ -1,6 +1,7 @@
 package com.pacman.MentAlly.ui.menu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,9 +16,12 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.HomeActivity;
 
 import java.util.ArrayList;
 
@@ -26,11 +30,21 @@ public class WallpaperFragment extends Fragment {
     private ArrayList<image> image = new ArrayList<>();
     private static final int NUM_COLUMNS = 2;
     public static int theme = -1;
-
+    Button d;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_wallpaper, container, false);
+        d = root.findViewById(R.id.def);
+        d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                theme = -1;
+                Toast.makeText(getContext(), "Default Wallpaper Set", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent( getContext(), HomeActivity.class);
+                startActivity(i);
+            }
+        });
         getImages(root);
         return root;
     }
@@ -124,8 +138,14 @@ public class WallpaperFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     theme = image.get(pos).getImage();
+                    Toast.makeText(getContext(), "New Wallpaper Set", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent( getContext(), HomeActivity.class);
+                    startActivity(i);
                 }
             });
+
+
+
 
         }
 
@@ -138,9 +158,11 @@ public class WallpaperFragment extends Fragment {
 
             ImageView imageView;
 
+
             public ViewHolder(View itemView) {
                 super(itemView);
                 imageView = itemView.findViewById(R.id.imageView);
+
             }
         }
     }
