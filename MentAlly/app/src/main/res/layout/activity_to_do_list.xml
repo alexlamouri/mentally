@@ -9,64 +9,86 @@
     tools:context=".ui.ToDoList.ToDoListActivity">
 
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="132dp"
-        android:layout_height="69dp"
-        android:layout_gravity="center_horizontal"
-        android:clickable="false"
-        app:srcCompat="@drawable/app_logo2" />
-
-    <ImageView
-        android:layout_width="132dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:clickable="false"
-        app:srcCompat="@drawable/to_do_list" />
-
-
-    <Button
-        android:id="@+id/addButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:backgroundTint="#972196F3"
-        android:text="+"
-        android:textSize="25dp"></Button>
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:layout_height="252dp"
+        android:paddingTop="20dp"
+        android:background="#65A0CFE2"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/viewCompletedButton"
-            android:layout_width="205dp"
-            android:layout_height="50dp"
-            android:backgroundTint="#9219D5F0"
-            android:text="My Completed Tasks"></Button>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:clickable="false"
+            app:srcCompat="@drawable/app_logo2"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bangers"
+            android:text="To-Do List"
+            android:textAlignment="center"
+            android:textColor="#1A237E"
+            android:textSize="30sp" />
         <Button
-            android:id="@+id/viewIncompletedButton"
-            android:layout_width="205dp"
+            android:id="@+id/addButton"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="30dp"
             android:layout_height="50dp"
-            android:backgroundTint="#5BCEDF"
-            android:text="My Pending Tasks"></Button>
+            android:backgroundTint="#972196F3"
+            android:text="+"
+            android:textSize="25dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/viewCompletedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#9219D5F0"
+                android:text="My Completed Tasks">
+
+            </Button>
+
+            <Button
+                android:id="@+id/viewIncompletedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#5BCEDF"
+                android:text="My Pending Tasks">
+
+            </Button>
+        </LinearLayout>
+
     </LinearLayout>
+
 
     <ListView
         android:id="@+id/myList"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:background="#63B2F0F8"
-        android:textSize="15dp" />
-
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/todolistbackground"/>
     <Button
         android:id="@+id/delete_list_btn"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Delete List"></Button>
+        android:text="Delete List"
+        android:layout_height="40sp"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>
