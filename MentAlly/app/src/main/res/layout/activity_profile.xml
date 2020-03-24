@@ -105,4 +105,12 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#859C27B0"
+        android:text="Edit Profile" />
 </LinearLayout>

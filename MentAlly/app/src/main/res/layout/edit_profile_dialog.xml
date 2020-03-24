@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Edit Profile"
+        android:textColor="#CC72DF"
+        android:textSize="25sp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*Note: If you leave any field blank, it will not be changed."
+        android:textColor="#000000"
+        android:layout_marginLeft="5dp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="New Name"
+        android:inputType="text"></EditText>
+
+    <EditText
+        android:id="@+id/dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="New Date of Birth"
+        android:inputType="date"></EditText>
+
+    <EditText
+        android:id="@+id/country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:hint="New Country"></EditText>
+
+</LinearLayout>
