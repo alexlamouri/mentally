@@ -58,6 +58,7 @@ import java.io.IOException;
 import java.security.Permission;
 import com.google.firebase.storage.UploadTask;
 import com.google.firebase.database.DatabaseReference;
+import com.pacman.MentAlly.ui.login.LoginActivity;
 
 public class ProfileActivity extends MainActivity {
     private Button edit_btn;
@@ -68,6 +69,7 @@ public class ProfileActivity extends MainActivity {
     private FirebaseUser user;
     private TextView gender_txt;
     private ImageView profilepic;
+    private Button logout;
     Uri imageUri;
 
     public FirebaseFirestore myDatabase;
@@ -92,6 +94,7 @@ public class ProfileActivity extends MainActivity {
         gender_txt.getBackground().setAlpha(75);
         edit_btn = findViewById(R.id.editButton);
         profilepic= findViewById(R.id.imagetoupload);
+        logout = findViewById(R.id.logout);
 
         myDatabase = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -105,6 +108,31 @@ public class ProfileActivity extends MainActivity {
         }
 
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder b = new AlertDialog.Builder(ProfileActivity.this);
+                b.setMessage("Are you sure you want to sign out?");
+                b.setCancelable(true);
+                b.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(i);
+
+                    }
+                });
+                b.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog a = b.create();
+                a.show();
+            }
+        });
 
         profilepic.setOnClickListener(new View.OnClickListener(){
             @Override

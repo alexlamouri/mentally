@@ -28,7 +28,7 @@
 
         <item android:id="@+id/nav_quiz"
             android:icon="@drawable/ic_quiz"
-            android:title="Quiz"/>
+            android:title="Self-Assess"/>
 
         <item android:id="@+id/nav_ambient"
             android:icon="@drawable/ic_ambient"
