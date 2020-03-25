@@ -34,13 +34,17 @@
             android:icon="@drawable/ic_ambient"
             android:title="Ambient"/>
 
+        <item android:id="@+id/nav_wallpaper"
+            android:icon="@drawable/ic_wallpaper"
+            android:title="Change Wallpaper"/>
+
         <item android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="Profile"/>
 
-        <item android:id="@+id/nav_wallpaper"
-            android:icon="@drawable/ic_wallpaper"
-            android:title="Change Wallpaper"/>
+        <item android:id="@+id/nav_emergency"
+            android:icon="@drawable/ic_emergency"
+            android:title="Profile"/>
 
     </group>
 

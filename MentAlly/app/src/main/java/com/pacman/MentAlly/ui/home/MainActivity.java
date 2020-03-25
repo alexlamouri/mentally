@@ -108,6 +108,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new WallpaperFragment()).commit();
                 draw.closeDrawer(GravityCompat.START);
                 break;
+            //case R.id.nav_emergency:
+            //    Intent i_quiz = new Intent(this, QuizActivity.class);
+             //   startActivity(i_quiz);
+            //    draw.closeDrawer(GravityCompat.START);
+             //   break;
 
 
         }
