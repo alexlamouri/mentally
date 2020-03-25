@@ -28,6 +28,7 @@ import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.Mood.MoodActivity;
 import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
 import com.pacman.MentAlly.ui.breathing.BreathingActivity;
+import com.pacman.MentAlly.ui.emergencyContacts.EmergencyContactsActivity;
 import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
 import com.pacman.MentAlly.ui.quiz.QuizActivity;
@@ -108,11 +109,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new WallpaperFragment()).commit();
                 draw.closeDrawer(GravityCompat.START);
                 break;
-            //case R.id.nav_emergency:
-            //    Intent i_quiz = new Intent(this, QuizActivity.class);
-             //   startActivity(i_quiz);
-            //    draw.closeDrawer(GravityCompat.START);
-             //   break;
+            case R.id.nav_emergency:
+                Intent i_emergency = new Intent(this, EmergencyContactsActivity.class);
+                startActivity(i_emergency);
+                draw.closeDrawer(GravityCompat.START);
+                break;
 
 
         }
