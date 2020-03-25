@@ -24,6 +24,7 @@
         android:fontFamily="@font/bangers"
         android:gravity="center_horizontal"
         android:text="Profile"
+        android:textColor="#1A237E"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
    <de.hdodenhof.circleimageview.CircleImageView

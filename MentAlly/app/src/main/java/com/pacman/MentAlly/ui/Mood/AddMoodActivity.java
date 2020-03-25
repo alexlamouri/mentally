@@ -166,6 +166,8 @@ public class AddMoodActivity extends AppCompatActivity {
                 if(boolselect == 1){
                     addmood.setEnabled(true);
 
+
+
                 }
             }
         });
