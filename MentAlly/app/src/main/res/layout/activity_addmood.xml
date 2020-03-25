@@ -55,6 +55,22 @@
             android:padding="5dp">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*In order to add mood you must select a date and emoji"
+                android:textAlignment="center"
+                android:textSize="10dp"
+                android:textColor="#B71C1C"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <TextView
                 android:id="@+id/on"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,6 +81,7 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -130,6 +147,7 @@
 
             <LinearLayout
                 android:orientation="horizontal"
+                android:id="@+id/moodcontainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -242,7 +260,6 @@
                     android:background="@drawable/devil"/>
             </LinearLayout>
 
-
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -284,6 +301,7 @@
                 android:text="Add this Mood"
                 android:textAlignment="center"
                 android:textSize="20dp"
+                android:enabled="false"
                 android:textColor="#050505"
                 android:layout_gravity="bottom"/>
         </LinearLayout>

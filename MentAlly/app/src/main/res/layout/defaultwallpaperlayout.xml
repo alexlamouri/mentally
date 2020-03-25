@@ -14,7 +14,7 @@
         android:id="@+id/gif"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/stars"
+        android:src="@drawable/waterfall2"
         android:background="@color/black"/>
 
 </RelativeLayout>
