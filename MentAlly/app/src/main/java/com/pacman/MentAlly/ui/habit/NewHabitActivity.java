@@ -14,6 +14,7 @@ import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,12 +37,16 @@ public class NewHabitActivity extends MainActivity {
     private Button newHabit;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private ConstraintLayout constraintLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_new_habit, contentFrameLayout);
+
+        constraintLayout = findViewById(R.id.linearLayout2);
+        constraintLayout.getBackground().setAlpha(50);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
