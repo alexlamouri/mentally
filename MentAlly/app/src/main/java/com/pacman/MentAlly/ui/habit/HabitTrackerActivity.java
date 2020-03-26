@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -34,16 +35,20 @@ import java.util.Observer;
 public class HabitTrackerActivity extends MainActivity implements Observer, OnCompleteListener<QuerySnapshot> {
 
     private static final String TAG = "HabitTrackerActivity";
-    private ImageButton newHabit;
+    private Button newHabit;
     private ArrayList<Habit> habitList = new ArrayList<>();
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_habit_tracker, contentFrameLayout);
+
+        recyclerView = findViewById(R.id.habitlist);
+        recyclerView.getBackground().setAlpha(50);
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
