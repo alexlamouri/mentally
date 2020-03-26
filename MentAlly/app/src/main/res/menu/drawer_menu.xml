@@ -42,9 +42,10 @@
             android:icon="@drawable/ic_profile"
             android:title="Profile"/>
 
-        <item android:id="@+id/nav_emergency"
+        <item
+            android:id="@+id/nav_emergency"
             android:icon="@drawable/ic_emergency"
-            android:title="Profile"/>
+            android:title="Emergency Contacts" />
 
     </group>
 

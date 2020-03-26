@@ -51,9 +51,6 @@ public class HomeActivity extends MainActivity {
             getLayoutInflater().inflate(R.layout.defaultwallpaperlayout, contentFrameLayout);
 
         }
-
-
-
     }
     public void quoteAnimation(){
         quote = (TextView) findViewById(R.id.motivational_quote);
