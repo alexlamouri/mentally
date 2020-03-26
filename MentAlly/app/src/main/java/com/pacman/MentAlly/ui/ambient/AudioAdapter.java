@@ -43,6 +43,11 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioView> {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, audioList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                if (! audioList.get(position).isPlaying()) {
+                    audioList.get(position).startPlaying();
+                } else {
+                    audioList.get(position).stopPlaying();
+                }
             }
         });
     }

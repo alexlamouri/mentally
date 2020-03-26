@@ -129,6 +129,13 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
     }
 
     private void stopMedia() {
+        if (player == null) return;
+        if (player.isPlaying()) {
+            player.stop();
+        }
+    }
+
+    private void pauseMedia() {
         if (player.isPlaying()) {
             player.pause();
             resumePosition = player.getCurrentPosition();
@@ -197,7 +204,7 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
     private boolean requestAudioFocus() {
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         int result = audioManager.requestAudioFocus(focusRequest);
-        return result == AudioManager.AUDIOFOCUS_GAIN;
+        return result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED;
     }
 
     private boolean removeAudioFocus() {

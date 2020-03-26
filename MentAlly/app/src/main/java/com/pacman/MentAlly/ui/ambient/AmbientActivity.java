@@ -21,8 +21,10 @@ import android.widget.Toast;
 import com.pacman.MentAlly.R;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
-public class AmbientActivity extends AppCompatActivity {
+public class AmbientActivity extends AppCompatActivity implements Observer {
 
     private static final String TAG = "Ambient Activity";
     private ArrayList<AudioFile> audioList = new ArrayList<>();
@@ -51,10 +53,29 @@ public class AmbientActivity extends AppCompatActivity {
     }
 
     private void loadAudio() {
+        audioList.add(new AudioFile("moonlight_sonata", "Moonlight Sonata"));
         audioList.add(new AudioFile("bird_ambience", "Bird Song"));
         audioList.add(new AudioFile("busy_city_street", "City Streets"));
         audioList.add(new AudioFile("campfire", "Campfire"));
         audioList.add(new AudioFile("car_interior", "Car Interior"));
+        audioList.add(new AudioFile("coffee_shop", "Coffee Shop"));
+        audioList.add(new AudioFile("electric_hum", "Electric Hum"));
+        audioList.add(new AudioFile("forest1", "Forest1"));
+        audioList.add(new AudioFile("forest2", "Forest2"));
+        audioList.add(new AudioFile("helicopter", "Helicopter"));
+        audioList.add(new AudioFile("ocean_waves", "Ocean Waves"));
+        audioList.add(new AudioFile("plane", "Plane"));
+        audioList.add(new AudioFile("rumble", "Rumble"));
+        audioList.add(new AudioFile("street_traffic", "Street Traffic"));
+        audioList.add(new AudioFile("thunderstorm", "Thunderstorm"));
+        audioList.add(new AudioFile("windy_desert", "Windy Desert"));
+        audioList.add(new AudioFile("forest1", "Forest1"));
+
+
+        for (int i=0; i<audioList.size(); i++) {
+            audioList.get(i).addObserver(this);
+            Log.d(TAG, "loadAudio: "+audioList.get(i).getTitle());
+        }
         initRecyclerView();
 //        ContentResolver contentResolver = getContentResolver();
 //        Uri uri = new Uri.Builder()
@@ -93,6 +114,9 @@ public class AmbientActivity extends AppCompatActivity {
             playerIntent.putExtra("media", media);
             startService(playerIntent);
             bindService(playerIntent, serviceConnection, Context.BIND_AUTO_CREATE);
+        } else {
+            // Service is active
+            // Send media with BroadcastReciever
         }
     }
 
@@ -115,5 +139,11 @@ public class AmbientActivity extends AppCompatActivity {
             unbindService(serviceConnection);
             audioService.stopSelf();
         }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        String audioFile = arg.toString();
+        playAudio(audioFile);
     }
 }
