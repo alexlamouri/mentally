@@ -12,6 +12,7 @@
         android:layout_height="55dp"
         android:contentDescription="@string/habit_no"
         android:src="@android:drawable/arrow_down_float"
+        android:background="@color/downArrow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +22,7 @@
         android:layout_height="55dp"
         android:contentDescription="@string/habit_yes"
         android:src="@android:drawable/arrow_up_float"
+        android:background="@color/upArrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +32,7 @@
         android:layout_height="35dp"
         android:paddingTop="5dp"
         android:textAlignment="center"
+        android:textColor="#483d8b"
         app:layout_constraintEnd_toStartOf="@+id/habitno"
         app:layout_constraintStart_toEndOf="@+id/habityes"
         app:layout_constraintTop_toTopOf="parent" />
