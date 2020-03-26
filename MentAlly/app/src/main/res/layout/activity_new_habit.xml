@@ -148,7 +148,7 @@
     <Button
         android:id="@+id/add_new_habit"
         android:layout_width="360dp"
-        android:layout_height="30dp"
+        android:layout_height="33dp"
         android:layout_gravity="center_horizontal"
         android:background="#9378C7"
         android:backgroundTintMode="add"
