@@ -6,4 +6,6 @@
     <color name="colorDayT">#ffff7a</color>
     <color name="colorDayB">#a0e6ff</color>
     <color name="black">#000000</color>
+    <color name="upArrow">#ddffca</color>
+    <color name="downArrow">#ffbdff</color>
 </resources>
