@@ -24,6 +24,16 @@
 <!--        android:clickable="false"-->
 <!--        app:srcCompat="@drawable/to_do_list" />-->
 
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bangers"
+        android:paddingVertical="20sp"
+        android:text="Emergency Contacts"
+        android:textAlignment="center"
+        android:textColor="#1A237E"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/addButton"
