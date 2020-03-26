@@ -8,55 +8,47 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#9378C7"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/habitlist"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:background="#efd8f5"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/appname"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="77dp"
-            android:lineSpacingExtra="0sp"
-            android:text="@string/app_name"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#E8F8F7F7"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="false"
+            app:srcCompat="@drawable/app_logo2" />
 
         <TextView
-            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/habit_tracker"
+            android:fontFamily="@font/bangers"
+            android:text="Habit Tracker"
             android:textAlignment="center"
-            android:textColor="#E8F8F7F7"
-            android:textSize="24sp" />
+            android:textColor="#1A237E"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/new_habit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="30dp"
+            android:backgroundTint="#e25098"
+            android:text="+"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/new_habit"
-        android:layout_width="53dp"
-        android:layout_height="49dp"
-        android:background="@drawable/profile_button"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/habitlist"
-        android:layout_width="0dp"
-        android:layout_height="470dp"
-        android:background="#efcff0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="386dp"
+        android:layout_height="500dp"
+        android:background="@drawable/habit_tracker_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        tools:layout_editor_absoluteY="224dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
