@@ -46,6 +46,10 @@
             android:id="@+id/nav_emergency"
             android:icon="@drawable/ic_emergency"
             android:title="Emergency Contacts" />
+        <item
+            android:id="@+id/nav_helpline"
+            android:icon="@drawable/ic_helpline"
+            android:title="Helpline" />
 
     </group>
 

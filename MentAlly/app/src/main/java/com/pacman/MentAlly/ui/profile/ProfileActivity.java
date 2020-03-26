@@ -152,7 +152,7 @@ public class ProfileActivity extends MainActivity {
                 final EditText name = editProfileDialogView.findViewById(R.id.name);
                 final EditText dob = editProfileDialogView.findViewById(R.id.dob);
                 final EditText country = editProfileDialogView.findViewById(R.id.country);
-                final EditText gender = editProfileDialogView.findViewById(R.id.genderlabel);
+               // final EditText gender = editProfileDialogView.findViewById(R.id.genderlabel);
                 final String uid = user.getUid();
 
                 AlertDialog dialog = new AlertDialog.Builder(ProfileActivity.this)
@@ -171,9 +171,9 @@ public class ProfileActivity extends MainActivity {
                                 if (!country.getText().toString().isEmpty()) {
                                     myDatabase.collection("users").document(uid).update("Country", country.getText().toString());
                                 }
-                                if (!gender.getText().toString().isEmpty()) {
-                                    myDatabase.collection("users").document(uid).update("Gender", gender.getText().toString());
-                                }
+                    //            if (!gender.getText().toString().isEmpty()) {
+                     //               myDatabase.collection("users").document(uid).update("Gender", gender.getText().toString());
+                       //         }
 
                                 updateLabels();
                             }

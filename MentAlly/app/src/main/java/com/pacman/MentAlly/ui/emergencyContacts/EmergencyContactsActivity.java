@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,13 +32,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.ToDoList.Task;
 import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EmergencyContactsActivity extends AppCompatActivity {
+public class EmergencyContactsActivity extends MainActivity {
 
     private static final String TAG = "EmergencyContactsActivity";
 
@@ -55,7 +57,8 @@ public class EmergencyContactsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        setContentView(R.layout.activity_emergency_contacts);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_emergency_contacts, contentFrameLayout);
 
         this.addButton = findViewById(R.id.addButton);
         this.deleteListButton = findViewById(R.id.delete_list_btn);

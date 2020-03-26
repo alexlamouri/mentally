@@ -33,6 +33,7 @@ import com.pacman.MentAlly.ui.habit.HabitTrackerActivity;
 import com.pacman.MentAlly.ui.profile.ProfileActivity;
 import com.pacman.MentAlly.ui.quiz.QuizActivity;
 import com.pacman.MentAlly.ui.menu.WallpaperFragment;
+import com.pacman.MentAlly.ui.helpline.helplineActivity;
 
 import java.net.URI;
 import java.net.URL;
@@ -114,6 +115,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(i_emergency);
                 draw.closeDrawer(GravityCompat.START);
                 break;
+            case R.id.nav_helpline:
+                Intent i_help = new Intent(this, helplineActivity .class);
+                startActivity(i_help);
+                draw.closeDrawer(GravityCompat.START);
+                break;
+
 
 
         }

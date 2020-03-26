@@ -7,23 +7,26 @@ import androidx.core.content.ContextCompat;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 import android.os.Bundle;
 
-public class helplineActivity extends AppCompatActivity {
+public class helplineActivity extends MainActivity {
 
     private static final int REQUEST_CALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_helpline);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_helpline, contentFrameLayout);
 
         findViewById(R.id.kidsHelpCall).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
