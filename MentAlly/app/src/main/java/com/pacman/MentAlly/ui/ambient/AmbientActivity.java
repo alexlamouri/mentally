@@ -53,23 +53,22 @@ public class AmbientActivity extends AppCompatActivity implements Observer {
     }
 
     private void loadAudio() {
-        audioList.add(new AudioFile("moonlight_sonata", "Moonlight Sonata"));
-        audioList.add(new AudioFile("bird_ambience", "Bird Song"));
-        audioList.add(new AudioFile("busy_city_street", "City Streets"));
-        audioList.add(new AudioFile("campfire", "Campfire"));
-        audioList.add(new AudioFile("car_interior", "Car Interior"));
-        audioList.add(new AudioFile("coffee_shop", "Coffee Shop"));
-        audioList.add(new AudioFile("electric_hum", "Electric Hum"));
-        audioList.add(new AudioFile("forest1", "Forest1"));
-        audioList.add(new AudioFile("forest2", "Forest2"));
-        audioList.add(new AudioFile("helicopter", "Helicopter"));
-        audioList.add(new AudioFile("ocean_waves", "Ocean Waves"));
-        audioList.add(new AudioFile("plane", "Plane"));
-        audioList.add(new AudioFile("rumble", "Rumble"));
-        audioList.add(new AudioFile("street_traffic", "Street Traffic"));
-        audioList.add(new AudioFile("thunderstorm", "Thunderstorm"));
-        audioList.add(new AudioFile("windy_desert", "Windy Desert"));
-        audioList.add(new AudioFile("forest1", "Forest1"));
+        audioList.add(new AudioFile("moonlight_sonata", "Moonlight Sonata", "5:21"));
+        audioList.add(new AudioFile("bird_ambience", "Bird Song", "1:55"));
+        audioList.add(new AudioFile("busy_city_street", "City Streets", "2:19"));
+        audioList.add(new AudioFile("campfire", "Campfire", "1:54"));
+        audioList.add(new AudioFile("car_interior", "Car Interior", "1:48"));
+        audioList.add(new AudioFile("coffee_shop", "Coffee Shop", "1:49"));
+        audioList.add(new AudioFile("electric_hum", "Electric Hum", "1:07"));
+        audioList.add(new AudioFile("forest1", "Forest1", "2:40"));
+        audioList.add(new AudioFile("forest2", "Forest2", "2:21"));
+        audioList.add(new AudioFile("helicopter", "Helicopter", "2:03"));
+        audioList.add(new AudioFile("ocean_waves", "Ocean Waves", "2:30"));
+        audioList.add(new AudioFile("plane", "Plane", "2:06"));
+        audioList.add(new AudioFile("rumble", "Rumble", "00:32"));
+        audioList.add(new AudioFile("street_traffic", "Street Traffic", "2:00"));
+        audioList.add(new AudioFile("thunderstorm", "Thunderstorm", "2:44"));
+        audioList.add(new AudioFile("windy_desert", "Windy Desert", "2:00"));
 
 
         for (int i=0; i<audioList.size(); i++) {

@@ -36,7 +36,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioView> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AudioAdapter.AudioView holder, final int position) {
+    public void onBindViewHolder(@NonNull final AudioAdapter.AudioView holder, final int position) {
         holder.title.setText(audioList.get(position).getTitle());
         holder.audioLength.setText(audioList.get(position).getAudioLength());
         holder.playAudio.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +45,10 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioView> {
                 Toast.makeText(mContext, audioList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
                 if (! audioList.get(position).isPlaying()) {
                     audioList.get(position).startPlaying();
+                    holder.playAudio.setImageResource(android.R.drawable.ic_media_pause);
                 } else {
                     audioList.get(position).stopPlaying();
+                    holder.playAudio.setImageResource(android.R.drawable.ic_media_play);
                 }
             }
         });

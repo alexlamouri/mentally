@@ -9,12 +9,6 @@ public class AudioFile extends Observable {
     private String length;
     private boolean isPlaying;
 
-    public AudioFile(String data, String audioTitle) {
-        this.data = data;
-        this.title = audioTitle;
-        this.isPlaying = false;
-    }
-
     public AudioFile(String data, String audioTitle, String audioLength) {
         this.data = data;
         this.title = audioTitle;
