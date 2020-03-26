@@ -116,16 +116,16 @@ public class EmergencyContactsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if (contactName.getText().toString().isEmpty()) {
-                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify task name", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify contact name", Toast.LENGTH_SHORT).show();
                                 }
                                 if (phoneNumber.getText().toString().isEmpty()) {
-                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify task name", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify phone number", Toast.LENGTH_SHORT).show();
                                 }
                                 if (email.getText().toString().isEmpty()) {
-                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify task name", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify email", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
-                                    Toast.makeText(EmergencyContactsActivity.this, "Successfully Added Task", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EmergencyContactsActivity.this, "Successfully Added emergency contact", Toast.LENGTH_SHORT).show();
                                     Contact newContact = new Contact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
                                     contactList.add(newContact);
                                     //add to database
