@@ -1,10 +1,8 @@
-package com.pacman.MentAlly.ui.emergencyContacts;
+package com.pacman.MentAlly.ui.emergency;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,19 +17,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
-import com.pacman.MentAlly.ui.ToDoList.Task;
-import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
 import com.pacman.MentAlly.ui.home.MainActivity;
 
 import java.util.ArrayList;
@@ -51,7 +44,7 @@ public class EmergencyContactsActivity extends MainActivity {
     private FirebaseFirestore db;
     private String uid;
 
-    private final List<Contact> contactList = new ArrayList<>();
+    private final List<EmergencyContact> contactList = new ArrayList<>();
 
 
     @Override
@@ -83,7 +76,7 @@ public class EmergencyContactsActivity extends MainActivity {
                 final TextView phoneNumberLabel = infoTaskDialogView.findViewById(R.id.phoneNumberLabel);
                 final TextView emailLabel = infoTaskDialogView.findViewById(R.id.emailLabel);
 
-                final Contact contact = contactList.get(pos);
+                final EmergencyContact contact = contactList.get(pos);
                 nameLabel.setText(contact.getContactName());
                 phoneNumberLabel.setText(String.valueOf(contact.getPhoneNumber()));
                 emailLabel.setText(contact.getEmail());
@@ -129,7 +122,7 @@ public class EmergencyContactsActivity extends MainActivity {
                                 }
                                 else {
                                     Toast.makeText(EmergencyContactsActivity.this, "Successfully Added emergency contact", Toast.LENGTH_SHORT).show();
-                                    Contact newContact = new Contact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
+                                    EmergencyContact newContact = new EmergencyContact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
                                     contactList.add(newContact);
                                     //add to database
                                     addContactToDatabase(newContact.getContactId(), contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
@@ -171,7 +164,7 @@ public class EmergencyContactsActivity extends MainActivity {
             @Override
             public void onClick(View v) {
 
-                for (Contact c : contactList) {
+                for (EmergencyContact c : contactList) {
                     removeContactFromDb(c.getContactId());
                 }
                 contactList.clear();
@@ -181,9 +174,9 @@ public class EmergencyContactsActivity extends MainActivity {
     }
 
     class MyListAdapter extends BaseAdapter {
-        List<Contact> contactList = new ArrayList<>();
+        List<EmergencyContact> contactList = new ArrayList<>();
 
-        public void setData(List<Contact> mList) {
+        public void setData(List<EmergencyContact> mList) {
             contactList.clear();
             contactList.addAll(mList);
             notifyDataSetChanged();
@@ -239,7 +232,7 @@ public class EmergencyContactsActivity extends MainActivity {
                                 long phoneNumber = Long.parseLong(String.valueOf(contactItem.get("phoneNumber")));
                                 String email = (String)  contactItem.get("email");
 
-                                Contact c = new Contact();
+                                EmergencyContact c = new EmergencyContact();
                                 c.setContactName(contactName);
                                 c.setPhoneNumber(phoneNumber);
                                 c.setEmail(email);
