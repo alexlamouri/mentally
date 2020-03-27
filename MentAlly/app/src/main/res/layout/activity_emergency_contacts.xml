@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".ui.emergencyContacts.EmergencyContactsActivity">
+    tools:context=".ui.emergency.EmergencyContactsActivity">
 
 
     <ImageView

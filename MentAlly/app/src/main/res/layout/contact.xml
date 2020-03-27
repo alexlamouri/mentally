@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    tools:context=".ui.emergencyContacts.EmergencyContactsActivity">
+    tools:context=".ui.emergency.EmergencyContactsActivity">
 
     <TextView
         android:id="@+id/contactItem"

@@ -20,6 +20,10 @@
 
         <!-- Login Page -->
         <activity android:name=".ui.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <!-- Registration Page -->
@@ -84,18 +88,10 @@
         </activity>
 
         <!-- Emergency Contacts -->
-        <activity android:name=".ui.emergencyContacts.EmergencyContactsActivity" />
+        <activity android:name=".ui.emergency.EmergencyContactsActivity" />
 
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.quiz.QuizActivity" />
-
-        <activity android:name=".ui.emergencyCall.emergencyCallActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-        </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
@@ -104,6 +100,7 @@
     </application>
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
     <uses-permission android:name="android.permission.SEND_SMS"/>
 
 </manifest>

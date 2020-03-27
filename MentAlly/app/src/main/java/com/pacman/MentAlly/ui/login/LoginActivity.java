@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,10 +27,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.home.HomeActivity;
-import com.pacman.MentAlly.ui.home.MainActivity;
 import com.pacman.MentAlly.ui.register.RegisterActivity;
-
-import com.pacman.MentAlly.ui.emergencyContacts.EmergencyContactsActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

@@ -43,13 +43,19 @@
             android:title="Profile"/>
 
         <item
-            android:id="@+id/nav_emergency"
-            android:icon="@drawable/ic_emergency"
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/ic_contacts"
             android:title="Emergency Contacts" />
+
         <item
             android:id="@+id/nav_helpline"
             android:icon="@drawable/ic_helpline"
             android:title="Helpline" />
+
+        <item
+            android:id="@+id/nav_emergency"
+            android:icon="@drawable/ic_emergency"
+            android:title="Emergency" />
 
     </group>
 
