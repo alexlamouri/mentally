@@ -39,7 +39,6 @@ public class emergencyCallActivity extends MainActivity {
     private FirebaseFirestore db=FirebaseFirestore.getInstance();;
     private FirebaseUser user;
     ArrayList<String> phoneNumber = new ArrayList<>();
-    String phoneNum;
     private Button btnSms;
     final int SEND_SMS_PERMISSION_REQUEST_CODE = 0;
 
