@@ -101,10 +101,11 @@ public class emergencyCallActivity extends MainActivity {
             }
 
         else {
-            Intent sendMessage = new Intent(Intent.ACTION_VIEW);
-            sendMessage.putExtra("address",phone);
+            Intent sendMessage = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + phone));
+            //sendMessage.putExtra("address",phone);
             sendMessage.putExtra("sms_body","Hi");
-            sendMessage.setType("vnd.android-dir/mms-sms");
+            startActivity(sendMessage);
+            //sendMessage.setType("vnd.android-dir/mms-sms");
             Toast.makeText(getApplicationContext(),"SMS sent successfully",Toast.LENGTH_LONG).show();
         }
     }
