@@ -69,37 +69,46 @@ public class emergencyCallActivity extends MainActivity {
                     }
                 });
 
-
-        btnSms.setEnabled(false);
-        if (checkPermission(Manifest.permission.SEND_SMS)){
-            btnSms.setEnabled(true);
-        } else {
-            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_SMS},SEND_SMS_PERMISSION_REQUEST_CODE);
-        }
-
         btnSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkPermission(Manifest.permission.SEND_SMS)) {
-                    SmsManager smgr = SmsManager.getDefault();
-                    for (int i = 0; i < phoneNumber.size(); i++){
-                        System.out.println(phoneNumber.get(i));
-                        call("tel:" + phoneNumber.get(i));
-                        smgr.sendTextMessage("tel:"+ phoneNumber.get(i), null, "hi", null, null);
-                    }
-
-                    Toast.makeText(emergencyCallActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(emergencyCallActivity.this, "SMS Failed", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < phoneNumber.size(); i++){
+                    call("tel:" + phoneNumber.get(i));
                 }
             }
         });
-    }
 
-    public boolean checkPermission(String permission){
-        int check = ContextCompat.checkSelfPermission(this,permission);
-        return (check == PackageManager.PERMISSION_GRANTED);
-    }
+
+//        btnSms.setEnabled(false);
+//        if (checkPermission(Manifest.permission.SEND_SMS)){
+//            btnSms.setEnabled(true);
+//        } else {
+//            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_SMS},SEND_SMS_PERMISSION_REQUEST_CODE);
+//        }
+
+//        btnSms.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (checkPermission(Manifest.permission.SEND_SMS)) {
+//                    SmsManager smgr = SmsManager.getDefault();
+//                    for (int i = 0; i < phoneNumber.size(); i++){
+//                        System.out.println(phoneNumber.get(i));
+//                        call("tel:" + phoneNumber.get(i));
+//                        smgr.sendTextMessage("tel:"+ phoneNumber.get(i), null, "hi", null, null);
+//                    }
+//
+//                    Toast.makeText(emergencyCallActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(emergencyCallActivity.this, "SMS Failed", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
+//
+//    public boolean checkPermission(String permission){
+//        int check = ContextCompat.checkSelfPermission(this,permission);
+//        return (check == PackageManager.PERMISSION_GRANTED);
+   }
 
 
     public void call(String phone) {
