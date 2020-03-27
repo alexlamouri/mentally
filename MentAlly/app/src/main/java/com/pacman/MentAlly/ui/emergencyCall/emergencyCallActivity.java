@@ -75,7 +75,7 @@ public class emergencyCallActivity extends MainActivity {
             public void onClick(View v) {
                 for (int i = 0; i < phoneNumber.size(); i++){
                     sendSMSMessage("tel:" + phoneNumber.get(i));
-                    call("tel:" + phoneNumber.get(i));
+                    //call("tel:" + phoneNumber.get(i));
                 }
             }
         });
