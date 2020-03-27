@@ -39,8 +39,9 @@ public class emergencyCallActivity extends MainActivity {
     private FirebaseFirestore db=FirebaseFirestore.getInstance();;
     private FirebaseUser user;
     ArrayList<String> phoneNumber = new ArrayList<>();
+    String phoneNum;
     private Button btnSms;
-    final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
+    final int SEND_SMS_PERMISSION_REQUEST_CODE = 0;
     private static final int REQUEST_CALL = 1;
 
     @Override
@@ -73,41 +74,11 @@ public class emergencyCallActivity extends MainActivity {
             @Override
             public void onClick(View v) {
                 for (int i = 0; i < phoneNumber.size(); i++){
+                    sendSMSMessage("tel:" + phoneNumber.get(i));
                     call("tel:" + phoneNumber.get(i));
                 }
             }
         });
-
-
-//        btnSms.setEnabled(false);
-//        if (checkPermission(Manifest.permission.SEND_SMS)){
-//            btnSms.setEnabled(true);
-//        } else {
-//            ActivityCompat.requestPermissions(this,new String[] {Manifest.permission.SEND_SMS},SEND_SMS_PERMISSION_REQUEST_CODE);
-//        }
-
-//        btnSms.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (checkPermission(Manifest.permission.SEND_SMS)) {
-//                    SmsManager smgr = SmsManager.getDefault();
-//                    for (int i = 0; i < phoneNumber.size(); i++){
-//                        System.out.println(phoneNumber.get(i));
-//                        call("tel:" + phoneNumber.get(i));
-//                        smgr.sendTextMessage("tel:"+ phoneNumber.get(i), null, "hi", null, null);
-//                    }
-//
-//                    Toast.makeText(emergencyCallActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(emergencyCallActivity.this, "SMS Failed", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
-//
-//    public boolean checkPermission(String permission){
-//        int check = ContextCompat.checkSelfPermission(this,permission);
-//        return (check == PackageManager.PERMISSION_GRANTED);
    }
 
 
@@ -120,6 +91,21 @@ public class emergencyCallActivity extends MainActivity {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse(phone));
             startActivity(callIntent);
+        }
+    }
+
+    public void sendSMSMessage(String phone){
+
+        if (ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},SEND_SMS_PERMISSION_REQUEST_CODE);
+            }
+
+        else {
+            Intent sendMessage = new Intent(Intent.ACTION_VIEW);
+            sendMessage.putExtra("address",phone);
+            sendMessage.putExtra("sms_body","Hi");
+            sendMessage.setType("vnd.android-dir/mms-sms");
+            Toast.makeText(getApplicationContext(),"SMS sent successfully",Toast.LENGTH_LONG).show();
         }
     }
 }
