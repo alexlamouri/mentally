@@ -61,7 +61,6 @@ public class emergencyCallActivity extends MainActivity {
         btnSms = findViewById(R.id.EmergencyCall);
         test = findViewById(R.id.test);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        phone = FirebaseStorage.getInstance().getReference(user.getPhoneNumber());
 
         //this is the code to get your phone numbers. the function loops through the contacts and retrieves the numbers.
         db.collection("users").document(user.getUid()).collection("contactLog")
@@ -72,7 +71,8 @@ public class emergencyCallActivity extends MainActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document: task.getResult()) {
                                 Map<String, Object> taskItem = document.getData();
-                                String phonenumber = (String)taskItem.get("phoneNumber");
+                                String phonenumber = taskItem.get("phoneNumber").toString();
+                                System.out.println(phonenumber);
 
                             }
                         }
