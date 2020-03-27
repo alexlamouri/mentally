@@ -50,7 +50,7 @@ public class helplineActivity extends MainActivity {
 
         findViewById(R.id.safeHavenVisit).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                visit("www.tabersafehaven.ca");
+                visit("https://www.tabersafehaven.ca");
             }
         });
 
@@ -64,7 +64,7 @@ public class helplineActivity extends MainActivity {
 
         findViewById(R.id.transLifelineVisit).setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                visit("www.translifeline.org");
+                visit("https://www.translifeline.org");
             }
         });
 
