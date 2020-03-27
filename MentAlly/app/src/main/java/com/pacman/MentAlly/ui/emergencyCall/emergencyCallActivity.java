@@ -42,7 +42,6 @@ public class emergencyCallActivity extends MainActivity {
     String phoneNum;
     private Button btnSms;
     final int SEND_SMS_PERMISSION_REQUEST_CODE = 0;
-    private static final int REQUEST_CALL = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,24 +74,10 @@ public class emergencyCallActivity extends MainActivity {
             public void onClick(View v) {
                 for (int i = 0; i < phoneNumber.size(); i++){
                     sendSMSMessage("tel:" + phoneNumber.get(i));
-                    //call("tel:" + phoneNumber.get(i));
                 }
             }
         });
    }
-
-
-    public void call(String phone) {
-        if (ContextCompat.checkSelfPermission(emergencyCallActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(emergencyCallActivity.this, new String[] {Manifest.permission.CALL_PHONE}, REQUEST_CALL);
-        }
-
-        else {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse(phone));
-            startActivity(callIntent);
-        }
-    }
 
     public void sendSMSMessage(String phone){
 
@@ -102,7 +87,7 @@ public class emergencyCallActivity extends MainActivity {
 
         else {
             Intent sendMessage = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + phone));
-            sendMessage.putExtra("sms_body","Hi");
+            sendMessage.putExtra("sms_body","I am currently experiencing an emergency and have notified emergency services. This message was sent by the Mentally app");
             Intent shareMessage = Intent.createChooser(sendMessage,null);
             startActivity(shareMessage);
             Toast.makeText(getApplicationContext(),"SMS sent successfully",Toast.LENGTH_LONG).show();
