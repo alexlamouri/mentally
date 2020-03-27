@@ -14,11 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -27,6 +30,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import com.google.firebase.storage.FirebaseStorage;
@@ -35,10 +39,11 @@ import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.home.MainActivity;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 public class emergencyCallActivity extends MainActivity {
-    private FirebaseFirestore database=FirebaseFirestore.getInstance();;
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();;
     private FirebaseUser user;
     //ArrayList<Long> phoneNumber = new ArrayList<>();
     private StorageReference phone;
@@ -53,10 +58,26 @@ public class emergencyCallActivity extends MainActivity {
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_emergency_call, contentFrameLayout);
 
-        btnSms = (Button) findViewById(R.id.EmergencyCall);
-        test = (TextView) findViewById(R.id.test);
+        btnSms = findViewById(R.id.EmergencyCall);
+        test = findViewById(R.id.test);
         user = FirebaseAuth.getInstance().getCurrentUser();
-//        phone = FirebaseStorage.getInstance().getReference(user.getPhoneNumber());
+        phone = FirebaseStorage.getInstance().getReference(user.getPhoneNumber());
+
+        //this is the code to get your phone numbers. the function loops through the contacts and retrieves the numbers.
+        db.collection("users").document(user.getUid()).collection("contactLog")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                Map<String, Object> taskItem = document.getData();
+                                String phonenumber = (String)taskItem.get("phoneNumber");
+
+                            }
+                        }
+                    }
+                });
 
 
 //        database.collection("users").document(user).collection("contactlog")
