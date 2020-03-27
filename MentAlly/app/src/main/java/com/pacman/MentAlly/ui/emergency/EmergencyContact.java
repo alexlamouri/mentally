@@ -1,6 +1,6 @@
-package com.pacman.MentAlly.ui.emergencyContacts;
+package com.pacman.MentAlly.ui.emergency;
 
-public class Contact {
+public class EmergencyContact {
 
     private String name; //mandatory
     private long phoneNumber; //mandatory
@@ -8,7 +8,11 @@ public class Contact {
     private String contactId;
     private static int contactIdCounter;
 
-    public Contact (String name, long phoneNumber, String email) {
+    public EmergencyContact () {
+
+    }
+
+    public EmergencyContact (String name, long phoneNumber, String email) {
 
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -16,10 +20,6 @@ public class Contact {
 
         this.contactIdCounter++;
         this.contactId = Integer.toString(this.contactIdCounter);
-    }
-
-    public Contact () {
-
     }
 
 
