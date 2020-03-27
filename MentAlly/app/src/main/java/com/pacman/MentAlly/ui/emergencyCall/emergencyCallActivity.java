@@ -101,7 +101,8 @@ public class emergencyCallActivity extends MainActivity {
             }
 
         else {
-            Intent sendMessage = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + phone));
+            Intent sendMessage = new Intent(Intent.ACTION_VIEW,Uri.fromParts("sms",phone,null));
+            //Intent sendMessage = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + phone));
             //sendMessage.putExtra("address",phone);
             sendMessage.putExtra("sms_body","Hi");
             startActivity(sendMessage);
