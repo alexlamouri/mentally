@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +28,13 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.Mood.MoodActivity;
 import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
@@ -39,10 +46,17 @@ import com.pacman.MentAlly.ui.quiz.QuizActivity;
 import com.pacman.MentAlly.ui.menu.WallpaperFragment;
 import com.pacman.MentAlly.ui.helpline.helplineActivity;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final int SELECTED_PIC = 1;
     private static final int REQUEST_CALL = 1;
     protected DrawerLayout draw;
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();;
+    private FirebaseUser user;
+    ArrayList<String> phoneNumber = new ArrayList<>();
+    final int SEND_SMS_PERMISSION_REQUEST_CODE = 0;
 
     ImageView imageView;
     @Override
@@ -64,6 +78,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         draw.addDrawerListener(toggle);
         toggle.syncState();
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        db.collection("users").document(user.getUid()).collection("contactLog")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                Map<String, Object> taskItem = document.getData();
+                                String phonenumber = taskItem.get("phoneNumber").toString();
+                                phoneNumber.add(phonenumber);
+
+                            }
+                        }
+                    }
+                });
     }
 
     @Override
@@ -137,8 +168,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL);
                 }
-
                 else {
+                    for (int i = 0; i < phoneNumber.size(); i++){
+                        sendSMSMessage("tel:" + phoneNumber.get(i));
+                    }
                     Intent callIntent = new Intent(Intent.ACTION_DIAL);
                     callIntent.setData(Uri.parse("tel://911"));
                     startActivity(callIntent);
@@ -181,4 +214,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
+    public void sendSMSMessage(String phone){
+
+        if (ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},SEND_SMS_PERMISSION_REQUEST_CODE);
+        }
+
+        else {
+            Intent sendMessage = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + phone));
+            sendMessage.putExtra("sms_body","I am currently experiencing an emergency and have notified emergency services. This message was sent by the Mentally app");
+            Intent shareMessage = Intent.createChooser(sendMessage,null);
+            startActivity(shareMessage);
+            Toast.makeText(getApplicationContext(),"SMS sent successfully",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 }
