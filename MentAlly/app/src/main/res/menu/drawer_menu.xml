@@ -5,6 +5,7 @@
 
     <group
         android:checkableBehavior="single">
+        
         <item android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
             android:title="Home"/>
@@ -13,29 +14,48 @@
             android:icon="@drawable/ic_todo"
             android:title="ToDo"/>
 
-        <item android:id="@+id/nav_goals"
-            android:icon="@drawable/ic_goals"
-            android:title="Goals"/>
+        <item android:id="@+id/nav_habit"
+            android:icon="@drawable/ic_habit"
+            android:title="Habit Tracker"/>
 
         <item android:id="@+id/nav_mood"
             android:icon="@drawable/ic_mood"
             android:title="Mood Tracker"/>
 
-        <item android:id="@+id/nav_sleep"
-            android:icon="@drawable/ic_sleep"
-            android:title="Sleep Tracker"/>
+        <item android:id="@+id/nav_breathe"
+            android:icon="@drawable/ic_breathe"
+            android:title="Breathe"/>
 
         <item android:id="@+id/nav_quiz"
             android:icon="@drawable/ic_quiz"
-            android:title="Quiz"/>
+            android:title="Self-Assess"/>
 
         <item android:id="@+id/nav_ambient"
             android:icon="@drawable/ic_ambient"
             android:title="Ambient"/>
 
+        <item android:id="@+id/nav_wallpaper"
+            android:icon="@drawable/ic_wallpaper"
+            android:title="Change Wallpaper"/>
+
         <item android:id="@+id/nav_profile"
             android:icon="@drawable/ic_profile"
             android:title="Profile"/>
+
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/ic_contacts"
+            android:title="Emergency Contacts" />
+
+        <item
+            android:id="@+id/nav_helpline"
+            android:icon="@drawable/ic_helpline"
+            android:title="Helpline" />
+
+        <item
+            android:id="@+id/nav_emergency"
+            android:icon="@drawable/ic_emergency"
+            android:title="Emergency" />
 
     </group>
 

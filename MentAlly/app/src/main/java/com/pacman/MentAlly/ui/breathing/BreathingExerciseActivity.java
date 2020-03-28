@@ -10,12 +10,7 @@ import android.util.Log;
 
 public class BreathingExerciseActivity extends AppCompatActivity {
 
-    private String instruction;
     private int[] timers = new int[4];
-    private int inhale;
-    private int hold;
-    private int exhale;
-    private int breaths;
     private String[] instructionList = new String[]{"Inhale...", "Hold...", "Exhale..."};
     private int instructionCounter = 0;
     TextView instructionText;
@@ -50,8 +45,10 @@ public class BreathingExerciseActivity extends AppCompatActivity {
             //onTick for timer1
             public void onTick(long millisUntilFinished) {
                 timerText.setText(String.valueOf(counter));
+                Log.i("counter", "counter is "+counter);
+                int val = (counter*10)/timers[instructionCounter];
                 counter--;
-                Log.i("counter", "value is "+counter);
+                //Log.i("counter", "value is "+counter);
             }
 
             //onFinish for timer1
@@ -68,7 +65,6 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         timerText.setText(String.valueOf(counter));
                         counter--;
-                        Log.i("counter", "value is "+counter);
                     }
 
                     //onFinish for timer2
@@ -85,7 +81,6 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 timerText.setText(String.valueOf(counter));
                                 counter--;
-                                Log.i("counter", "value is "+counter);
                             }
 
                             //onFinish for timer3
@@ -97,11 +92,11 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                                 if (breathsCounter < timers[3]) {
                                     breathText.setText("Breath "+(breathsCounter+1)+" out of "+timers[3]);
                                     instructionText.setText(instructionList[instructionCounter]);
-                                    Log.i("breathsCounter", ""+breathsCounter);
                                     timer1.cancel();
                                     timer1.start();
                                 } else if (breathsCounter == timers[3]) {
-                                    timerText.setText("DONE!");
+                                    timerText.setText("");
+                                    instructionText.setText("Good job ~");
                                 }
                             }
                         };
