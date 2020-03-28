@@ -80,7 +80,7 @@
 
                     <Spinner
                         android:id="@+id/inhale"
-                        android:layout_width="90dp"
+                        android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="10dp"
@@ -122,7 +122,7 @@
 
                     <Spinner
                         android:id="@+id/hold"
-                        android:layout_width="90dp"
+                        android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="10dp"
@@ -164,7 +164,7 @@
 
                     <Spinner
                         android:id="@+id/exhale"
-                        android:layout_width="90dp"
+                        android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="10dp"
@@ -206,7 +206,7 @@
 
                     <Spinner
                         android:id="@+id/breaths"
-                        android:layout_width="90dp"
+                        android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="10dp"

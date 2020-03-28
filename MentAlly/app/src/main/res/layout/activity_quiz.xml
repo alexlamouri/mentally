@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="252dp"
         android:paddingTop="30dp"
-        android:background="#fef9b4"
+        android:background="#75FEF9B4"
         android:orientation="vertical">
 
         <ImageView
