@@ -1,9 +1,7 @@
 package com.pacman.MentAlly.ui.home;
 
-import android.Manifest;
 import android.content.Intent;
 
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,22 +21,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.DialogFragment;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
 import com.pacman.MentAlly.ui.Mood.MoodActivity;
 import com.pacman.MentAlly.ui.ToDoList.ToDoListActivity;
+import com.pacman.MentAlly.ui.ambient.AmbientActivity;
 import com.pacman.MentAlly.ui.breathing.BreathingActivity;
 import com.pacman.MentAlly.ui.emergency.EmergencyContactsActivity;
 import com.pacman.MentAlly.ui.emergency.EmergencyDialogFragment;
@@ -48,8 +39,6 @@ import com.pacman.MentAlly.ui.quiz.QuizActivity;
 import com.pacman.MentAlly.ui.menu.WallpaperFragment;
 import com.pacman.MentAlly.ui.helpline.helplineActivity;
 
-import java.util.ArrayList;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -75,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 R.string.navigation_drawer_close);
         draw.addDrawerListener(toggle);
         toggle.syncState();
-
 
     }
 
@@ -125,6 +113,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_quiz:
                 Intent i_quiz = new Intent(this, QuizActivity.class);
                 startActivity(i_quiz);
+                draw.closeDrawer(GravityCompat.START);
+                break;
+
+            case R.id.nav_ambient:
+                Intent i_ambient = new Intent(this, AmbientActivity.class);
+                startActivity(i_ambient);
                 draw.closeDrawer(GravityCompat.START);
                 break;
 

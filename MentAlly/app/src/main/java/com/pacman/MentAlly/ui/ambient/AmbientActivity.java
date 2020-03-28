@@ -12,15 +12,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class AmbientActivity extends AppCompatActivity implements Observer {
+public class AmbientActivity extends MainActivity implements Observer {
 
     private static final String TAG = "Ambient Activity";
     public static final String Broadcast_PLAY_NEW_AUDIO = "com.pacman.MentAlly.ui.ambient.PlayNewAudio";
@@ -50,7 +52,9 @@ public class AmbientActivity extends AppCompatActivity implements Observer {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ambient);
+//        setContentView(R.layout.activity_ambient);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_ambient, contentFrameLayout);
         loadAudio();
     }
 
