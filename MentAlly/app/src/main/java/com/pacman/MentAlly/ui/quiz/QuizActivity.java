@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
@@ -25,12 +26,16 @@ public class QuizActivity extends MainActivity {
     Button ocd;
     Button ptsd;
     Button bipolar;
+    LinearLayout linearLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_quiz, contentFrameLayout);
+
+        linearLayout = findViewById(R.id.quiz_layout);
+        linearLayout.getBackground().setAlpha(80);
 
         adhd = findViewById(R.id.button_adhd);
         adhd.getBackground().setAlpha(180);
