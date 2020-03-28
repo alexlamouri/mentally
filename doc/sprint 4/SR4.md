@@ -1,7 +1,7 @@
 Everyone has participated: Yes
 In sprint 4, we successfully reached our goal as all our user stories are completed and we are ready to have the first release of our product. 
 
-Since this was the last sprint, we did not add any new major features. However, we plan to work on improving our design for the next couple days until the presentation deadline. 
+Since this was the last sprint, we did not add any new major features except for the completion of the ambient sounds player. However, we plan to work on improving our design for the next couple days until the presentation deadline. 
 
 Looking back at sprint 4, we understood the importance of planning ahead. At the beginning of the project, we decided on a colour theme. But, we did not clearly define how our view was supposed to look like. For example, the font for our app, the layout of our view and much more. Since everyone worked on their module individually, our views all looked different at the end of sprint 3, making our application inconsistent. Therefore, for this sprint, we had to make a new user story dedicated to remaking all the views in order to create a constant theme throughout the app. This could have been easily prevented if we had a clear definition of the format of our view.
 
