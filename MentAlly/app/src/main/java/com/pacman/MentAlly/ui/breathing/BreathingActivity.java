@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.os.Bundle;
 import com.pacman.MentAlly.R;
@@ -21,12 +23,16 @@ public class BreathingActivity extends MainActivity {
     private Spinner hold;
     private Spinner exhale;
     private Spinner breaths;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
         getLayoutInflater().inflate(R.layout.activity_breathing, contentFrameLayout);
+
+        linearLayout = findViewById(R.id.breath_layout);
+        linearLayout.getBackground().setAlpha(50);
 
         //inhale
         inhale = findViewById(R.id.inhale);

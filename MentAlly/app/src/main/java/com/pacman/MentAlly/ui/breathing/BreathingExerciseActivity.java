@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
+
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.os.CountDownTimer;
 import android.util.Log;
 
-public class BreathingExerciseActivity extends AppCompatActivity {
+public class BreathingExerciseActivity extends MainActivity {
 
     private int[] timers = new int[4];
     private String[] instructionList = new String[]{"Inhale...", "Hold...", "Exhale..."};
@@ -19,11 +23,16 @@ public class BreathingExerciseActivity extends AppCompatActivity {
     private CountDownTimer timer1, timer2, timer3;
     int counter;
     int breathsCounter = 0;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_breathing_exercise);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_breathing_exercise, contentFrameLayout);
+
+        linearLayout = findViewById(R.id.breath_layout2);
+        linearLayout.getBackground().setAlpha(50);
 
         timers[0] = getIntent().getIntExtra("inhale", 5);
         timers[1] = getIntent().getIntExtra("hold", 5);

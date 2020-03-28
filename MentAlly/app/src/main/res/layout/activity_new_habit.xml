@@ -26,7 +26,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bangers"
+            android:fontFamily="@font/arima_madurai_extrabold"
+            android:textStyle="bold"
             android:text="New Habit"
             android:textAlignment="center"
             android:textColor="#1A237E"
