@@ -15,20 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Ambient Noise Player-->
-        <activity android:name=".ui.ambient.AmbientActivity">
+        <!-- Launch Activity -->
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <service android:name=".ui.ambient.MediaPlaybackService">
-            <intent-filter><action android:name="android.media.browse.MediaBrowserService"/></intent-filter>
-        </service>
-
-        <!-- Launch Activity -->
-        <activity android:name=".ui.login.LoginActivity">
-
         </activity>
 
         <!-- Todo List -->
@@ -63,6 +55,11 @@
         <activity
             android:name=".ui.breathing.BreathingExerciseActivity"
             android:label="@string/app_name" />
+        <!-- Ambient Noise Player-->
+        <activity android:name=".ui.ambient.AmbientActivity"/>
+        <service android:name=".ui.ambient.MediaPlaybackService">
+            <intent-filter><action android:name="android.media.browse.MediaBrowserService"/></intent-filter>
+        </service>
     </application>
 
 </manifest>

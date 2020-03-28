@@ -5,11 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentResolver;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.content.ComponentName;
 import android.content.Context;
@@ -27,7 +23,13 @@ import java.util.Observer;
 public class AmbientActivity extends AppCompatActivity implements Observer {
 
     private static final String TAG = "Ambient Activity";
+    public static final String Broadcast_PLAY_NEW_AUDIO = "com.pacman.MentAlly.ui.ambient.PlayNewAudio";
+    public static final String Broadcast_PAUSE_AUDIO = "com.pacman.MentAlly.ui.ambient.PauseAudio";
+
+    private AudioAdapter adapter;
     private ArrayList<AudioFile> audioList = new ArrayList<>();
+    private AudioFile nowPlaying = null;
+
     private MediaPlaybackService audioService;
     private boolean serviceBound = false;
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -36,7 +38,7 @@ public class AmbientActivity extends AppCompatActivity implements Observer {
             MediaPlaybackService.LocalBinder binder = (MediaPlaybackService.LocalBinder) service;
             audioService = binder.getService();
             serviceBound = true;
-            Toast.makeText(AmbientActivity.this, "Service Bound", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(AmbientActivity.this, "Service Bound", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -70,53 +72,51 @@ public class AmbientActivity extends AppCompatActivity implements Observer {
         audioList.add(new AudioFile("thunderstorm", "Thunderstorm", "2:44"));
         audioList.add(new AudioFile("windy_desert", "Windy Desert", "2:00"));
 
-
         for (int i=0; i<audioList.size(); i++) {
             audioList.get(i).addObserver(this);
             Log.d(TAG, "loadAudio: "+audioList.get(i).getTitle());
         }
         initRecyclerView();
-//        ContentResolver contentResolver = getContentResolver();
-//        Uri uri = new Uri.Builder()
-//                .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
-//                .authority(getPackageName())
-//                .path("/raw")
-//                .build();
-//        String selection = MediaStore.Audio.Media.IS_MUSIC + "!= 0";
-//        String sortOrder = MediaStore.Audio.Media.TITLE + " ASC";
-//        Cursor cursor = contentResolver.query(uri, null, selection, null, sortOrder);
-//
-//        if (cursor != null && cursor.getCount() > 0) {
-//            audioList = new ArrayList<>();
-//            while (cursor.moveToNext()) {
-//                String data = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
-//                String title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
-//                String duration = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
-//                audioList.add(new AudioFile(data, title, duration));
-//            }
-//            cursor.close();
-//        }
     }
 
     private void initRecyclerView() {
         Log.d(TAG, "Initialize recycler view");
         RecyclerView audioListView = findViewById(R.id.audioList);
-        AudioAdapter adapter = new AudioAdapter(this, audioList);
+        adapter = new AudioAdapter(this, audioList);
         audioListView.setAdapter(adapter);
         audioListView.setLayoutManager(new LinearLayoutManager(this));
         adapter.notifyDataSetChanged();
     }
 
-    private void playAudio(String media) {
+    private void playAudio(AudioFile media) {
         if (!serviceBound) {
             Intent playerIntent = new Intent(this, MediaPlaybackService.class);
-            playerIntent.putExtra("media", media);
+            playerIntent.putExtra("media", media.getData());
             startService(playerIntent);
             bindService(playerIntent, serviceConnection, Context.BIND_AUTO_CREATE);
         } else {
             // Service is active
-            // Send media with BroadcastReciever
+            // Send media with BroadcastReciever and update view
+            if (nowPlaying != null) {
+                nowPlaying.stopPlaying();
+                adapter.notifyDataSetChanged();
+            }
+            Intent broadcastIntent = new Intent(Broadcast_PLAY_NEW_AUDIO);
+            broadcastIntent.putExtra("media", media.getData());
+            sendBroadcast(broadcastIntent);
         }
+        nowPlaying = media;
+    }
+
+    private void pauseAudio() {
+        if (! serviceBound) {
+            return;
+        }
+        // Service is active
+        // Ask player to stop playing audio with BroadcastReciever
+        Intent broadcastIntent = new Intent(Broadcast_PAUSE_AUDIO);
+        sendBroadcast(broadcastIntent);
+        nowPlaying = null;
     }
 
     @Override
@@ -142,7 +142,11 @@ public class AmbientActivity extends AppCompatActivity implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        String audioFile = arg.toString();
-        playAudio(audioFile);
+        AudioFile audioFile = (AudioFile) arg;
+        if (audioFile.isPlaying()) {
+            playAudio(audioFile);
+        } else {
+            pauseAudio();
+        }
     }
 }

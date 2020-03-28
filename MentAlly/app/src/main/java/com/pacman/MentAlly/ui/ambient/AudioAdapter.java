@@ -39,6 +39,11 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioView> {
     public void onBindViewHolder(@NonNull final AudioAdapter.AudioView holder, final int position) {
         holder.title.setText(audioList.get(position).getTitle());
         holder.audioLength.setText(audioList.get(position).getAudioLength());
+        if (audioList.get(position).isPlaying()) {
+            holder.playAudio.setImageResource(android.R.drawable.ic_media_pause);
+        } else {
+            holder.playAudio.setImageResource(android.R.drawable.ic_media_play);
+        }
         holder.playAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

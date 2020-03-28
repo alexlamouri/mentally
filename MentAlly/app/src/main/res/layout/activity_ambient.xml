@@ -49,44 +49,45 @@
         android:layout_width="414dp"
         android:layout_height="409dp"
         android:background="@drawable/listviewbackground"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ConstrintLayout2"
-        app:layout_constraintVertical_bias="0.242" >
+        app:layout_constraintVertical_bias="0.242">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="349dp"
-        android:layout_height="58dp"
-        android:background="@drawable/audio_play_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioList">
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="349dp"-->
+<!--        android:layout_height="58dp"-->
+<!--        android:background="@drawable/audio_play_background"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/audioList">-->
 
-        <ImageButton
-            android:id="@+id/play_pause_button"
-            android:layout_width="33dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="24dp"
-            android:background="#9378C7"
-            android:src="@android:drawable/ic_media_play"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.615" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/play_pause_button"-->
+<!--            android:layout_width="33dp"-->
+<!--            android:layout_height="43dp"-->
+<!--            android:layout_marginStart="24dp"-->
+<!--            android:background="#9378C7"-->
+<!--            android:src="@android:drawable/ic_media_play"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.615" />-->
 
-        <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="229dp"
-            android:layout_height="21dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/play_pause_button"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <SeekBar-->
+<!--            android:id="@+id/seekBar"-->
+<!--            android:layout_width="229dp"-->
+<!--            android:layout_height="21dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/play_pause_button"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

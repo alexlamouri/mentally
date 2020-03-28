@@ -1,21 +1,28 @@
 package com.pacman.MentAlly.ui.ambient;
 
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.session.MediaSessionManager;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.v4.media.MediaBrowserCompat;
+import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -35,34 +42,53 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
     private static final String TAG = "MediaPlaybackService";
     private final IBinder iBinder = new LocalBinder();
     private String audioFile;
-    private MediaSessionCompat mediaSession;
-    private PlaybackStateCompat.Builder stateBuilder;
     private MediaPlayer player = null;
     private AudioManager audioManager;
     private int resumePosition;
     private AudioFocusRequest focusRequest;
     private AudioAttributes playbackAttributes;
 
+    // Handle incoming phone calls
+    private boolean ongoingCall = false;
+    private PhoneStateListener phoneStateListener;
+    private TelephonyManager telephonyManager;
+
+    // Handle broadcasted intents
+    private BroadcastReceiver playNewAudio  = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get new audio file to play from intent
+            audioFile = intent.getExtras().getString("media");
+
+            // A PlAY_NEW_AUDIO action received
+            // reset media player to play new audio
+            stopMedia();
+            player.reset();
+            initMediaPlayer();
+        }
+    };
+
+    // Handle broadcasted intents
+    private BroadcastReceiver pauseAudio  = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // A PAUSE_AUDIO action received
+            // pause media player and save spot
+            pauseMedia();
+        }
+    };
+
+    private BroadcastReceiver becomingNoisyReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // pause audio on ACTION_AUDIO_BECOMING_NOISY
+            pauseMedia();
+        }
+    };
+
     @Override
     public void onCreate() {
         super.onCreate();
-
-        //Create a Media Session and Media Player
-        mediaSession = new MediaSessionCompat(this, TAG);
-
-        //Enable Callbacks from Media Buttons
-        mediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
-
-        //Set an initial playback state
-        stateBuilder = new PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_PLAY_PAUSE);
-        mediaSession.setPlaybackState(stateBuilder.build());
-
-        //Setup callback from controller
-        mediaSession.setCallback(new MediaSessionCallBack());
-
-        //Set the session token
-        setSessionToken(mediaSession.getSessionToken());
-
         //Build attributes and focus request
         playbackAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -72,6 +98,33 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
                 .setAudioAttributes(playbackAttributes)
                 .setOnAudioFocusChangeListener(this)
                 .build();
+
+        // Manage incoming phone calls during playback
+        callStateListener();
+        // ACTION_AUDIO_BECOMING_NOISY -- change in audio outputs -- BroadcastReceiver
+        registerBecomingNoisyReceiver();
+        // Listen for new audio to play -- BroadcastReceiver
+        register_playNewAudio();
+        // Listen for new audio to play -- BroadcastReceiver
+        register_pauseAudio();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (player != null) {
+            stopMedia();
+            player.release();
+        }
+        removeAudioFocus();
+        // Disable phone state listener
+        if (phoneStateListener != null) {
+            telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
+        }
+        // unregister broadcast recievers
+        unregisterReceiver(becomingNoisyReceiver);
+        unregisterReceiver(playNewAudio);
+        unregisterReceiver(pauseAudio);
     }
 
     @Override
@@ -88,16 +141,6 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
             initMediaPlayer();
         }
         return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (player != null) {
-            stopMedia();
-            player.release();
-        }
-        removeAudioFocus();
     }
 
     private void initMediaPlayer() {
@@ -122,6 +165,58 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
         player.prepareAsync();
     }
 
+    private void registerBecomingNoisyReceiver() {
+        // register after getting audio focus
+        IntentFilter intentFilter = new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
+        registerReceiver(becomingNoisyReceiver, intentFilter);
+    }
+
+    private void register_playNewAudio() {
+        // register play new audio receiver
+        IntentFilter intentFilter = new IntentFilter(AmbientActivity.Broadcast_PLAY_NEW_AUDIO);
+        registerReceiver(playNewAudio, intentFilter);
+    }
+
+    private void register_pauseAudio() {
+        // register pause audio receiver
+        IntentFilter intentFilter = new IntentFilter(AmbientActivity.Broadcast_PAUSE_AUDIO);
+        registerReceiver(pauseAudio, intentFilter);
+    }
+
+    private void callStateListener() {
+        // Get the telephony manager
+        telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        // Start listening for phone state changes
+        phoneStateListener = new PhoneStateListener() {
+            @Override
+            public void onCallStateChanged(int state, String incomingNumber) {
+                switch (state) {
+                    // if at least one call exists or the phone is ringing, pause the MediaPlayer
+                    case TelephonyManager.CALL_STATE_OFFHOOK:
+                    case TelephonyManager.CALL_STATE_RINGING:
+                        if (player != null) {
+                            pauseMedia();
+                            ongoingCall = true;
+                        }
+                        break;
+                    case TelephonyManager.CALL_STATE_IDLE:
+                        // Phone idle, start playing
+                        if (player != null) {
+                            if (ongoingCall) {
+                                ongoingCall = false;
+                                resumeMedia();
+                            }
+                        }
+                        break;
+                }
+            }
+        };
+
+        // Register the listener with the telephony manager
+        // Listen for changes to device call state
+        telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+    }
+
     private void playMedia() {
         if (!player.isPlaying()) {
             player.start();
@@ -142,7 +237,7 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
         }
     }
 
-    private void setResumePosition() {
+    private void resumeMedia() {
         if (!player.isPlaying()) {
             player.seekTo(resumePosition);
             player.start();
@@ -232,24 +327,6 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
         }
         return false;
     }
-
-    private class MediaSessionCallBack extends MediaSessionCompat.Callback {
-
-        @Override
-        public void onPlay() {
-            super.onPlay();
-        }
-
-        @Override
-        public void onPause() {
-            super.onPause();
-        }
-
-        @Override
-        public void onStop() {
-            super.onStop();
-        }
-    };
 
     public class LocalBinder extends Binder {
         public MediaPlaybackService getService () {

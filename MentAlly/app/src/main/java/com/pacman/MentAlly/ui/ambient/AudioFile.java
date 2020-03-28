@@ -47,12 +47,12 @@ public class AudioFile extends Observable {
     public void startPlaying() {
         isPlaying = true;
         setChanged();
-        notifyObservers(data);
+        notifyObservers(this);
     }
 
     public void stopPlaying() {
         isPlaying = false;
         setChanged();
-        notifyObservers(data);
+        notifyObservers(this);
     }
 }
