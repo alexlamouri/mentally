@@ -21,7 +21,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bangers"
+        android:fontFamily="@font/arima_madurai_extrabold"
         android:gravity="center_horizontal"
         android:text="Profile"
         android:textColor="#1A237E"
