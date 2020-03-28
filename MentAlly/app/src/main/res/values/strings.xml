@@ -163,5 +163,8 @@
     <string name="adhd">Test for ADHD</string>
     <string name="breathing_exercise"><u>Breathing Exercise</u></string>
 
+    <string name="emergency_title">Contact Emergency Services?</string>
+    <string name="emergency_message">Emergency services will be called.\nYour emergency contacts will be notified.</string>
+
 </resources>
 
