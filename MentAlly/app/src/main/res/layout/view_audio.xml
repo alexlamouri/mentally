@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_gravity="center_horizontal"
     android:layout_height="wrap_content">
 
     <ImageButton
         android:id="@+id/playAudio"
         android:layout_width="43dp"
         android:layout_height="37dp"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:background="#febaad"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+        android:background="#00FEBAAD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_media_play" />

@@ -116,7 +116,9 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
             stopMedia();
             player.release();
         }
-        removeAudioFocus();
+        if(audioManager != null) {
+            removeAudioFocus();
+        }
         // Disable phone state listener
         if (phoneStateListener != null) {
             telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
@@ -303,7 +305,12 @@ public class MediaPlaybackService extends MediaBrowserServiceCompat implements M
     }
 
     private boolean removeAudioFocus() {
-        return AudioManager.AUDIOFOCUS_REQUEST_GRANTED == audioManager.abandonAudioFocusRequest(focusRequest);
+        if(audioManager != null) {
+            return AudioManager.AUDIOFOCUS_REQUEST_GRANTED == audioManager.abandonAudioFocusRequest(focusRequest);
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
