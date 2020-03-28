@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,8 +15,8 @@
         <!-- Main Splash Page -->
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -68,22 +67,21 @@
         
         <!-- Mood Page -->
         <activity android:name=".ui.Mood.MoodActivity" />
-        <activity android:name=".ui.Mood.AddMoodActivity" />
-      
-        <!-- Habit Page -->
+        <activity android:name=".ui.Mood.AddMoodActivity" /> <!-- Habit Page -->
         <activity android:name=".ui.habit.HabitTrackerActivity" />
-        <activity android:name=".ui.habit.NewHabitActivity" />
-        
-        <!-- Breathing Page -->
+        <activity android:name=".ui.habit.NewHabitActivity" /> <!-- Breathing Page -->
         <activity
             android:name=".ui.breathing.BreathingActivity"
-            android:label="@string/app_name">     
-        </activity>
-
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.breathing.BreathingExerciseActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name" />
+
+        <!-- Ambient Noise Player-->
+        <activity android:name=".ui.ambient.AmbientActivity"/>
+        <service android:name=".ui.ambient.MediaPlaybackService">
+            <intent-filter><action android:name="android.media.browse.MediaBrowserService"/></intent-filter>
+        </service>
 
         <!-- Emergency Contacts -->
         <activity android:name=".ui.emergency.EmergencyContactsActivity" />

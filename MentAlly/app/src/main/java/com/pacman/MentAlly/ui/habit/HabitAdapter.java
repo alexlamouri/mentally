@@ -69,7 +69,6 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
     class HabitView extends RecyclerView.ViewHolder {
 
-        private ConstraintLayout layout;
         private TextView habitName;
         private ProgressBar progress;
         private ImageButton upButton;
@@ -77,7 +76,6 @@ class HabitAdapter extends RecyclerView.Adapter<HabitAdapter.HabitView> {
 
         public HabitView(@NonNull View itemView) {
             super(itemView);
-            layout = itemView.findViewById(R.id.parent_layout);
             habitName = itemView.findViewById(R.id.habitname);
             progress = itemView.findViewById(R.id.progressBar);
             upButton = itemView.findViewById(R.id.habityes);
