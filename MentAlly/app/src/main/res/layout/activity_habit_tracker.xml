@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
     tools:context=".ui.habit.HabitTrackerActivity">
 
     <LinearLayout
@@ -12,6 +13,7 @@
         android:layout_height="252dp"
         android:paddingTop="30dp"
         android:background="#efd8f5"
+        android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
         <ImageView
@@ -39,6 +41,7 @@
         android:id="@+id/habitlist"
         android:layout_width="380dp"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="-40dp"
         android:layout_marginRight="15dp"
