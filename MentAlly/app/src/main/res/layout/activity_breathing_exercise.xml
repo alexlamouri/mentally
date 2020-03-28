@@ -40,7 +40,7 @@
             android:layout_marginBottom="65dp"
             android:fontFamily="@font/arima_madurai_extrabold"
             android:gravity="center_horizontal"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textStyle="bold" />
 
     </LinearLayout>
