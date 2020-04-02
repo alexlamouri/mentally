@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center"
-
-        tools:context=".ui.Mood.MoodActivity">
+        tools:context=".ui.Mood.MoodActivity"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#9378C7"
+            android:layout_height="252dp"
+            android:background="#729378C7"
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/title"
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20sp"
-                android:text="MentAlly"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="50sp"
-                android:textStyle="bold" />
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:clickable="false"
+                app:srcCompat="@drawable/app_logo2"/>
 
             <TextView
                 android:id="@+id/subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/arima_madurai_extrabold"
+                android:textStyle="bold"
                 android:paddingVertical="20sp"
                 android:text="Log New Mood"
                 android:textAlignment="center"
-                android:textColor="#BFFFFFFF"
-                android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textColor="#1A237E"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/titlequote"
@@ -55,246 +51,277 @@
 
         </LinearLayout>
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:layout_marginTop="-40dp"
+            android:background="@drawable/moodlistbackground"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/on"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="On..."
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textColor="#050505"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_gravity="center">
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_gravity="center">
+                android:padding="5dp">
 
-                <ImageView
-                    android:id="@+id/calendar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="60dp"
-                    android:src="@drawable/calender"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*In order to add mood you must select a date and emoji"
+                    android:textAlignment="center"
+                    android:textSize="10dp"
+                    android:textColor="#B71C1C"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/on"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="On..."
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:textColor="#050505"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/calendar"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="60dp"
+                        android:src="@drawable/calender"/>
+
+                    <LinearLayout
+                        android:layout_width="201dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/selectdate"
+                            android:layout_width="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="select date"
+                            android:textAlignment="center"
+                            android:background="#9EECDACE"
+                            android:textColor="#000C5D"
+                            android:textSize="22sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/felt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I felt..."
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:textColor="#050505"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp">
 
                 <LinearLayout
-                    android:layout_width="201dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/moodcontainer"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:padding="0dp">
 
-                    <TextView
-                        android:id="@+id/selectdate"
-                        android:layout_width="161dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="select date"
-                        android:textAlignment="center"
-                        android:background="#9EECDACE"
-                        android:textColor="#000C5D"
-                        android:textSize="22sp" />
+                    <Button
+                        android:id="@+id/happy"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/happy"/>
+
+                    <Button
+                        android:id="@+id/sad"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/sad"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/cool"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/cool"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/lovely"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/lovely"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/scared"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/scared"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/nerd"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nerd"/>
+                    <Button
+                        android:id="@+id/sick"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sick"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="0dp">
+
+                    <Button
+                        android:id="@+id/neutral"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/neutral"/>
+
+                    <Button
+                        android:id="@+id/flushed"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/flushed"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/depressed"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/depressed"
+                        android:layout_weight="1" />
+                    <Button
+                        android:id="@+id/angel"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/angel"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/sleepy"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/sleepy"
+                        android:layout_weight="1"/>
+                    <Button
+                        android:id="@+id/angry"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/angry"/>
+                    <Button
+                        android:id="@+id/devil"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/devil"/>
                 </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/felt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="I felt..."
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textColor="#050505"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp">
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="0dp">
+                android:padding="10dp">
 
-                <Button
-                    android:id="@+id/happy"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/happy"/>
-
-                <Button
-                    android:id="@+id/sad"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/sad"
-                    android:layout_weight="1" />
-                <Button
-                    android:id="@+id/cool"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/cool"
-                    android:layout_weight="1" />
-                <Button
-                    android:id="@+id/lovely"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/lovely"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/scared"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/scared"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/nerd"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/nerd"/>
-                <Button
-                    android:id="@+id/sick"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/sick"/>
+                <TextView
+                    android:id="@+id/because"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Because..."
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:textColor="#050505"/>
             </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp">
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="0dp">
+                android:layout_height="70dp"
+                android:background="@drawable/textview_outline">
 
-                <Button
-                    android:id="@+id/neutral"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/neutral"/>
+                <EditText
+                    android:id="@+id/descbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-                <Button
-                    android:id="@+id/flushed"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/flushed"
-                    android:layout_weight="1" />
-                <Button
-                    android:id="@+id/depressed"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/depressed"
-                    android:layout_weight="1" />
-                <Button
-                    android:id="@+id/angel"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/angel"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/sleepy"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/sleepy"
-                    android:layout_weight="1"/>
-                <Button
-                    android:id="@+id/angry"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/angry"/>
-                <Button
-                    android:id="@+id/devil"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/devil"/>
             </LinearLayout>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/because"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Because..."
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textColor="#050505"/>
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/addmood"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Add this Mood"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:enabled="false"
+                    android:textColor="#050505"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@drawable/textview_outline">
-
-            <EditText
-                android:id="@+id/descbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/addmood"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add this Mood"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textColor="#050505"
-                android:layout_gravity="bottom"/>
-        </LinearLayout>
-
 
 
     </LinearLayout>

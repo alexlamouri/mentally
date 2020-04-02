@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -20,5 +21,7 @@
     <style name="SwitchColor" parent="Theme.AppCompat.Light">
         <item name="android:colorControlActivated">#ff1493</item>
     </style>
+
+
 
 </resources>

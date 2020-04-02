@@ -4,18 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
+
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.os.CountDownTimer;
 import android.util.Log;
 
-public class BreathingExerciseActivity extends AppCompatActivity {
+public class BreathingExerciseActivity extends MainActivity {
 
-    private String instruction;
     private int[] timers = new int[4];
-    private int inhale;
-    private int hold;
-    private int exhale;
-    private int breaths;
     private String[] instructionList = new String[]{"Inhale...", "Hold...", "Exhale..."};
     private int instructionCounter = 0;
     TextView instructionText;
@@ -24,11 +23,16 @@ public class BreathingExerciseActivity extends AppCompatActivity {
     private CountDownTimer timer1, timer2, timer3;
     int counter;
     int breathsCounter = 0;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_breathing_exercise);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_breathing_exercise, contentFrameLayout);
+
+        linearLayout = findViewById(R.id.breath_layout2);
+        linearLayout.getBackground().setAlpha(50);
 
         timers[0] = getIntent().getIntExtra("inhale", 5);
         timers[1] = getIntent().getIntExtra("hold", 5);
@@ -50,8 +54,10 @@ public class BreathingExerciseActivity extends AppCompatActivity {
             //onTick for timer1
             public void onTick(long millisUntilFinished) {
                 timerText.setText(String.valueOf(counter));
+                Log.i("counter", "counter is "+counter);
+                int val = (counter*10)/timers[instructionCounter];
                 counter--;
-                Log.i("counter", "value is "+counter);
+                //Log.i("counter", "value is "+counter);
             }
 
             //onFinish for timer1
@@ -68,7 +74,6 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                     public void onTick(long millisUntilFinished) {
                         timerText.setText(String.valueOf(counter));
                         counter--;
-                        Log.i("counter", "value is "+counter);
                     }
 
                     //onFinish for timer2
@@ -85,7 +90,6 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                             public void onTick(long millisUntilFinished) {
                                 timerText.setText(String.valueOf(counter));
                                 counter--;
-                                Log.i("counter", "value is "+counter);
                             }
 
                             //onFinish for timer3
@@ -97,11 +101,11 @@ public class BreathingExerciseActivity extends AppCompatActivity {
                                 if (breathsCounter < timers[3]) {
                                     breathText.setText("Breath "+(breathsCounter+1)+" out of "+timers[3]);
                                     instructionText.setText(instructionList[instructionCounter]);
-                                    Log.i("breathsCounter", ""+breathsCounter);
                                     timer1.cancel();
                                     timer1.start();
                                 } else if (breathsCounter == timers[3]) {
-                                    timerText.setText("DONE!");
+                                    timerText.setText("");
+                                    instructionText.setText("Good job ~");
                                 }
                             }
                         };

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".ui.emergency.EmergencyContactsActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="132dp"
+        android:layout_height="69dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        app:srcCompat="@drawable/app_logo2" />
+
+<!--    <ImageView-->
+<!--        android:layout_width="132dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:clickable="false"-->
+<!--        app:srcCompat="@drawable/to_do_list" />-->
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arima_madurai_extrabold"
+        android:textStyle="bold"
+        android:paddingVertical="20sp"
+        android:text="Emergency Contacts"
+        android:textAlignment="center"
+        android:textColor="#1A237E"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#972196F3"
+        android:text="+"
+        android:textSize="25dp"></Button>
+
+
+    <ListView
+        android:id="@+id/myList"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="#63B2F0F8"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/delete_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Delete List"></Button>
+
+</LinearLayout>

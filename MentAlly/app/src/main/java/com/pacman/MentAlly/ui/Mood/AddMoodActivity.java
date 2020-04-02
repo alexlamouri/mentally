@@ -7,10 +7,13 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 
 
@@ -24,9 +27,13 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -64,6 +71,7 @@ public class AddMoodActivity extends AppCompatActivity {
 
 
     int moodid = MoodActivity.getmoodid()+1;
+    int boolselect = -1;
 
     String moodtype;
 
@@ -124,6 +132,7 @@ public class AddMoodActivity extends AppCompatActivity {
             }
         });
 
+
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -141,6 +150,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "happy";
                 Toast.makeText(AddMoodActivity.this, "I feel happy", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
+
+                }
 
             }
         });
@@ -150,8 +163,12 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "sad";
                 Toast.makeText(AddMoodActivity.this, "I feel sad", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
 
+
+                }
             }
         });
         nerd.setOnClickListener(new View.OnClickListener(){
@@ -160,7 +177,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "nerd";
                 Toast.makeText(AddMoodActivity.this, "I feel nerdy", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         cool.setOnClickListener(new View.OnClickListener(){
@@ -169,7 +189,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "cool";
                 Toast.makeText(AddMoodActivity.this, "I feel cool", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         sick.setOnClickListener(new View.OnClickListener(){
@@ -178,7 +201,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "sick";
                 Toast.makeText(AddMoodActivity.this, "I feel sick", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         lovely.setOnClickListener(new View.OnClickListener(){
@@ -187,7 +213,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "lovely";
                 Toast.makeText(AddMoodActivity.this, "I feel lovely", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
 
@@ -197,7 +226,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "scared";
                 Toast.makeText(AddMoodActivity.this, "I feel scared", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         sleepy.setOnClickListener(new View.OnClickListener(){
@@ -206,7 +238,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "sleepy";
                 Toast.makeText(AddMoodActivity.this, "I feel sleepy", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         neutral.setOnClickListener(new View.OnClickListener(){
@@ -215,7 +250,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "neutral";
                 Toast.makeText(AddMoodActivity.this, "I feel neutral", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         devil.setOnClickListener(new View.OnClickListener(){
@@ -224,7 +262,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "devil";
                 Toast.makeText(AddMoodActivity.this, "I feel devilish", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
 
             }
         });
@@ -234,7 +275,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "flushed";
                 Toast.makeText(AddMoodActivity.this, "I feel embarrassed", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         depressed.setOnClickListener(new View.OnClickListener(){
@@ -243,7 +287,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "depressed";
                 Toast.makeText(AddMoodActivity.this, "I feel depressed", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         angel.setOnClickListener(new View.OnClickListener(){
@@ -252,7 +299,10 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "angel";
                 Toast.makeText(AddMoodActivity.this, "I feel angelic", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
 
+                }
             }
         });
         angry.setOnClickListener(new View.OnClickListener(){
@@ -261,9 +311,36 @@ public class AddMoodActivity extends AppCompatActivity {
             public void onClick(View v) {
                 moodtype = "angry";
                 Toast.makeText(AddMoodActivity.this, "I feel angry", Toast.LENGTH_SHORT).show();
+                if(boolselect == 1){
+                    addmood.setEnabled(true);
+
+                }
+            }
+        });
+
+
+        selectdate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                boolselect =1;
+                if(moodtype !=null){
+                    addmood.setEnabled(true);
+
+                }
 
             }
         });
+
 
 
 
@@ -280,6 +357,8 @@ public class AddMoodActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 

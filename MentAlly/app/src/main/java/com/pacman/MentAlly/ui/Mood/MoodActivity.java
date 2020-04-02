@@ -22,12 +22,14 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
 
 
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,7 +40,7 @@ import java.util.ArrayList;
 
 
 
-public class MoodActivity extends AppCompatActivity {
+public class MoodActivity extends MainActivity {
 
     private static int curmoodid;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -61,7 +63,8 @@ public class MoodActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_mood, contentFrameLayout);
 
 
         // get access to all the variables
@@ -105,6 +108,7 @@ public class MoodActivity extends AppCompatActivity {
                         mood.add(snapshot.getString("moodtype"));
                         moodid.add(Integer.valueOf(snapshot.get("id").toString()));
                         Log.d("", "Current data: " + snapshot.getData());
+
                     } else {
                         Log.d("", "Current data: null");
                     }
@@ -155,47 +159,50 @@ public class MoodActivity extends AppCompatActivity {
             vdate.setText(date.get(position));
             vdesc.setText(desc.get(position));
 
-            if (mood.get(position).equalsIgnoreCase("sad")) {
-                vmood.setImageResource(R.drawable.sad);
-            }
-            if (mood.get(position).equalsIgnoreCase("cool")) {
-                vmood.setImageResource(R.drawable.cool);
-            }
-            if (mood.get(position).equalsIgnoreCase("depressed")) {
-                vmood.setImageResource(R.drawable.depressed);
-            }
-            if (mood.get(position).equalsIgnoreCase("scared")) {
-                vmood.setImageResource(R.drawable.scared);
-            }
-            if (mood.get(position).equalsIgnoreCase("happy")) {
-                vmood.setImageResource(R.drawable.happy);
-            }
-            if (mood.get(position).equalsIgnoreCase("lovely")) {
-                vmood.setImageResource(R.drawable.lovely);
-            }
-            if (mood.get(position).equalsIgnoreCase("angry")) {
-                vmood.setImageResource(R.drawable.angry);
-            }
-            if (mood.get(position).equalsIgnoreCase("angel")) {
-                vmood.setImageResource(R.drawable.angel);
-            }
-            if (mood.get(position).equalsIgnoreCase("flushed")) {
-                vmood.setImageResource(R.drawable.flushed);
-            }
-            if (mood.get(position).equalsIgnoreCase("neutral")) {
-                vmood.setImageResource(R.drawable.neutral);
-            }
-            if (mood.get(position).equalsIgnoreCase("sleepy")) {
-                vmood.setImageResource(R.drawable.sleepy);
-            }
-            if (mood.get(position).equalsIgnoreCase("nerd")) {
-                vmood.setImageResource(R.drawable.nerd);
-            }
-            if (mood.get(position).equalsIgnoreCase("devil")) {
-                vmood.setImageResource(R.drawable.devil);
-            }
-            if (mood.get(position).equalsIgnoreCase("sick")) {
-                vmood.setImageResource(R.drawable.sick);
+            if(mood.get(position) != null) {
+
+                if (mood.get(position).equalsIgnoreCase("sad")) {
+                    vmood.setImageResource(R.drawable.sad);
+                }
+                if (mood.get(position).equalsIgnoreCase("cool")) {
+                    vmood.setImageResource(R.drawable.cool);
+                }
+                if (mood.get(position).equalsIgnoreCase("depressed")) {
+                    vmood.setImageResource(R.drawable.depressed);
+                }
+                if (mood.get(position).equalsIgnoreCase("scared")) {
+                    vmood.setImageResource(R.drawable.scared);
+                }
+                if (mood.get(position).equalsIgnoreCase("happy")) {
+                    vmood.setImageResource(R.drawable.happy);
+                }
+                if (mood.get(position).equalsIgnoreCase("lovely")) {
+                    vmood.setImageResource(R.drawable.lovely);
+                }
+                if (mood.get(position).equalsIgnoreCase("angry")) {
+                    vmood.setImageResource(R.drawable.angry);
+                }
+                if (mood.get(position).equalsIgnoreCase("angel")) {
+                    vmood.setImageResource(R.drawable.angel);
+                }
+                if (mood.get(position).equalsIgnoreCase("flushed")) {
+                    vmood.setImageResource(R.drawable.flushed);
+                }
+                if (mood.get(position).equalsIgnoreCase("neutral")) {
+                    vmood.setImageResource(R.drawable.neutral);
+                }
+                if (mood.get(position).equalsIgnoreCase("sleepy")) {
+                    vmood.setImageResource(R.drawable.sleepy);
+                }
+                if (mood.get(position).equalsIgnoreCase("nerd")) {
+                    vmood.setImageResource(R.drawable.nerd);
+                }
+                if (mood.get(position).equalsIgnoreCase("devil")) {
+                    vmood.setImageResource(R.drawable.devil);
+                }
+                if (mood.get(position).equalsIgnoreCase("sick")) {
+                    vmood.setImageResource(R.drawable.sick);
+                }
             }
 
 

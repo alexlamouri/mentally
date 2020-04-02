@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pacman.MentAlly">
 
@@ -13,71 +12,93 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Launch Activity -->
-        <activity android:name=".ui.login.LoginActivity">
+        <!-- Main Splash Page -->
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-      
-        <!-- Todo List -->
-        <activity android:name=".ui.ToDoList.ToDoListActivity"></activity>
 
-        <!-- ADHD Questionnaire -->
-        <activity android:name=".ui.adhd.adhdActivity"/>
-        <activity android:name=".ui.adhd.adhdResultActivity"/>
-
-        <!-- Anxiety Questionnaire -->
-        <activity android:name=".ui.anxiety.anxietyActivity"/>
-        <activity android:name=".ui.anxiety.anxietyResultActivity"/>
-
-        <!-- Bipolar Questionnaire -->
-        <activity android:name=".ui.bipolar.bipolarActivity"/>
-        <activity android:name=".ui.bipolar.bipolarResultActivity"/>
-
-        <!-- Depression Questionnaire -->
-        <activity android:name=".ui.depression.depressionActivity"/>
-        <activity android:name=".ui.depression.depressionResultActivity"/>
-
-        <!-- OCD Questionnaire -->
-        <activity android:name=".ui.ocd.ocdActivity"/>
-        <activity android:name=".ui.ocd.ocdResultActivity"/>
-
-        <!-- PTSD Questionnaire -->
-        <activity android:name=".ui.ptsd.ptsd"/>
-        <activity android:name=".ui.ptsd.ptsdActivity"/>
-        <activity android:name=".ui.ptsd.ptsdResultActivity"/>
+        <!-- Login Page -->
+        <activity android:name=".ui.login.LoginActivity" />
 
         <!-- Registration Page -->
         <activity
             android:name=".ui.register.RegisterActivity"
             android:label="@string/app_name">
         </activity>
-      
-        <!-- Main & Profile Page -->
-        <activity
-            android:name=".ui.menu.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+
+        <!-- Main Page -->
+        <activity android:name=".ui.home.MainActivity" />
+
+        <!-- Profile Page -->
         <activity android:name=".ui.profile.ProfileActivity" />
+      
+        <!-- Todo List -->
+        <activity android:name=".ui.ToDoList.ToDoListActivity" />
+
+        <!-- ADHD Questionnaire -->
+        <activity android:name=".ui.adhd.adhdActivity" />
+        <activity android:name=".ui.adhd.adhdResultActivity" />
+
+        <!-- Anxiety Questionnaire -->
+        <activity android:name=".ui.anxiety.anxietyActivity" />
+        <activity android:name=".ui.anxiety.anxietyResultActivity" />
+
+        <!-- Bipolar Questionnaire -->
+        <activity android:name=".ui.bipolar.bipolarActivity" />
+        <activity android:name=".ui.bipolar.bipolarResultActivity" />
+              
+        <activity android:name=".ui.helpline.helplineActivity" />
+
+        <!-- Depression Questionnaire -->
+        <activity android:name=".ui.depression.depressionActivity" />
+        <activity android:name=".ui.depression.depressionResultActivity" /> 
+
+        <!-- OCD Questionnaire -->
+        <activity android:name=".ui.ocd.ocdActivity" />
+        <activity android:name=".ui.ocd.ocdResultActivity" /> 
+
+        <!-- PTSD Questionnaire -->
+        <activity android:name=".ui.ptsd.ptsd" />
+        <activity android:name=".ui.ptsd.ptsdActivity" />
+        <activity android:name=".ui.ptsd.ptsdResultActivity" /> 
         
         <!-- Mood Page -->
         <activity android:name=".ui.Mood.MoodActivity" />
-        <activity android:name=".ui.Mood.AddMoodActivity" />
-      
-        <!-- Habit Page -->
+        <activity android:name=".ui.Mood.AddMoodActivity" /> <!-- Habit Page -->
         <activity android:name=".ui.habit.HabitTrackerActivity" />
-        <activity android:name=".ui.habit.NewHabitActivity" />
-        
-        <!-- Breathing Page -->
+        <activity android:name=".ui.habit.NewHabitActivity" /> <!-- Breathing Page -->
         <activity
             android:name=".ui.breathing.BreathingActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.breathing.BreathingExerciseActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" />
+
+        <!-- Ambient Noise Player-->
+        <activity android:name=".ui.ambient.AmbientActivity"/>
+        <service android:name=".ui.ambient.MediaPlaybackService">
+            <intent-filter><action android:name="android.media.browse.MediaBrowserService"/></intent-filter>
+        </service>
+
+        <!-- Emergency Contacts -->
+        <activity android:name=".ui.emergency.EmergencyContactsActivity" />
+
+        <activity android:name=".ui.home.HomeActivity">
         </activity>
+
+        <activity android:name=".ui.quiz.QuizActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
+
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
 </manifest>

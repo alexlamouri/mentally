@@ -2,6 +2,7 @@ package com.pacman.MentAlly.ui.habit;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -9,16 +10,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.pacman.MentAlly.R;
+import com.pacman.MentAlly.ui.home.MainActivity;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,7 +33,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewHabitActivity extends AppCompatActivity {
+public class NewHabitActivity extends MainActivity {
 
     private EditText habitName;
     private EditText habitEndDate;
@@ -34,11 +41,16 @@ public class NewHabitActivity extends AppCompatActivity {
     private Button newHabit;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
+    private ConstraintLayout constraintLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_habit);
+        FrameLayout contentFrameLayout = findViewById(R.id.frag_container);
+        getLayoutInflater().inflate(R.layout.activity_new_habit, contentFrameLayout);
+
+        constraintLayout = findViewById(R.id.linearLayout2);
+        constraintLayout.getBackground().setAlpha(50);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
