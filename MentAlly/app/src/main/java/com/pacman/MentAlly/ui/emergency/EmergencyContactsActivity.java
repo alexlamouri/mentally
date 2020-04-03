@@ -3,6 +3,9 @@ package com.pacman.MentAlly.ui.emergency;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +33,7 @@ import com.pacman.MentAlly.ui.home.MainActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class EmergencyContactsActivity extends MainActivity {
@@ -114,19 +118,24 @@ public class EmergencyContactsActivity extends MainActivity {
                                 if (contactName.getText().toString().isEmpty()) {
                                     Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify contact name", Toast.LENGTH_SHORT).show();
                                 }
-                                if (phoneNumber.getText().toString().isEmpty()) {
-                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify phone number", Toast.LENGTH_SHORT).show();
+                                if (phoneNumber.getText().toString().isEmpty() || (! isPhoneNumberValid(phoneNumber.getText().toString()))) {
+                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please enter a valid phone number", Toast.LENGTH_SHORT).show();
                                 }
-                                if (email.getText().toString().isEmpty()) {
-                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please specify email", Toast.LENGTH_SHORT).show();
+                                if (email.getText().toString().isEmpty() || (! isEmailValid(email.getText().toString()))) {
+                                    Toast.makeText(EmergencyContactsActivity.this, "ERROR: Please enter a valid email", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Toast.makeText(EmergencyContactsActivity.this, "Successfully Added emergency contact", Toast.LENGTH_SHORT).show();
-                                    EmergencyContact newContact = new EmergencyContact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
-                                    contactList.add(newContact);
-                                    //add to database
-                                    addContactToDatabase(newContact.getContactId(), contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
-                                    mylistadapter.setData(contactList);
+                                    EmergencyContact newContact;
+                                    try {
+                                        newContact = new EmergencyContact(contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
+                                        contactList.add(newContact);
+                                        //add to database
+                                        addContactToDatabase(newContact.getContactId(), contactName.getText().toString(), Long.parseLong(phoneNumber.getText().toString()), email.getText().toString());
+                                        mylistadapter.setData(contactList);
+                                    } catch (NumberFormatException e) {
+                                        Toast.makeText(EmergencyContactsActivity.this, "ERROR: "+"Please enter a valid phone number", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
 
                             }
@@ -136,29 +145,6 @@ public class EmergencyContactsActivity extends MainActivity {
                 dialog.show();
             }
         });
-
-//        completedButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mylistadapter.setData(completedList);
-//                completedButton.setEnabled(false);
-//                incompleteButton.setEnabled(true);
-//                addButton.setEnabled(false);
-//                currentState = State.COMPLETE_TASKS;
-//            }
-//        });
-//
-//        incompleteButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                mylistadapter.setData(incompletedList);
-//                incompleteButton.setEnabled(false);
-//                completedButton.setEnabled(true);
-//                addButton.setEnabled(true);
-//                currentState = State.INCOMPLETE_TASKS;
-//            }
-//        });
 
         deleteListButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -251,4 +237,18 @@ public class EmergencyContactsActivity extends MainActivity {
         db.collection("users").document(this.uid).collection("contactLog").document(contactID).delete();
     }
 
+    private boolean isEmailValid(String email) {
+        if (email == null) {
+            return false;
+        }
+        if (email.contains("@")) {
+            return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        } else {
+            return !email.trim().isEmpty();
+        }
+    }
+
+    private boolean isPhoneNumberValid(String phoneNumber) {
+        return phoneNumber.matches("^(?=(?:[8-9]){1}(?=[0-9]{8}).*)");
+    }
 }

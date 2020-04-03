@@ -4,7 +4,7 @@ public class EmergencyContact {
 
     private String name; //mandatory
     private long phoneNumber; //mandatory
-    private String email; //optional
+    private String email; //mandatory
     private String contactId;
     private static int contactIdCounter;
 
