@@ -1,6 +1,9 @@
 # project-pacman
 project-pacman created by GitHub Classroom
 
+Visit the link this link to view the app promo!
+https://youtu.be/4_MEFguKGkI
+
 ![app_logo2](https://user-images.githubusercontent.com/48563822/78383431-5dfb6980-75a6-11ea-8b05-09efbeea63ff.png)
 
 1. On your first visit of MentAlly, you are required to create a user account by registering. You can register and create an account by clicking the “Don't have an account? Sign up here” link. If you are a returning user, you can simply log in to the app by entering your email and password.
