@@ -5,7 +5,11 @@ project-pacman created by GitHub Classroom
 
 1. On your first visit of MentAlly, you are required to create a user account by registering. You can register and create an account by clicking the “Don't have an account? Sign up here” link. If you are a returning user, you can simply log in to the app by entering your email and password.
 
+![Screen Shot 2020-04-03 at 12 28 44 PM](https://user-images.githubusercontent.com/48563822/78383626-b16db780-75a6-11ea-8f61-20e044eeb230.png)
+
 2. After entering your information such as your name and email, you will then be directed to the profile page of the app. This is where you can view your information, and also make edits. You are also able to sign out of the app from the profile page by clicking the sign out button. 
+
+![Screen Shot 2020-04-03 at 12 38 19 PM](https://user-images.githubusercontent.com/48563822/78384347-04943a00-75a8-11ea-9f3b-a8eec936b270.png)
 
 3. You are able to navigate through the various modules/features of the app by clicking the three bars icon on the top left of the screen. By clicking this, the navigation menu pops up, allowing you to navigate to the feature you like. 
 
