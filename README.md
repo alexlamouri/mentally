@@ -2,7 +2,7 @@
 project-pacman created by GitHub Classroom
 
 Visit the link this link to view the app promo!
-https://youtu.be/4_MEFguKGkI
+https://www.youtube.com/watch?v=3Ao0DaddPp8
 
 ![app_logo2](https://user-images.githubusercontent.com/48563822/78383431-5dfb6980-75a6-11ea-8b05-09efbeea63ff.png)
 
