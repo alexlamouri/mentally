@@ -7,13 +7,16 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -26,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -56,6 +60,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.security.Permission;
+import java.util.Calendar;
+
 import com.google.firebase.storage.UploadTask;
 import com.google.firebase.database.DatabaseReference;
 import com.pacman.MentAlly.ui.login.LoginActivity;
@@ -66,6 +72,7 @@ public class ProfileActivity extends MainActivity {
     private TextView first_name_txt;
     private TextView country_txt;
     private TextView dob_txt;
+    private DatePickerDialog.OnDateSetListener dateSetListener;
     private FirebaseUser user;
     private TextView gender_txt;
     private ImageView profilepic;
@@ -148,12 +155,38 @@ public class ProfileActivity extends MainActivity {
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View editProfileDialogView = getLayoutInflater().inflate(R.layout.edit_profile_dialog, null);
+                final View editProfileDialogView = getLayoutInflater().inflate(R.layout.edit_profile_dialog, null);
                 final EditText name = editProfileDialogView.findViewById(R.id.name);
                 final EditText dob = editProfileDialogView.findViewById(R.id.dob);
                 final EditText country = editProfileDialogView.findViewById(R.id.country);
                // final EditText gender = editProfileDialogView.findViewById(R.id.genderlabel);
                 final String uid = user.getUid();
+
+                dob.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Calendar cal = Calendar.getInstance();
+                        int year = cal.get(Calendar.YEAR);
+                        int month = cal.get(Calendar.MONTH);
+                        int day = cal.get(Calendar.DAY_OF_MONTH);
+                        DatePickerDialog d = new DatePickerDialog(editProfileDialogView.getContext(),
+                                dateSetListener,
+                                year, month, day);
+                        d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                        d.show();
+
+                    }
+                });
+
+                dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month + 1;
+                        dob.setText(dayOfMonth + "/" + month + "/" + year);
+                        Log.d("task added", "date:" + dayOfMonth + "/" + month + "/" + year);
+                    }
+                };
 
                 AlertDialog dialog = new AlertDialog.Builder(ProfileActivity.this)
                         .setView(editProfileDialogView)
