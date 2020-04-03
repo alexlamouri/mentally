@@ -47,10 +47,8 @@ public class SplashActivity extends AppCompatActivity {
                 Intent i = new Intent(SplashActivity.this, LoginActivity.class);
                 Pair[] p = new Pair[1];
                 p[0] = new Pair<View,String>(image, "logoimage");
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    ActivityOptions o = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this, p);
-                    startActivity(i, o.toBundle());
-                }
+                ActivityOptions o = ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this, p);
+                startActivity(i, o.toBundle());
             }
 
         }, SPLASH_SCREEN);

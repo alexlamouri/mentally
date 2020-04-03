@@ -23,20 +23,25 @@
         android:hint="Task Name"
         android:inputType="text"></EditText>
 
-    <EditText
+    <TextView
         android:id="@+id/start_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_margin="5dp"
         android:layout_marginLeft="5dp"
         android:hint="Starting Date"
-        android:inputType="date"></EditText>
+        android:inputType="date"></TextView>
 
-    <EditText
+    <TextView
         android:id="@+id/end_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_margin="5dp"
         android:layout_marginLeft="5dp"
         android:hint="Estimated Finishing Date"
-        android:inputType="date"></EditText>
+        android:inputType="date"></TextView>
+    
 
 </LinearLayout>
