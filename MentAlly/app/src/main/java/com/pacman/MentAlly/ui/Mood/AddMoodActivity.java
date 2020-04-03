@@ -120,13 +120,12 @@ public class AddMoodActivity extends AppCompatActivity {
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-
                 DatePickerDialog d = new DatePickerDialog(
                         AddMoodActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        //android.R.style.Widget_Holo_ActionBar_Solid,
                         dateSetListener,
                         year, month, day);
-                d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
                 d.show();
 
             }
