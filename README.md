@@ -1,9 +1,17 @@
-# project-pacman
-project-pacman created by GitHub Classroom
-
+# Project Pacman
+# Mentally
 Visit the link this link to view the app promo!
 https://www.youtube.com/watch?v=3wYhZMK4e2k&feature=youtu.be
 
+
+# How to Install
+1. download the mentally source files
+2. plug phone via USB to your computer
+3. open Android Studio and instead of the default emulator, choose your phone
+4. let it install on your phone and enjoy the app :)
+
+
+# Features
 ![app_logo2](https://user-images.githubusercontent.com/48563822/78383431-5dfb6980-75a6-11ea-8b05-09efbeea63ff.png)
 
 1. On your first visit of MentAlly, you are required to create a user account by registering. You can register and create an account by clicking the “Don't have an account? Sign up here” link. If you are a returning user, you can simply log in to the app by entering your email and password.
