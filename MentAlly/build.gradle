@@ -16,6 +16,19 @@ buildscript {
     }
 }
 
+
+plugins {
+  id "org.sonarqube" version "4.2.1.3168"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "MzHaIla_mentally"
+    property "sonar.organization", "mzhaila"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
 allprojects {
     repositories {
         google()
