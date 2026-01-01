@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log; // 🚨 Added Log import for diagnosis
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        
+        // Ensure you are using the correct ViewModelProvider constructor for your setup
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory()).get(LoginViewModel.class);
 
         //initialize cloud firestore database
@@ -118,6 +121,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                         else {
+                            // 🚨 CRITICAL DIAGNOSTIC FIX: Log the specific exception
+                            Log.e("FIREBASE_AUTH_FAIL", "Authentication failed: " + task.getException().getMessage(), task.getException());
                             updateUIWithUser(null);
                         }
                     }

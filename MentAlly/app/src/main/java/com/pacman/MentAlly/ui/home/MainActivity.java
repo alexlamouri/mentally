@@ -70,82 +70,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch(item.getItemId()){
+        // 🛠️ FIX: Replaced switch statement with if/else if chain 
+        // to resolve 'constant expression required' error in modern JDKs.
+        int itemId = item.getItemId(); 
 
-            case R.id.nav_home:
-                Intent i_home = new Intent(this, HomeActivity.class);
-                startActivity(i_home);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_profile:
-                Log.d("Hi", "hello");
-                Intent i_profile = new Intent(this, ProfileActivity.class);
-                startActivity(i_profile);
-                draw.closeDrawer(GravityCompat.START);
-                Log.d("Hi", "hello");
-                break;
-
-            case R.id.nav_habit:
-                Intent i_habit = new Intent(this, HabitTrackerActivity.class);
-                startActivity(i_habit);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_todo:
-                Intent i_todo = new Intent(this, ToDoListActivity.class);
-                startActivity(i_todo);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_mood:
-                Intent i_mood = new Intent(this, MoodActivity.class);
-                startActivity(i_mood);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_breathe:
-                Intent i_breathe = new Intent(this, BreathingActivity.class);
-                startActivity(i_breathe);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_quiz:
-                Intent i_quiz = new Intent(this, QuizActivity.class);
-                startActivity(i_quiz);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_ambient:
-                Intent i_ambient = new Intent(this, AmbientActivity.class);
-                startActivity(i_ambient);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_wallpaper:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new WallpaperFragment()).commit();
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_contacts:
-                Intent i_contacts = new Intent(this, EmergencyContactsActivity.class);
-                startActivity(i_contacts);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_helpline:
-                Intent i_help = new Intent(this, helplineActivity .class);
-                startActivity(i_help);
-                draw.closeDrawer(GravityCompat.START);
-                break;
-
-            case R.id.nav_emergency:
-                DialogFragment emergencyDialog = new EmergencyDialogFragment();
-                emergencyDialog.show(getSupportFragmentManager(), "emergency");
-                draw.closeDrawer(GravityCompat.START);
-                break;
+        if (itemId == R.id.nav_home) {
+            Intent i_home = new Intent(this, HomeActivity.class);
+            startActivity(i_home);
+        } else if (itemId == R.id.nav_profile) {
+            Log.d("Hi", "hello");
+            Intent i_profile = new Intent(this, ProfileActivity.class);
+            startActivity(i_profile);
+            Log.d("Hi", "hello");
+        } else if (itemId == R.id.nav_habit) {
+            Intent i_habit = new Intent(this, HabitTrackerActivity.class);
+            startActivity(i_habit);
+        } else if (itemId == R.id.nav_todo) {
+            Intent i_todo = new Intent(this, ToDoListActivity.class);
+            startActivity(i_todo);
+        } else if (itemId == R.id.nav_mood) {
+            Intent i_mood = new Intent(this, MoodActivity.class);
+            startActivity(i_mood);
+        } else if (itemId == R.id.nav_breathe) {
+            Intent i_breathe = new Intent(this, BreathingActivity.class);
+            startActivity(i_breathe);
+        } else if (itemId == R.id.nav_quiz) {
+            Intent i_quiz = new Intent(this, QuizActivity.class);
+            startActivity(i_quiz);
+        } else if (itemId == R.id.nav_ambient) {
+            Intent i_ambient = new Intent(this, AmbientActivity.class);
+            startActivity(i_ambient);
+        } else if (itemId == R.id.nav_wallpaper) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new WallpaperFragment()).commit();
+        } else if (itemId == R.id.nav_contacts) {
+            Intent i_contacts = new Intent(this, EmergencyContactsActivity.class);
+            startActivity(i_contacts);
+        } else if (itemId == R.id.nav_helpline) {
+            Intent i_help = new Intent(this, helplineActivity.class);
+            startActivity(i_help);
+        } else if (itemId == R.id.nav_emergency) {
+            DialogFragment emergencyDialog = new EmergencyDialogFragment();
+            emergencyDialog.show(getSupportFragmentManager(), "emergency");
         }
-
+        
+        // This closes the drawer for ALL selections (original logic)
+        draw.closeDrawer(GravityCompat.START);
         return true;
     }
 

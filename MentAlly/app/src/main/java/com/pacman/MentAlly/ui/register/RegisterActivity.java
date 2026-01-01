@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
+import android.util.Log; // Required for the diagnostic logging fix
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -183,6 +183,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             countryEditText.getText().toString(), gender.getSelectedItem().toString());
                     updateUIWithUser(user);
                 } else {
+                    // 🚨 CRITICAL DIAGNOSTIC FIX: Log the specific exception
+                    if (task.getException() != null) {
+                        Log.e("FIREBASE_REG_FAIL", "Registration failed: " + task.getException().getMessage(), task.getException());
+                    } else {
+                        Log.e("FIREBASE_REG_FAIL", "Registration failed due to unknown reason (task exception was null).");
+                    }
+                    
                     updateUIWithUser(null);
                 }
             }
@@ -198,8 +205,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String welcome = "Welcome " + user.getEmail() + "!";
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
         Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-        startActivity(i);
-    }
-
-}
-
+        startActivity(

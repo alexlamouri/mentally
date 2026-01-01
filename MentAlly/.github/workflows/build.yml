@@ -1,0 +1,86 @@
+# GitHub Actions workflow to build the Android app inside the MentAlly subfolder,
+# produce debug APK, and produce a signed release APK when signing secrets are provided.
+name: Android CI - MentAlly
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GRADLE_USER_HOME: ${{ runner.temp }}/gradle-cache
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make gradlew executable
+        run: chmod +x MentAlly/gradlew
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            ${{ env.GRADLE_USER_HOME }}
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/MentAlly/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/MentAlly/**.gradle*') }}
+
+      - name: Install Android SDK components (API 29)
+        uses: r0adkll/setup-android@v2
+        with:
+          api-level: 29
+          components: |
+            platform-tools
+            build-tools;29.0.3
+            platforms;android-29
+            cmdline-tools;latest
+
+      - name: Accept Android SDK licenses
+        run: |
+          yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses || true
+
+      - name: Build debug APK
+        working-directory: MentAlly
+        run: ./gradlew clean assembleDebug --no-daemon
+
+      - name: Upload debug APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apks
+          path: MentAlly/app/build/outputs/apk/debug/*.apk
+
+      - name: Prepare keystore.properties if signing secrets are present
+        if: ${{ secrets.RELEASE_STORE_PASSWORD != '' && secrets.RELEASE_KEY_ALIAS != '' && secrets.RELEASE_KEY_PASSWORD != '' }}
+        run: |
+          cat > MentAlly/keystore.properties <<EOF
+          storeFile=../mentally-keystore.jks
+          storePassword=${{ secrets.RELEASE_STORE_PASSWORD }}
+          keyAlias=${{ secrets.RELEASE_KEY_ALIAS }}
+          keyPassword=${{ secrets.RELEASE_KEY_PASSWORD }}
+          EOF
+
+      - name: Build release APK
+        working-directory: MentAlly
+        run: ./gradlew assembleRelease --no-daemon
+
+      - name: Upload release APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apks
+          path: MentAlly/app/build/outputs/apk/release/*.apk

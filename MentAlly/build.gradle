@@ -3,25 +3,29 @@
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
-        
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.1'
-        classpath 'com.google.gms:google-services:4.3.3'
+        // AGP 8.9.0 is already set, which is compatible with a newer Google Services plugin
+        classpath 'com.android.tools.build:gradle:8.9.0'
         
+        // CRITICAL FIX: Update Google Services plugin to a version compatible with AGP 8.9.0
+        classpath 'com.google.gms:google-services:4.4.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+// ⚠️ REMOVED the configurations.all Groovy override block. 
+// This is not necessary with Gradle 8.11.1 and AGP 8.x.
+
 allprojects {
     repositories {
         google()
-        jcenter()
         mavenCentral()
-        
+
+        // This is needed for your Glide, CircleImageView, etc.
+        maven { url "https://jitpack.io" }
     }
 }
 
